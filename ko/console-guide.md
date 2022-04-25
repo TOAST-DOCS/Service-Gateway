@@ -35,22 +35,55 @@
 ### 서비스 게이트웨이 접속
 생성된 **서비스 게이트웨이**의 **IP주소**가 `192.168.1.42`라 할 경우 다음과 같은 방법으로 서비스에 접근이 가능합니다.
 * **VM Instance**에서 **서비스 게이트웨이 IP**로 접속하면 **서비스 게이트웨이** 생성 시 선택된 **서비스**로 연결되어 **서비스** 사용이 가능합니다.
-    * 예시) IP주소를 이용하여 Object Storage 에서 파일 다운로드
+    * IP주소를 사용하여 https 프로토콜을 이용할 경우 인증서 관련 에러가 발생할수도 있습니다.
+    * https 사용이 필요한 경우 **VM Instance**의 **/etc/hosts**에 URL을 추가하여 사용하시기 바랍니다.
+    * 예시) IP주소를 이용하여 **오브젝트 스토리지** 에서 파일 다운로드
         ```
-        wget http://192.168.1.42/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
+        ~# wget http://192.168.1.42/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
         ```
 * **서비스 게이트웨이**를 이용하여 **서비스** 접근시 URL을 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 /etc/hosts 파일에 URL을 추가해야 합니다.
-    * 예시) URL을 Object Storage 에서 파일 다운로드<br>
+    * 예시) URL을 이용하여 **오브젝트 스토리지** 에서 파일 다운로드<br>
       /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 **Object Storage**의 URL을 추가
       ```
       192.168.1.42    api-storage.cloud.toast.com
       ```
       **IP주소** 대신 /etc/hosts에 추가한 URL로 접속
       ```
-      wget http://api-storage.cloud.toast.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
+      ~# wget https://api-storage.cloud.toast.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
       ```
       
-## 서비스 게이트웨이에서 Object Storage 사용 예제
-### 서비스 게이트웨이 생성
-OBS사용을 위해서는 
+## 서비스 게이트웨이에서 오브젝트 스토리지 사용 예제
+오브젝트 스토리지에 관련된 내용은 예제 설명을 위한 수준에서만 기술합니다. 오브젝트 스토리지의 자세한 사용방법은 **사용자 가이드 > Storage > Oject Storage**를 참고하시기 바랍니다.
+### 서비스 게이트웨이 생성 하기
+**오브젝트 스토리지** API를 사용을 위해서는 **인증 토큰(token)**을 발급받아야 합니다. 인터넷 사용이 불가능한 격리된 환경의 **VPC**에서 **Object Storage** 사용을 위해서는 **인증 토큰**도 **서비스 게이트웨이**를 이용하여 발급 받아야합니다.
+다음 절차에 따라서 **서비스 게이트웨이**를 생성해야합니다.
+* **Object Storage** 서비스를 선택하여 **서비스 게이트웨이** 생성
+  > [참고] **오브젝트 스토리지** API 접속을 위한 **서비스 게이트웨이** 입니다.
+* **IaaS API Identify** 서비스를 선택하여 **서비스 게이트웨이** 생성
+  > [참고] **인증 토큰(token)** 발급을 위한 **서비스 게이트웨이** 입니다.
+* 만들어진 두개의 **서비스 게이트웨이**에서 **IP주소** 확인
 
+### /etc/hosts 파일 편집
+**Object Storage**를 위한 **서비스 게이트웨이**의 IP주소가 192.168.1.42이고 **IaaS API Identify**를 위한 **서비스 게이트웨이**의 IP주소가 192.168.1.57을 할당 받은 경우 **VM Instance**의 /etc/hosts 파일을 아래와 같이 추가한다.
+> [참고] URL주소는 콘솔화면의 **Storage > Object Storage**에서 **API 엔드포인트 설정** 버튼을 클릭하여 확인할 수 있습니다.
+> 리전마다 사용하는 URL주소는 다르기 때문에 반드시 확인해주시기 바랍니다.
+```
+192.168.1.42	api-identity.infrastructure.cloud.toast.com
+192.168.1.57	api-storage.cloud.toast.com
+```
+
+### 인증 토큰 발급
+아래 설정을 통해 **오브젝트 스토리지**의 **API 비밀번호 설정**을 하고 **인증 토큰**을 발급 받는다.
+* **Storage > Object Storage**에서 **API 엔드포인트 설정** 버튼을 클릭
+* **API 엔드포인트 설정** 화면의 **API 비밀번호 설정** 란에 사용할 비밀번호를 입력하고 **변경** 버튼 클릭
+* NHN Cloud 계정과 앞서 설정한 **API 비밀번호 설정**의 비밀번호를 이용하여 **IaaS API Identify** 서비스용 **서비스 게이트웨이**에 토큰 발급 요청
+    * 요청
+      아래와 같이 NHN Cloud 계정과 **API 비밀번호 설정**의 비밀번호를 이용하여 **인증 토큰**을 요청합니다.
+      ```
+      ~# curl -X POST -H 'Content-Type:application/json' https://api-identity.infrastructure.cloud.toast.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
+      ```
+    * 응답
+      아래 응답에서 `token > id`항목의 값이 **인증 토큰**입니다. `token > expires`까지 사용가능합니다.
+      ```
+      {"access":{"token":{"id":"gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY","expires":"2022-04-13T19:19:30Z","tenant":{"id":"2fda9d4b8821111192ff23841198e2e6","name":"tTMgSSSF","groupId":"XXj2zkH7777modGU","description":"","enabled":true,"project_domain":"NORMAL","swift":true},"issued_at":"2022-04-13T07:32:14.000441"},"serviceCatalog":[{"endpoints":[{"region":"KR1","publicURL":"https://api-identity.infrastructure.cloud.toast.com/v2.0"}],"type":"identity","name":"keystone"},{"endpoints":[{"region":"KR2","publicURL":"https://kr2-api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"},{"region":"KR1","publicURL":"https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"}],"type":"object-store","name":"swift"}],"user":{"id":"80884888887b45dbaf9b815117130671","username":"5111111c-b111-4b11-b11b-01111f81111f","name":"5211122c-bfc4-4115-b11b-05b52f84
+      ```
