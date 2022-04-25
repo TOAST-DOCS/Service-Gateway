@@ -39,10 +39,15 @@
         wget http://{SERVICE_GW_IP}/v1/
         ```
 * URL 접근을 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 /etc/hosts 파일에 URL을 추가해야 합니다.
-    * 예시) /etc/hosts 파일
+    * 예시) /etc/hosts 파일에 URL추가 후 사용
       ```
       {SERVICE_GW_IP}    test.url.com
       ```
+      ```
+      wget http://test.url.com/v1/
+      ```
+      
 ## 서비스 게이트웨이에서 OBS(Object Storage) 사용 예제
 ### 서비스 게이트웨이 생성
-## 서비스 게이트웨이에서 OBS(Object Storage) 사용 예제
+OBS사용을 위해서는 
+
