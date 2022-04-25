@@ -37,7 +37,7 @@
 * 서비스 게이트웨이 IP로 접속하면 서비스 게이트웨이 생성 시 선택된 서비스로 연결되어 서비스 사용이 가능합니다.
     * 예시) IP주소를 이용하여 Object Storage 에서 파일 다운로드
         ```
-        wget http://192.168.1.42/v1/AUTH_8702a22c33144badbf876dcd521f3f98/test-obs/test_file.txt
+        wget http://192.168.1.42/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
         ```
 * URL 접근을 위한 Private DNS를 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 /etc/hosts 파일에 URL을 추가해야 합니다.
     * 예시) URL을 Object Storage 에서 파일 다운로드<br>
@@ -47,7 +47,7 @@
       ```
       IP대신 /etc/hosts 에 추가한 URL로 접속
       ```
-      wget http://api-storage.cloud.toast.com/v1/AUTH_8702a22c33144badbf876dcd521f3f98/test-obs/test_file.txt
+      wget http://api-storage.cloud.toast.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
       ```
       
 ## 서비스 게이트웨이에서 OBS(Object Storage) 사용 예제
