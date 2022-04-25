@@ -41,16 +41,16 @@
         ```
 * URL 접근을 위한 Private DNS를 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 /etc/hosts 파일에 URL을 추가해야 합니다.
     * 예시) URL을 Object Storage 에서 파일 다운로드<br>
-      /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 OBS의 URL을 추가
+      /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 **Object Storage**의 URL을 추가
       ```
       192.168.1.42    api-storage.cloud.toast.com
       ```
-      IP대신 /etc/hosts 에 추가한 URL로 접속
+      **IP주소** 대신 /etc/hosts에 추가한 URL로 접속
       ```
       wget http://api-storage.cloud.toast.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
       ```
       
-## 서비스 게이트웨이에서 OBS(Object Storage) 사용 예제
+## 서비스 게이트웨이에서 Object Storage 사용 예제
 ### 서비스 게이트웨이 생성
 OBS사용을 위해서는 
 
