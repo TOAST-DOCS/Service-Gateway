@@ -43,3 +43,6 @@
       ```
       {SERVICE_GW_IP}    test.url.com
       ```
+## 서비스 게이트웨이에서 OBS(Object Storage) 사용 예제
+### 서비스 게이트웨이 생성
+## 서비스 게이트웨이에서 OBS(Object Storage) 사용 예제
