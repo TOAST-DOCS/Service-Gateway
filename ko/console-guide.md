@@ -64,7 +64,7 @@
 
 ### /etc/hosts 파일 편집
 **Object Storage**를 선택하여 생성한 **서비스 게이트웨이**의 IP주소가 192.168.1.42이고 **IaaS API Identify**를 선택하여 생성한 **서비스 게이트웨이**의 IP주소가 192.168.1.57을 할당 받은 경우 **VM Instance**의 /etc/hosts 파일에 아래와 같이 IP주소와 URL을 추가합니다.
-> [참고] **오브젝트 스토리지**의 API URL주소는 콘솔화면의 **Storage > Object Storage**에서 **API 엔드포인트 설정** 버튼을 클릭하여 확인할 수 있습니다.
+> [참고] **오브젝트 스토리지**의 API URL주소는 콘솔화면의 **Storage > Object Storage**에서 **API 엔드포인트 설정** 버튼을 클릭하여 확인할 수 있습니다.<br>
 > [주의] 리전마다 사용하는 **오브젝트 스토리지 API**의 URL주소는 다르기 때문에 **API 엔드포인트 설정**의 URL을 반드시 확인해주시기 바랍니다.
 ```
 192.168.1.42	api-identity.infrastructure.cloud.toast.com
