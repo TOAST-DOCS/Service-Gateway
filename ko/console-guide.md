@@ -39,7 +39,7 @@
         wget http://{SERVICE_GW_IP}/v1/
         ```
 * URL 접근을 위한 Private DNS를 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 /etc/hosts 파일에 URL을 추가해야 합니다.
-    * 예시) /etc/hosts 사용
+    * 예시) /etc/hosts 사용<br>
       /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 사용할 URL을 추가
       ```
       {SERVICE_GW_IP}    test.url.com
