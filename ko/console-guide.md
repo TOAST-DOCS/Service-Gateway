@@ -33,20 +33,21 @@
 * **서비스 게이트웨이** 목록에서 **IP 주소**를 확인합니다.
   > [참고] 이 **VM Instance**에서 이 **IP주소**로 접속시 **서비스 게이트웨이**가 연결하고 있는 **서비스**로 연결됩니다.
 ### 서비스 게이트웨이 접속
+생성된 **서비스 게이트웨이**의 **IP주소**가 `192.168.1.42`라 할 경우 다음과 같은 방법으로 서비스에 접근이 가능합니다.
 * 서비스 게이트웨이 IP로 접속하면 서비스 게이트웨이 생성 시 선택된 서비스로 연결되어 서비스 사용이 가능합니다.
-    * 예시) Object Storage 사용
+    * 예시) IP주소를 이용하여 Object Storage 에서 파일 다운로드
         ```
-        wget http://{SERVICE_GW_IP}/v1/
+        wget http://192.168.1.42/v1/AUTH_8702a22c33144badbf876dcd521f3f98/test-obs/test_file.txt
         ```
 * URL 접근을 위한 Private DNS를 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 /etc/hosts 파일에 URL을 추가해야 합니다.
-    * 예시) /etc/hosts 사용<br>
-      /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 사용할 URL을 추가
+    * 예시) URL을 Object Storage 에서 파일 다운로드<br>
+      /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 OBS의 URL을 추가
       ```
-      {SERVICE_GW_IP}    test.url.com
+      192.168.1.42    api-storage.cloud.toast.com
       ```
       IP대신 /etc/hosts 에 추가한 URL로 접속
       ```
-      wget http://test.url.com/v1/
+      wget http://api-storage.cloud.toast.com/v1/AUTH_8702a22c33144badbf876dcd521f3f98/test-obs/test_file.txt
       ```
       
 ## 서비스 게이트웨이에서 OBS(Object Storage) 사용 예제
