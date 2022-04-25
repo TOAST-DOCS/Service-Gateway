@@ -36,14 +36,14 @@
 생성된 **서비스 게이트웨이**의 **IP주소**가 `192.168.1.42`라 할 경우 다음과 같은 방법으로 서비스에 접근이 가능합니다.
 * **VM Instance**에서 **서비스 게이트웨이 IP**로 접속하면 **서비스 게이트웨이** 생성 시 선택된 **서비스**로 연결되어 **서비스** 사용이 가능합니다.
     * IP주소를 사용하여 https 프로토콜을 이용할 경우 인증서 관련 에러가 발생할수도 있습니다.
-    * https 사용이 필요한 경우 **VM Instance**의 **/etc/hosts**에 URL을 추가하여 사용하시기 바랍니다.
+    * https 사용이 필요한 경우 **VM Instance**의 **/etc/hosts**에 IP주소와 URL을 추가하여 사용하시기 바랍니다.
     * 예시) IP주소를 이용하여 **오브젝트 스토리지** 에서 파일 다운로드
         ```
         ~# wget http://192.168.1.42/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
         ```
 * **서비스 게이트웨이**를 이용하여 **서비스** 접근시 URL을 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 /etc/hosts 파일에 URL을 추가해야 합니다.
     * 예시) URL을 이용하여 **오브젝트 스토리지** 에서 파일 다운로드<br>
-      /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 **Object Storage**의 URL을 추가
+      /etc/hosts 파일에 아래와 같이 **서비스 게이트웨이**의 **IP주소**와 **Object Storage**의 URL을 추가합니다.
       ```
       192.168.1.42    api-storage.cloud.toast.com
       ```
@@ -55,8 +55,7 @@
 ## 서비스 게이트웨이에서 오브젝트 스토리지 사용 예제
 오브젝트 스토리지에 관련된 내용은 예제 설명을 위한 수준에서만 기술합니다. 오브젝트 스토리지의 자세한 사용방법은 **사용자 가이드 > Storage > Oject Storage**를 참고하시기 바랍니다.
 ### 서비스 게이트웨이 생성 하기
-**오브젝트 스토리지** API를 사용을 위해서는 **인증 토큰**을 발급받아야 합니다. 인터넷 사용이 불가능한 격리된 환경의 **VPC**에서 **Object Storage** 사용을 위해서는 **인증 토큰**도 **서비스 게이트웨이**를 이용하여 발급 받아야합니다.
-다음 절차에 따라서 **서비스 게이트웨이**를 생성해야합니다.
+**오브젝트 스토리지** API를 사용을 위해서는 **인증 토큰**을 발급받아야 합니다. 인터넷 사용이 불가능한 격리된 환경의 **VPC**에서 **Object Storage** 사용을 위해서는 **인증 토큰**도 **서비스 게이트웨이**를 이용하여 발급 받아야하며, 다음 절차에 따라서 **서비스 게이트웨이**를 생성해야합니다.
 * **Object Storage** 서비스를 선택하여 **서비스 게이트웨이** 생성
   > [참고] **오브젝트 스토리지** API 접속을 위한 **서비스 게이트웨이** 입니다.
 * **IaaS API Identify** 서비스를 선택하여 **서비스 게이트웨이** 생성
@@ -64,9 +63,9 @@
 * 만들어진 두개의 **서비스 게이트웨이**에서 **IP주소** 확인
 
 ### /etc/hosts 파일 편집
-**Object Storage**를 위한 **서비스 게이트웨이**의 IP주소가 192.168.1.42이고 **IaaS API Identify**를 위한 **서비스 게이트웨이**의 IP주소가 192.168.1.57을 할당 받은 경우 **VM Instance**의 /etc/hosts 파일을 아래와 같이 추가한다.
-> [참고] URL주소는 콘솔화면의 **Storage > Object Storage**에서 **API 엔드포인트 설정** 버튼을 클릭하여 확인할 수 있습니다.
-> [주의] 리전마다 사용하는 URL주소는 다르기 때문에 **API 엔드포인트 설정** 내용을 반드시 확인해주시기 바랍니다.
+**Object Storage**를 선택하여 생성한 **서비스 게이트웨이**의 IP주소가 192.168.1.42이고 **IaaS API Identify**를 선택하여 생성한 **서비스 게이트웨이**의 IP주소가 192.168.1.57을 할당 받은 경우 **VM Instance**의 /etc/hosts 파일에 아래와 같이 IP주소와 URL을 추가합니다.
+> [참고] **오브젝트 스토리지**의 API URL주소는 콘솔화면의 **Storage > Object Storage**에서 **API 엔드포인트 설정** 버튼을 클릭하여 확인할 수 있습니다.
+> [주의] 리전마다 사용하는 **오브젝트 스토리지 API**의 URL주소는 다르기 때문에 **API 엔드포인트 설정**의 URL을 반드시 확인해주시기 바랍니다.
 ```
 192.168.1.42	api-identity.infrastructure.cloud.toast.com
 192.168.1.57	api-storage.cloud.toast.com
@@ -96,6 +95,7 @@
   ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
   ```
 * 응답<br>
+  **오브젝트 스토리지 컨터이너**에 들어있는 파일 목록 확인
   ```
   test_file.txt
   ```
