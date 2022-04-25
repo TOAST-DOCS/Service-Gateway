@@ -90,12 +90,12 @@
       
 ### 오브젝트 스토리지 API 사용
 **인증 토큰** 발급을 마쳤으면 **오브젝트 스토리지** API를 사용할 수 있습니다. **오브젝트 스토리지**에 example 이라는 **컨테이너**를 생성하고 test_file.txt를 넣어 놨다고 가정 할 경우 아래와 같은 API 사용방법으로 **컨테이너**에 들어있는 파일을 조회 할수 있습니다.
-    * 요청
+    * 요청<br>
       X-Auth-Token 에 **인증 토큰**을 추가하여 요청
       ```
       ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
       ```
-    * 응답
+    * 응답<br>
       ```
       test_file.txt
       ```
