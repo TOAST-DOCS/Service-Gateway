@@ -37,7 +37,7 @@
     * https 사용이 필요한 경우 VM Instance의 `/etc/hosts`에 IP 주소와 URL을 추가하시기 바랍니다.
     * 예시) IP 주소를 이용하여 **오브젝트 스토리지**에서 파일 다운로드
     
-        ~# wget http://192.168.1.42/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
+                ~# wget http://192.168.1.42/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
        
 * **서비스 게이트웨이**를 이용하여 **서비스** 접근 시 URL을 지원하지 않습니다. URL 접근이 필요한 경우 아래 예시와 같이 `/etc/hosts` 파일에 URL을 추가해야 합니다.
     * 예시) URL을 이용하여 **오브젝트 스토리지**에서 파일 다운로드<br>
