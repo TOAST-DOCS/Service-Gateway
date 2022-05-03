@@ -15,5 +15,4 @@ Service Gateway 서비스를 이용하면 플로팅 IP를 쓰지 않고 트래�
 서비스명  | 제공 리전 | 설명
 ------------- | ------------- | -------------------
 Object Storage|한국(판교), 한국(평촌)|**오브젝트 스토리지**는 NHN Cloud에서 제공하는 많은 양의 데이터를 저장할 수 있는 온라인 저장소 서비스입니다. **VPC**의 **VM Instance**에서 인터넷을 경유하지 않고 **오브젝트 스토리지**에 접근이 필요한 경우 **Object Storage**를 선택하여 **서비스 게이트웨이**를 생성합니다.<br>자세한 사용 방법은 **사용자 가이드 > Storage > Object Storage**를 참고하시기 바랍니다.
-IaaS API Identify|한국(판교), 한국(평촌)|인증 토큰 서비스입니다. VPC 내부의 VM Instance에서 인터넷을 경유하지 않고 오브젝트 스토리지 API 이용에 필요한 인증 토큰을 발급받아야 하는 경우, IaaS API Identify를 선택하여 서비스 게이트웨이를 생성합니다.<br>
-자세한 사용 방법은 사용자 가이드 > Storage > Object Storage > API 가이드 > 인증 토큰 발급을 참고하시기 바랍니다.
+IaaS API Identify|한국(판교), 한국(평촌)|인증 토큰 서비스입니다. VPC 내부의 VM Instance에서 인터넷을 경유하지 않고 오브젝트 스토리지 API 이용에 필요한 인증 토큰을 발급받아야 하는 경우, IaaS API Identify를 선택하여 서비스 게이트웨이를 생성합니다.<br>자세한 사용 방법은 사용자 가이드 > Storage > Object Storage > API 가이드 > 인증 토큰 발급을 참고하시기 바랍니다.
