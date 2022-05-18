@@ -13,9 +13,7 @@
 
 ### 提供サービス
 
-現在はサービスゲートウェイを利用して次のようなNHN Cloudのサービスを使用できます。今後、他のサービスもサポートする予定です。
+VPCのVM Instancekaraからインターネットを経由せずにNHN Cloudのサービスにアクセスする必要がある場合は、サービスゲートウェイで提供されるサービスを選択してサービスゲートウェイを作成します。
+詳細な使い方は[**ユーザーガイド**](https://docs.toast.com/ko/TOAST/ko/Overview/)を参照してください。提供されるサービスは順次増える予定です。
 
-サービス名 | 提供リージョン | 説明
-------------- | ------------- | -------------------
-Object Storage|韓国(パンギョ)、韓国(ピョンチョン)|**オブジェクトストレージ**はNHN Cloudで提供する大量のデータを保存することができるオンラインストレージサービスです。VPCのVM Instanceからインターネットを経由せずに**オブジェクトストレージ**にアクセスする必要がある場合は**Object Storage**を選択してサービスゲートウェイを作成します。<br>詳細については[**ユーザーガイド > Storage > Object Storage > コンソール使用ガイド**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/console-guide/)を参照してください。
-IaaS API Identify|韓国(パンギョ)、韓国(ピョンチョン)|**認証トークン**サービスです。VPC内部のVM Instanceからインターネットを経由せずに**オブジェクトストレージAPI**の利用に必要な**認証トークン**を発行する必要がある場合は、**IaaS API Identify**を選択してサービスゲートウェイを作成します。<br>詳細については[**ユーザーガイド > Storage > Object Storage > APIガイド > 認証トークン発行**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。
+* IaaS API Identify項目はオブジェクトストレージの利用に必要なサービスです。 詳細については[**ユーザーガイド > Storage > Object Storage > APIガイド > 認証トークン発行**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。
