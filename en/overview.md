@@ -13,9 +13,7 @@ The **Service Gateway** service allows you to use the **services** of NHN Cloud 
 
 ### Provided Services
 
-Currently, you can use the following services of NHN Cloud by using the service gateway. We plan to support other services gradually.
+If you need to access NHN Cloud's services from a VM Instance in the VPC without going through the internet, create a service gateway by selecting a service provided by the service gateway.
+For details on how to use each service, refer to the [**User Guide**](https://docs.toast.com/en/TOAST/en/Overview/). The services provided will be increased gradually.
 
-Service Name  | Provided Region | Description
-------------- | ------------- | -------------------
-Object Storage|Korea (Pangyo), Korea (Pyeongchon)|**Object Storage** is an online storage service provided by NHN Cloud, which lets you store large amounts of data. If you need to access **object storage** from the VM instance in your VPC without going through the internet, select **Object Storage** to create a service gateway.<br>For details on how to use it, refer to [**User Guide > Storage > Object Storage > Console User Guide**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/console-guide/).
-IaaS API Identify|Korea (Pangyo), Korea (Pyeongchon)|An **authentication token** service. If you need to obtain an **authentication token** required to use the **Object Storage API** from the VM instance in your VPC without going through the internet, select **IaaS API Identify** to create a service gateway.<br>For details on how to use it, refer to [**User Guide > Storage > Object Storage > API Guide > Authentication Token Issuance**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/).
+* IaaS API Identify is a service required to use object storage. For more detailed description, refer to [**User Guide > Storage > Object Storage > API Guide > Authentication Token Issuance**](https://docs.toast.com/en/Storage/Object%20Storage/en/api-guide/).
