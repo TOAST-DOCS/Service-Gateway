@@ -13,9 +13,7 @@
 
 ### 제공 서비스
 
-현재는 서비스 게이트웨이를 이용하여 다음과 같은 NHN Cloud의 서비스를 사용할 수 있습니다. 점차 다른 서비스도 지원할 예정입니다.
+VPC의 VM Instance에서 인터넷을 경유하지 않고 NHN Cloud의 서비스에 접근이 필요한 경우 서비스 게이트웨이에서 제공되는 서비스를 선택하여 서비스 게이트웨이를 생성합니다.
+자세한 사용 방법은 [**사용자 가이드**](https://docs.toast.com/ko/TOAST/ko/Overview/)를 참고하시기 바랍니다. 제공되는 서비스는 점차 늘려나갈 예정입니다.
 
-서비스명  | 제공 리전 | 설명
-------------- | ------------- | -------------------
-Object Storage|한국(판교), 한국(평촌)|**오브젝트 스토리지**는 NHN Cloud에서 제공하는 많은 양의 데이터를 저장할 수 있는 온라인 저장소 서비스입니다. VPC의 VM Instance에서 인터넷을 경유하지 않고 **오브젝트 스토리지**에 접근이 필요한 경우 **Object Storage**를 선택하여 서비스 게이트웨이를 생성합니다.<br>자세한 사용 방법은 [**사용자 가이드 > Storage > Object Storage > 콘솔 사용 가이드**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/console-guide/)를 참고하시기 바랍니다.
-IaaS API Identify|한국(판교), 한국(평촌)|**인증 토큰** 서비스입니다. VPC 내부의 VM Instance에서 인터넷을 경유하지 않고 **오브젝트 스토리지 API** 이용에 필요한 **인증 토큰**을 발급받아야 하는 경우, **IaaS API Identify**를 선택하여 서비스 게이트웨이를 생성합니다.<br>자세한 사용 방법은 [**사용자 가이드 > Storage > Object Storage > API 가이드 > 인증 토큰 발급**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)을 참고하시기 바랍니다.
+* IaaS API Identify 항목은 오브젝트 스토리지 이용에 필요한 서비스입니다. 더 자세한 설명은 [**사용자 가이드 > Storage > Object Storage > API 가이드 > 인증 토큰 발급**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)을 참고하시기 바랍니다.
