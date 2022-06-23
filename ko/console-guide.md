@@ -95,9 +95,8 @@
 
 * 인증 토큰 발급 요청<br>
     * **NHN Cloud 로그인 ID**과 앞서 설정한 **API 비밀번호 설정**의 비밀번호를 이용하여 아래와 같이 **IaaS API Identify** 서비스용 서비스 게이트웨이에 토큰 발급을 요청합니다.
-    > [참고] 
-    > username: NHN Cloud 로그인 ID<br>
-    > password: API 비밀번호 설정에 입력한 비밀번호<br>
+    * `username`에는 NHN Cloud 로그인 ID 사용<br>
+    * `password`에는 API 비밀번호 설정에 입력한 비밀번호 사용<br>
 
             ~# curl -X POST -H 'Content-Type:application/json' https://api-identity.infrastructure.cloud.toast.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
 
