@@ -95,7 +95,7 @@
     > [참고] 상세한 사용 방법은 [사용자 가이드 > Storage > Object Storage > API 가이드](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)를 참고 하시기 바랍니다.
 
 * 인증 토큰 발급 요청
-    * **NHN Cloud 로그인 ID**과 앞서 설정한 **API 비밀번호 설정**의 비밀번호를 이용하여 아래와 같이 **IaaS API Identify** 서비스용 으로 생성한 서비스 게이트웨이에 토큰 발급을 요청합니다.
+    * **NHN Cloud 로그인 ID**과 앞서 설정한 **API 비밀번호 설정**의 비밀번호를 이용하여 아래와 같이 **IaaS API Identify** 서비스용으로 생성한 서비스 게이트웨이의 URL에 토큰 발급을 요청합니다.
     * `auth.passwordCredentials.username`에는 NHN Cloud 로그인 ID 사용
     * `auth.passwordCredentials.password`에는 API 비밀번호 설정에 입력한 비밀번호 사용
 
