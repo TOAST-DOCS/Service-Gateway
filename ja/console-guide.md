@@ -89,16 +89,19 @@
 
 オブジェクトストレージの**APIパスワード設定**を行い、認証トークンを発行します。
 
-1. **Storage > Object Storage**で**APIエンドポイント設定**ボタンをクリックします。
-2. **APIエンドポイント設定**画面の**APIパスワード設定**に使用するパスワードを入力し、**変更**ボタンをクリックします。
-3. **NHN Cloudアカウント**と、設定した**APIパスワード設定**のパスワードを利用して**IaaS API Identify**サービス用サービスゲートウェイにトークンの発行をリクエストします。
-    * リクエスト<br>
-     以下のようにNHN CloudアカウントとAPIパスワード設定のパスワードを利用して認証トークンをリクエストします。
+* APIパスワード設定
+    1. **Storage > Object Storage**で**APIエンドポイント設定**ボタンをクリックします。
+    2. **APIエンドポイント設定**画面の**APIパスワード設定**に使用するパスワードを入力し、**変更**ボタンをクリックします。
+    > [参考]詳細な使い方は[ユーザーガイド > Storage > Object Storage > APIガイド](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。
+* 認証トークン発行リクエスト<br>
+  **NHN CloudログインID**と、設定した**APIパスワード設定**のパスワードを利用して**IaaS API Identify**サービス用に作成したサービスゲートウェイURLにトークン発行をリクエストします。
+    * `auth.passwordCredentials.username`にはNHN CloudログインIDを使用
+    * `auth.passwordCredentials.password`にはAPIパスワード設定に入力したパスワードを使用
 
             ~# curl -X POST -H 'Content-Type:application/json' https://api-identity.infrastructure.cloud.toast.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
 
-    * レスポンス<br>
-     以下のレスポンスで`access.token.id`項目の値が認証トークンです。`access.token.expires`に記録された時間まで認証トークンが有効です。
+* 認証トークン発行レスポンス<br>
+ 以下のレスポンスで`access.token.id`項目の値が認証トークンです。`access.token.expires`に記録された時間まで認証トークンが有効です。
 
             {"access":{"token":{"id":"gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY","expires":"2022-04-13T19:19:30Z","tenant":{"id":"2fda9d4b8821111192ff23841198e2e6","name":"tTMgSSSF","groupId":"XXj2zkH7777modGU","description":"","enabled":true,"project_domain":"NORMAL","swift":true},"issued_at":"2022-04-13T07:32:14.000441"},"serviceCatalog":[{"endpoints":[{"region":"KR1","publicURL":"https://api-identity.infrastructure.cloud.toast.com/v2.0"}],"type":"identity","name":"keystone"},{"endpoints":[{"region":"KR2","publicURL":"https://kr2-api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"},{"region":"KR1","publicURL":"https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"}],"type":"object-store","name":"swift"}],"user":{"id":"80884888887b45dbaf9b815117130671","username":"5111111c-b111-4b11-b11b-01111f81111f","name":"5211122c-bfc4-4115-b11b-05b52f84
 
