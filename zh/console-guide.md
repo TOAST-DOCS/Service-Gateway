@@ -89,16 +89,21 @@ For example, if the IP address of the service gateway created by selecting **Obj
 
 **Set the API password** for object storage and get an authentication token.
 
-1. In **Storage > Object Storage**, click the **Set API Endpoint** button.
-2. Enter the password to use in **Set API Password** on the **API Endpoint settings** screen and click **Modify**.
-3. Request the issuance of token to the service gateway for the **IaaS API Identify** service using the **NHN Cloud account** and the password of **Set API Password** set previously.
-    * Request<br>
-      Request an authentication token using the NHN Cloud account and the password in API password settings as shown below.
+* Set the API password
+    1. In **Storage > Object Storage**, click the **Set API Endpoint** button.
+    2. Enter the password to use in **Set API Password** on the **API Endpoint settings** screen and click **Modify**.
+    > [Note] For details on how to use it, refer to [User Guide > Storage > Object Storage > API Guide](https://docs.toast.com/en/Storage/Object%20Storage/en/api-guide/).
+
+* Request for obtaining the Authentication token<br>
+  Make a request to obtain the token to the URL of the service gateway created for the **IaaS API Identify** service using the **NHN Cloud login ID** and the password of **Set API Password** set previously.
+    * Use NHN Cloud login ID for `auth.passwordCredentials.username`
+    * Use the password entered in **Set API Password** for `auth.passwordCredentials.password`
+  
 
             ~# curl -X POST -H 'Content-Type:application/json' https://api-identity.infrastructure.cloud.toast.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
 
-    * Response<br>
-      In the response below, the value of the `access.token.id` entry is the authentication token. The authentication token is valid until the time in `access.token.expires`.
+* Response for obtaining the Authentication token<br>
+  In the response below, the value of the `access.token.id` entry is the authentication token. The authentication token is valid until the time in `access.token.expires`.
 
             {"access":{"token":{"id":"gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY","expires":"2022-04-13T19:19:30Z","tenant":{"id":"2fda9d4b8821111192ff23841198e2e6","name":"tTMgSSSF","groupId":"XXj2zkH7777modGU","description":"","enabled":true,"project_domain":"NORMAL","swift":true},"issued_at":"2022-04-13T07:32:14.000441"},"serviceCatalog":[{"endpoints":[{"region":"KR1","publicURL":"https://api-identity.infrastructure.cloud.toast.com/v2.0"}],"type":"identity","name":"keystone"},{"endpoints":[{"region":"KR2","publicURL":"https://kr2-api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"},{"region":"KR1","publicURL":"https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"}],"type":"object-store","name":"swift"}],"user":{"id":"80884888887b45dbaf9b815117130671","username":"5111111c-b111-4b11-b11b-01111f81111f","name":"5211122c-bfc4-4115-b11b-05b52f84
 
