@@ -7,7 +7,6 @@ The **Service Gateway** service allows you to use the **services** of NHN Cloud 
 * You can connect to the services of NHN Cloud provided by the service gateway from your VPC without going through the internet.
 * You can use only the services provided in the service list when creating a service gateway.
 * The IP address of the service gateway is connected one-to-one with the service selected when creating the service gateway.
-* A service gateway can only be used within the VPC in which the service gateway has been created.
 * When the VM Instance in the VPC communicates with the IP address of the service gateway, it communicates with the service associated with the service gateway.
 * This service is currently only available in the Korea (Pangyo) and Korea (Pyeongchon) regions, and will be supported by other regions gradually.
 
