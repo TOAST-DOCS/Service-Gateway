@@ -69,13 +69,13 @@
 
 1. **Object Storage**サービスを選択してサービスゲートウェイを作成します。<br>
  オブジェクトストレージAPI接続用のサービスゲートウェイです。
-2. **IaaS API Identify**サービスを選択してサービスゲートウェイを作成します。<br>
+2. **IaaS API Identity**サービスを選択してサービスゲートウェイを作成します。<br>
  認証トークン(token)を発行するためのサービスゲートウェイです。
 3. 作成された2つのサービスゲートウェイでIPアドレスを確認します。
 
 ### /etc/hostsファイルの編集
 
-**Object Storage**を選択して作成したサービスゲートウェイのIPアドレスが192.168.1.42で、**IaaS API Identify**を選択して作成したサービスゲートウェイのIPアドレスに192.168.1.57が割り当てられた場合、VM Instanceの`/etc/hosts`ファイルに以下のようにIPアドレスとURLを追加します。
+**Object Storage**を選択して作成したサービスゲートウェイのIPアドレスが192.168.1.42で、**IaaS API Identity**を選択して作成したサービスゲートウェイのIPアドレスに192.168.1.57が割り当てられた場合、VM Instanceの`/etc/hosts`ファイルに以下のようにIPアドレスとURLを追加します。
 
 > [参考]オブジェクトストレージのAPI URLアドレスはコンソール画面の**Storage > Object Storage**で**APIエンドポイント設定**ボタンをクリックして確認できます。<br>
 > [注意]リージョンごとに使用するオブジェクトストレージAPIのURLアドレスは異なるため、**APIエンドポイント設定**のURLを必ずご確認ください。
@@ -94,7 +94,7 @@
     2. **APIエンドポイント設定**画面の**APIパスワード設定**に使用するパスワードを入力し、**変更**ボタンをクリックします。
     > [参考]詳細な使い方は[ユーザーガイド > Storage > Object Storage > APIガイド](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。
 * 認証トークン発行リクエスト<br>
-  **NHN CloudログインID**と、設定した**APIパスワード設定**のパスワードを利用して**IaaS API Identify**サービス用に作成したサービスゲートウェイURLにトークン発行をリクエストします。
+  **NHN CloudログインID**と、設定した**APIパスワード設定**のパスワードを利用して**IaaS API Identity**サービス用に作成したサービスゲートウェイURLにトークン発行をリクエストします。
     * `auth.passwordCredentials.username`にはNHN CloudログインIDを使用
     * `auth.passwordCredentials.password`にはAPIパスワード設定に入力したパスワードを使用
 
