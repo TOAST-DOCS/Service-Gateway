@@ -15,4 +15,4 @@
 VPCのVM Instanceからインターネットを経由せずにNHN Cloudのサービスにアクセスする必要がある場合は、サービスゲートウェイで提供されるサービスを選択してサービスゲートウェイを作成します。
 詳細な使い方は[**ユーザーガイド**](https://docs.toast.com/ko/TOAST/ko/Overview/)を参照してください。提供されるサービスは順次増える予定です。
 
-* IaaS API Identify項目はオブジェクトストレージの利用に必要なサービスです。 詳細については[**ユーザーガイド > Storage > Object Storage > APIガイド > 認証トークン発行**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。
+* IaaS API Identity項目はオブジェクトストレージの利用に必要なサービスです。 詳細については[**ユーザーガイド > Storage > Object Storage > APIガイド > 認証トークン発行**](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。

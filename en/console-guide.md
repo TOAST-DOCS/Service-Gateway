@@ -69,13 +69,13 @@ To use the **Object Storage API**, you must obtain an **authentication token**. 
 
 1. Choose the **Object Storage** service to create a service gateway.<br>
    A service gateway for accessing the Object Storage API.
-2. Choose the **IaaS API Identify** service to create a service gateway.<br>
+2. Choose the **IaaS API Identity** service to create a service gateway.<br>
    A service gateway for obtaining the authentication token.
 3. Check the IP addresses on the two service gateways that have been created.
 
 ### Edit the /etc/hosts File
 
-For example, if the IP address of the service gateway created by selecting **Object Storage** is 192.168.1.42 and 192.168.1.57 is assigned as the IP address of the service gateway created by selecting **IaaS API Identify**, add the IP addresses and URLs to the `/etc/hosts` file of the VM Instance, as shown below.
+For example, if the IP address of the service gateway created by selecting **Object Storage** is 192.168.1.42 and 192.168.1.57 is assigned as the IP address of the service gateway created by selecting **IaaS API Identity**, add the IP addresses and URLs to the `/etc/hosts` file of the VM Instance, as shown below.
 
 > [Note] You can check the API URL address of object storage by clicking the **Set API Endpoint** button in **Storage > Object Storage** on the console screen.<br>
 > [Caution] Since the URL address of the Object Storage API used by each region is different, make sure that you check the URL in the **Set API Endpoint**.
