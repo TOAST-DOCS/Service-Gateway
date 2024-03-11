@@ -53,11 +53,11 @@
     * 예시) URL을 이용하여 **오브젝트 스토리지**에서 파일 다운로드<br>
       `/etc/hosts` 파일에 아래와 같이 서비스 게이트웨이의 IP 주소와 Object Storage의 URL을 추가합니다.
 
-            192.168.1.42    api-storage.cloud.toast.com
+            192.168.1.42    kr1-api-object-storage.nhncloudservice.com
 
         IP 주소 대신 `/etc/hosts`에 추가한 URL로 접속
 
-            ~# wget https://api-storage.cloud.toast.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
+            ~# wget https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
 
 ## 서비스 게이트웨이에서 오브젝트 스토리지 사용 예제
 
@@ -81,8 +81,8 @@
 > [주의] 리전마다 사용하는 오브젝트 스토리지 API의 URL 주소는 다르기 때문에 **API 엔드포인트 설정**의 URL을 반드시 확인해 주시기 바랍니다.
 
 ```
-192.168.1.42	api-identity.infrastructure.cloud.toast.com
-192.168.1.57	api-storage.cloud.toast.com
+192.168.1.42	api-identity-infrastructure.nhncloudservice.com
+192.168.1.57	kr1-api-object-storage.nhncloudservice.com
 ```
 
 ### 인증 토큰 발급
@@ -92,7 +92,7 @@
 * API 비밀번호 설정
     1. **Storage > Object Storage**에서 **API 엔드포인트 설정** 버튼을 클릭합니다.
     2. **API 엔드포인트 설정** 화면의 **API 비밀번호 설정**에 사용할 비밀번호를 입력하고 **변경** 버튼을 클릭합니다.
-    > [참고] 상세한 사용 방법은 [사용자 가이드 > Storage > Object Storage > API 가이드](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)를 참고하시기 바랍니다.
+    > [참고] 상세한 사용 방법은 [사용자 가이드 > Storage > Object Storage > API 가이드](https://docs.nhncloud.com/ko/Storage/Object%20Storage/ko/api-guide/)를 참고하시기 바랍니다.
 
 * 인증 토큰 발급 요청<br>
   **NHN Cloud 로그인 ID**와 앞서 설정한 **API 비밀번호 설정**의 비밀번호를 이용하여 아래와 같이 **IaaS API Identify** 서비스용으로 생성한 서비스 게이트웨이 URL에 토큰 발급을 요청합니다.
@@ -100,7 +100,7 @@
     * `auth.passwordCredentials.password`에는 API 비밀번호 설정에 입력한 비밀번호 사용
   
 
-            ~# curl -X POST -H 'Content-Type:application/json' https://api-identity.infrastructure.cloud.toast.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
+            ~# curl -X POST -H 'Content-Type:application/json' https://api-identity-infrastructure.nhncloudservice.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
 
 * 인증 토큰 발급 응답<br>
   아래 응답에서 `access.token.id` 항목의 값이 인증 토큰입니다. `access.token.expires`에 기록된 시간까지 인증 토큰이 유효합니다.
@@ -114,7 +114,7 @@
 * 요청<br>
   `X-Auth-Token`에 인증 토큰을 추가하여 요청
 
-        ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
+        ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
 
 * 응답<br>
   오브젝트 스토리지 컨테이너에 있는 파일 목록 확인

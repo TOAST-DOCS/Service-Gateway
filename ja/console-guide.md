@@ -53,11 +53,11 @@
     * 例) URLを利用して**オブジェクトストレージ**からファイルをダウンロード<br>
       `/etc/hosts`ファイルに以下のようにサービスゲートウェイのIPアドレスとObject StorageのURLを追加します。
 
-            192.168.1.42    api-storage.cloud.toast.com
+            192.168.1.42    kr1-api-object-storage.nhncloudservice.com
 
         IPアドレスの代わりに`/etc/hosts`に追加したURLで接続
 
-            ~# wget https://api-storage.cloud.toast.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
+            ~# wget https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
 
 ## サービスゲートウェイでオブジェクトストレージを使用する例
 
@@ -81,8 +81,8 @@
 > [注意]リージョンごとに使用するオブジェクトストレージAPIのURLアドレスは異なるため、**APIエンドポイント設定**のURLを必ずご確認ください。
 
 ```
-192.168.1.42	api-identity.infrastructure.cloud.toast.com
-192.168.1.57	api-storage.cloud.toast.com
+192.168.1.42	api-identity-infrastructure.nhncloudservice.com
+192.168.1.57	kr1-api-object-storage.nhncloudservice.com
 ```
 
 ### 認証トークンの発行
@@ -92,13 +92,13 @@
 * APIパスワード設定
     1. **Storage > Object Storage**で**APIエンドポイント設定**ボタンをクリックします。
     2. **APIエンドポイント設定**画面の**APIパスワード設定**に使用するパスワードを入力し、**変更**ボタンをクリックします。
-    > [参考]詳細な使い方は[ユーザーガイド > Storage > Object Storage > APIガイド](https://docs.toast.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。
+    > [参考]詳細な使い方は[ユーザーガイド > Storage > Object Storage > APIガイド](https://docs.nhncloud.com/ja/Storage/Object%20Storage/ja/api-guide/)を参照してください。
 * 認証トークン発行リクエスト<br>
   **NHN CloudログインID**と、設定した**APIパスワード設定**のパスワードを利用して**IaaS API Identity**サービス用に作成したサービスゲートウェイURLにトークン発行をリクエストします。
     * `auth.passwordCredentials.username`にはNHN CloudログインIDを使用
     * `auth.passwordCredentials.password`にはAPIパスワード設定に入力したパスワードを使用
 
-            ~# curl -X POST -H 'Content-Type:application/json' https://api-identity.infrastructure.cloud.toast.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
+            ~# curl -X POST -H 'Content-Type:application/json' https://api-identity-infrastructure.nhncloudservice.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
 
 * 認証トークン発行レスポンス<br>
  以下のレスポンスで`access.token.id`項目の値が認証トークンです。`access.token.expires`に記録された時間まで認証トークンが有効です。
@@ -112,7 +112,7 @@
 * リクエスト<br>
   `X-Auth-Token`に認証トークンを追加してリクエスト
 
-        ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
+        ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
 
 * レスポンス<br>
  オブジェクトストレージコンテナにあるファイルリストを確認

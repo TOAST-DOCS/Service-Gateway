@@ -53,11 +53,11 @@ For example, if the IP address of the created service gateway is `192.168.1.42`,
     * Example: Downloading a file from **object storage** using a URL<br>
       Add the IP address of the service gateway and the URL of the object storage to the `/etc/hosts` file as shown below.
 
-            192.168.1.42    api-storage.cloud.toast.com
+            192.168.1.42    kr1-api-object-storage.nhncloudservice.com
 
         Connect to the URL added to `/etc/hosts` instead of the IP address
 
-            ~# wget https://api-storage.cloud.toast.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
+            ~# wget https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
 
 ## Example of Using Object Storage from a Service Gateway
 
@@ -81,8 +81,8 @@ For example, if the IP address of the service gateway created by selecting **Obj
 > [Caution] Since the URL address of the Object Storage API used by each region is different, make sure that you check the URL in the **Set API Endpoint**.
 
 ```
-192.168.1.42	api-identity.infrastructure.cloud.toast.com
-192.168.1.57	api-storage.cloud.toast.com
+192.168.1.42	api-identity-infrastructure.nhncloudservice.com
+192.168.1.57	kr1-api-object-storage.nhncloudservice.com
 ```
 
 ### Obtain the Authentication Token
@@ -92,7 +92,7 @@ For example, if the IP address of the service gateway created by selecting **Obj
 * Set the API password
     1. In **Storage > Object Storage**, click the **Set API Endpoint** button.
     2. Enter the password to use in **Set API Password** on the **API Endpoint settings** screen and click **Modify**.
-    > [Note] For details on how to use it, refer to [User Guide > Storage > Object Storage > API Guide](https://docs.toast.com/en/Storage/Object%20Storage/en/api-guide/).
+    > [Note] For details on how to use it, refer to [User Guide > Storage > Object Storage > API Guide](https://docs.nhncloud.com/zh/Storage/Object%20Storage/zh/api-guide/).
 
 * Request for obtaining the Authentication token<br>
   Make a request to obtain the token to the URL of the service gateway created for the **IaaS API Identity** service using the **NHN Cloud login ID** and the password of **Set API Password** set previously.
@@ -100,7 +100,7 @@ For example, if the IP address of the service gateway created by selecting **Obj
     * Use the password entered in **Set API Password** for `auth.passwordCredentials.password`
   
 
-            ~# curl -X POST -H 'Content-Type:application/json' https://api-identity.infrastructure.cloud.toast.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
+            ~# curl -X POST -H 'Content-Type:application/json' https://api-identity-infrastructure.nhncloudservice.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
 
 * Response for obtaining the Authentication token<br>
   In the response below, the value of the `access.token.id` entry is the authentication token. The authentication token is valid until the time in `access.token.expires`.
@@ -114,7 +114,7 @@ When you have finished obtaining the authentication token, you can use the Objec
 * Request<br>
   Request by adding the authentication token to `X-Auth-Token`
 
-        ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
+        ~# curl -X GET -H 'X-Auth-Token:gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY' https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6/example
 
 * Response<br>
   Check the list of files in the object storage container
