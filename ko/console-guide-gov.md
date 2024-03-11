@@ -53,8 +53,8 @@
     * 예시) URL을 이용하여 **오브젝트 스토리지**에서 파일 다운로드<br>
       `/etc/hosts` 파일에 아래와 같이 서비스 게이트웨이의 IP 주소와 Object Storage의 URL을 추가합니다.
 
-            192.168.1.42    api-object-storage.gov-nhncloudservice.com
+            192.168.1.42    kr1-api-object-storage.gov-nhncloudservice.com
 
         IP 주소 대신 `/etc/hosts`에 추가한 URL로 접속
 
-            ~# wget https://api-object-storage.gov-nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
+            ~# wget https://kr1-api-object-storage.gov-nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
