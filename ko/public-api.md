@@ -28,6 +28,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | id | Query | UUID | - | 조회할 서비스 게이트웨이 ID |
 | name | Query | String | - | 조회할 서비스 게이트웨이 이름 |
+| service_endpoint_id | Query | UUID | - | 조회할 서비스 게이트웨이의 서비스 엔드포인트 ID |
+| network_id | Query | UUID | - | 조회할 서비스 게이트웨이 VPC ID |
+| subnet_id | Query | UUID | - | 조회할 서비스 게이트웨이 Subnet ID |
+| port_id | Query | UUID | - | 조회할 서비스 게이트웨이 Port ID |
+| fixed_ip| Query | String | - | 조회할 서비스 게이트웨이 IP 주소 |
 
 
 #### 응답
