@@ -42,7 +42,7 @@ X-Auth-Token: {tokenId}
 | servicegateways | Body | Array | 서비스 게이트웨이 정보 객체 목록 |
 | servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
 | servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
-| servicegateways.port_id | Body | String | 포트 ID |
+| servicegateways.port_id | Body | UUID | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
 | servicegateways.subnet_id | Body | UUID | Subnet ID |
@@ -97,7 +97,7 @@ X-Auth-Token: {tokenId}
 | servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
 | servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
 | servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
-| servicegateways.port_id | Body | String | 포트 ID |
+| servicegateways.port_id | Body | UUID | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
 | servicegateways.subnet_id | Body | UUID | Subnet ID |
@@ -178,7 +178,7 @@ X-Auth-Token: {tokenId}
 | servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
 | servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
 | servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
-| servicegateways.port_id | Body | String | 포트 ID |
+| servicegateways.port_id | Body | UUID | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
 | servicegateways.subnet_id | Body | UUID | Subnet ID |
@@ -252,7 +252,7 @@ X-Auth-Token: {tokenId}
 | servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
 | servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
 | servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
-| servicegateways.port_id | Body | String | 포트 ID |
+| servicegateways.port_id | Body | UUID | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
 | servicegateways.subnet_id | Body | UUID | Subnet ID |
