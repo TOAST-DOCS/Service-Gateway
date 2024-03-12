@@ -35,8 +35,8 @@ X-Auth-Token: {tokenId}
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
 | servicegateways | Body | Array | 서비스 게이트웨이 정보 객체 목록 |
-| servicegateways.id | Body | UUID | 트랜짓 허브 ID |
-| servicegateways.name | Body | String | 트랜짓 허브 이름 |
+| servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
+| servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
 | servicegateways.port_id | Body | String | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
@@ -90,8 +90,8 @@ X-Auth-Token: {tokenId}
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
 | servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
-| servicegateways.id | Body | UUID | 트랜짓 허브 ID |
-| servicegateways.name | Body | String | 트랜짓 허브 이름 |
+| servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
+| servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
 | servicegateways.port_id | Body | String | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
@@ -171,8 +171,8 @@ X-Auth-Token: {tokenId}
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
 | servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
-| servicegateways.id | Body | UUID | 트랜짓 허브 ID |
-| servicegateways.name | Body | String | 트랜짓 허브 이름 |
+| servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
+| servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
 | servicegateways.port_id | Body | String | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
@@ -245,8 +245,8 @@ X-Auth-Token: {tokenId}
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
 | servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
-| servicegateways.id | Body | UUID | 트랜짓 허브 ID |
-| servicegateways.name | Body | String | 트랜짓 허브 이름 |
+| servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
+| servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
 | servicegateways.port_id | Body | String | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
