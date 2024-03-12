@@ -75,7 +75,7 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### 서비스 게이퉤이 보기
+### 서비스 게이트웨이 보기
 
 ```
 GET /v2.0/gateways/servicegateways/{serviceGatewayId}
