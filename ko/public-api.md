@@ -223,10 +223,10 @@ X-Auth-Token: {tokenId}
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
-| transitHubId | URL | UUID | O | 트랜짓 허브 ID |
-| transithub | Body | Object | O | 트랜짓 허브 정보 객체 |
-| transithub.name | Body | String | - | 트랜짓 허브 이름 |
-| transithub.description | Body | String | - | 트랜짓 허브 설명 |
+| serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
+| servicegateway | Body | Object | O | 서비스 게이트웨이 정보 객체 |
+| servicegateway.name | Body | String | - | 서비스 게이트웨이 이름 |
+| servicegateway.description | Body | String | - | 서비스 게이트웨이 설명 |
 
 <details><summary>예시</summary>
 
@@ -328,11 +328,8 @@ X-Auth-Token: {tokenId}
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
-| id | Query | UUID | - | 조회할 연결 ID |
-| name | Query | String | - | 조회할 연결 이름 |
-| resource_id | Query | UUID | - | 조회할 리소스 ID(VPC) |
-| subnet_id | Query | UUID | - | 조회할 서브넷 ID |
-| transithub_id | Query | UUID | - | 조회할 트랜짓 허브 ID |
+| id | Query | UUID | - | 조회할 서비스 엔드포인트 ID |
+| display_name | Query | UUID | - | 조회할 서비스 엔드포인트 이름 |
 
 
 
@@ -340,35 +337,21 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
-| transithub_attachments | Body | Array | 연결 정보 객체 목록 |
-| transithub_attachments.id | Body | UUID | 연결 ID |
-| transithub_attachments.tenant_id | Body | String | 테넌트 ID |
-| transithub_attachments.name | Body | String | 연결 이름 |
-| transithub_attachments.description | Body | String | 연결 설명 |
-| transithub_attachments.resource_id | Body | UUID | 리소스 ID(VPC) |
-| transithub_attachments.subnet_id | Body | UUID | 서브넷 ID |
-| transithub_attachments.transithub_id | Body | UUID | 트랜짓 허브 ID |
+| serviceendpoints | Body | Array | 서비스 엔드포인트 정보 객체 목록 |
+| serviceendpoints.id | Body | UUID | 서비스 엔드포인트 ID |
+| serviceendpoints.display_name | Body | String | 콘솔에 출력되는 서비스 엔드포인트 이름 |
+| serviceendpoints.description | Body | String | 서비스 엔드포인트 설명 |
 
 <details><summary>예시</summary>
 
 ```json
 {
-  "transithub_attachments": [
+  "serviceendpoints": [
     {
-      "status": "ACTIVE",
-      "remote": false,
-      "name": "thub-attachment",
-      "resource_id": "8eabc2c1-78a2-41e2-b03d-c1021042701f",
-      "subnet_id": "4263b32d-4bc5-45cc-bb3e-fded960e8f46",
-      "tenant_id": "5fdb378e72ca4aff9db04f40f7955f0b",
-      "created_at": "2024-02-13 01:22:09",
-      "updated_at": "2024-02-13 01:22:11",
-      "resource_cidr": "172.16.0.0/12",
-      "transithub_id": "9d01afbb-0e95-423e-9360-15a3f2e9a233",
-      "project_id": "5fdb378e72ca4aff9db04f40f7955f0b",
-      "port_id": "eecaf943-fdcc-40da-bda2-45949026f668",
-      "id": "23fc5818-c667-4e90-b50b-70b9e8727f49",
-      "description": null
+      "display_name": "Object Storage",
+      "description": "",
+      "name": "OBS",
+      "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
     }
   ]
 }
@@ -379,7 +362,7 @@ X-Auth-Token: {tokenId}
 ### 서비스 엔드포인트 보기
 
 ```
-GET /v2.0/gateways/transithub_attachments/{attachmentId}
+GET /v2.0/gateways/serviceendpoints/{seerviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
@@ -389,40 +372,26 @@ X-Auth-Token: {tokenId}
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
-| attachmentId | URL | UUID | O | 연결 ID |
+| serviceEndpointId | URL | UUID | O | 서비스 엔드포인트 ID |
 
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
-| transithub_attachment | Body | Object | 연결 정보 객체  |
-| transithub_attachment.id | Body | UUID | 연결 ID |
-| transithub_attachment.tenant_id | Body | String | 테넌트 ID |
-| transithub_attachment.name | Body | String | 연결 이름 |
-| transithub_attachment.description | Body | String | 연결 설명 |
-| transithub_attachment.resource_id | Body | UUID | 리소스 ID(VPC) |
-| transithub_attachment.subnet_id | Body | UUID | 서브넷 ID |
-| transithub_attachment.transithub_id | Body | UUID | 트랜짓 허브 ID |
+| serviceendpoints | Body | Object | 서비스 엔드포인트 정보 객체  |
+| serviceendpoints.id | Body | UUID | 서비스 엔드포인트 ID |
+| serviceendpoints.display_name | Body | String | 콘솔에 출력되는 서비스 엔드포인트 이름 |
+| serviceendpoints.description | Body | String | 서비스 엔드포인트 설명 |
 
 <details><summary>예시</summary>
 
 ```json
 {
-  "transithub_attachment": {
-    "status": "ACTIVE",
-    "remote": false,
-    "name": "thub-attachment",
-    "resource_id": "8eabc2c1-78a2-41e2-b03d-c1021042701f",
-    "subnet_id": "4263b32d-4bc5-45cc-bb3e-fded960e8f46",
-    "tenant_id": "5fdb378e72ca4aff9db04f40f7955f0b",
-    "created_at": "2024-02-13 01:22:09",
-    "updated_at": "2024-02-13 01:22:11",
-    "resource_cidr": "172.16.0.0/12",
-    "transithub_id": "9d01afbb-0e95-423e-9360-15a3f2e9a233",
-    "project_id": "5fdb378e72ca4aff9db04f40f7955f0b",
-    "port_id": "eecaf943-fdcc-40da-bda2-45949026f668",
-    "id": "23fc5818-c667-4e90-b50b-70b9e8727f49",
-    "description": null
+  "serviceendpoint": {
+      "display_name": "Object Storage",
+      "description": "",
+      "name": "OBS",
+      "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
   }
 }
 ```
