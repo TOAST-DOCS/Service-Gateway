@@ -103,8 +103,8 @@ X-Auth-Token: {tokenId}
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateway.domain_names | Body | Array | API 엔드포인트 도메인 정보 객체 목록 |
-| servicegateway.domain_names.domain_name | Body | String | API 엔드포인트 도메인 |
+| servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
+| servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 <details><summary>예시</summary>
@@ -118,7 +118,7 @@ X-Auth-Token: {tokenId}
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
     "fixed_ip": "192.168.0.82",
     "subnet_id": "72d9d6e0-3ee2-4287-bcf9-be45a8422ff1",
-    "domain_names": [
+    "api_endpoints": [
       {
         "domain_name": "test.test.com"
       }
@@ -185,8 +185,8 @@ X-Auth-Token: {tokenId}
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateway.domain_names | Body | Array | API 엔드포인트 도메인 정보 객체 목록 |
-| servicegateway.domain_names.domain_name | Body | String | API 엔드포인트 도메인 |
+| servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
+| servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 
@@ -201,7 +201,7 @@ X-Auth-Token: {tokenId}
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
     "fixed_ip": "192.168.0.82",
     "subnet_id": "72d9d6e0-3ee2-4287-bcf9-be45a8422ff1",
-    "domain_names": [
+    "api_endpoints": [
       {
         "domain_name": "test.test.com"
       }
@@ -260,8 +260,8 @@ X-Auth-Token: {tokenId}
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateway.domain_names | Body | Array | API 엔드포인트 도메인 정보 객체 목록 |
-| servicegateway.domain_names.domain_name | Body | String | API 엔드포인트 도메인 |
+| servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
+| servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 
@@ -276,7 +276,7 @@ X-Auth-Token: {tokenId}
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
     "fixed_ip": "192.168.0.82",
     "subnet_id": "72d9d6e0-3ee2-4287-bcf9-be45a8422ff1",
-    "domain_names": [
+    "api_endpoints": [
       {
         "domain_name": "test.test.com"
       }
