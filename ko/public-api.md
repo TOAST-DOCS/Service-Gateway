@@ -94,17 +94,17 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
-| servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
-| servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
-| servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
-| servicegateways.port_id | Body | UUID | 포트 ID |
-| servicegateways.tenant_id | Body | String | 테넌트 ID |
-| servicegateways.network_id | Body | UUID | VPC ID |
-| servicegateways.subnet_id | Body | UUID | Subnet ID |
-| servicegateways.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
-| servicegateways.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateways.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 스트링 목록 |
-| servicegateways.description | Body | String | 서비스 게이트웨이 설명 |
+| servicegateway | Body | Object | 서비스 게이트웨이 정보 객체|
+| servicegateway.id | Body | UUID | 서비스 게이트웨이 ID |
+| servicegateway.name | Body | String | 서비스 게이트웨이 이름 |
+| servicegateway.port_id | Body | UUID | 포트 ID |
+| servicegateway.tenant_id | Body | String | 테넌트 ID |
+| servicegateway.network_id | Body | UUID | VPC ID |
+| servicegateway.subnet_id | Body | UUID | Subnet ID |
+| servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
+| servicegateway.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 스트링 목록 |
+| servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 <details><summary>예시</summary>
 
@@ -175,17 +175,17 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
-| servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
-| servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
-| servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
-| servicegateways.port_id | Body | UUID | 포트 ID |
-| servicegateways.tenant_id | Body | String | 테넌트 ID |
-| servicegateways.network_id | Body | UUID | VPC ID |
-| servicegateways.subnet_id | Body | UUID | Subnet ID |
-| servicegateways.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
-| servicegateways.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateways.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 스트링 목록 |
-| servicegateways.description | Body | String | 서비스 게이트웨이 설명 |
+| servicegateway | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
+| servicegateway.id | Body | UUID | 서비스 게이트웨이 ID |
+| servicegateway.name | Body | String | 서비스 게이트웨이 이름 |
+| servicegateway.port_id | Body | UUID | 포트 ID |
+| servicegateway.tenant_id | Body | String | 테넌트 ID |
+| servicegateway.network_id | Body | UUID | VPC ID |
+| servicegateway.subnet_id | Body | UUID | Subnet ID |
+| servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
+| servicegateway.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 스트링 목록 |
+| servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 
 <details><summary>예시</summary>
@@ -249,17 +249,17 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
-| servicegateways | Body | Object | 서비스 게이트웨이 정보 객체 목록 |
-| servicegateways.id | Body | UUID | 서비스 게이트웨이 ID |
-| servicegateways.name | Body | String | 서비스 게이트웨이 이름 |
-| servicegateways.port_id | Body | UUID | 포트 ID |
-| servicegateways.tenant_id | Body | String | 테넌트 ID |
-| servicegateways.network_id | Body | UUID | VPC ID |
-| servicegateways.subnet_id | Body | UUID | Subnet ID |
-| servicegateways.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
-| servicegateways.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateways.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 스트링 목록 |
-| servicegateways.description | Body | String | 서비스 게이트웨이 설명 |
+| servicegateway | Body | Object | 서비스 게이트웨이 정보 객체 |
+| servicegateway.id | Body | UUID | 서비스 게이트웨이 ID |
+| servicegateway.name | Body | String | 서비스 게이트웨이 이름 |
+| servicegateway.port_id | Body | UUID | 포트 ID |
+| servicegateway.tenant_id | Body | String | 테넌트 ID |
+| servicegateway.network_id | Body | UUID | VPC ID |
+| servicegateway.subnet_id | Body | UUID | Subnet ID |
+| servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
+| servicegateway.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 스트링 목록 |
+| servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 
 <details><summary>예시</summary>
@@ -383,10 +383,10 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 설명 |
 |---|---|---|---|
-| serviceendpoints | Body | Object | 서비스 엔드포인트 정보 객체  |
-| serviceendpoints.id | Body | UUID | 서비스 엔드포인트 ID |
-| serviceendpoints.display_name | Body | String | 콘솔에 출력되는 서비스 엔드포인트 이름 |
-| serviceendpoints.description | Body | String | 서비스 엔드포인트 설명 |
+| serviceendpoint | Body | Object | 서비스 엔드포인트 정보 객체  |
+| serviceendpoint.id | Body | UUID | 서비스 엔드포인트 ID |
+| serviceendpoint.display_name | Body | String | 콘솔에 출력되는 서비스 엔드포인트 이름 |
+| serviceendpoint.description | Body | String | 서비스 엔드포인트 설명 |
 
 <details><summary>예시</summary>
 
