@@ -103,8 +103,8 @@ X-Auth-Token: {tokenId}
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateway.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 정보 객체 목록 |
-| servicegateway.domain_names.domain_name | Body | String | 서비스 API 엔드포인트 도메인 네임 |
+| servicegateway.domain_names | Body | Array | API 엔드포인트 도메인 정보 객체 목록 |
+| servicegateway.domain_names.domain_name | Body | String | API 엔드포인트 도메인 |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 <details><summary>예시</summary>
@@ -185,8 +185,8 @@ X-Auth-Token: {tokenId}
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateway.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 정보 객체 목록 |
-| servicegateway.domain_names.domain_name | Body | String | 서비스 API 엔드포인트 도메인 네임 |
+| servicegateway.domain_names | Body | Array | API 엔드포인트 도메인 정보 객체 목록 |
+| servicegateway.domain_names.domain_name | Body | String | API 엔드포인트 도메인 |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 
@@ -260,8 +260,8 @@ X-Auth-Token: {tokenId}
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
-| servicegateway.domain_names | Body | Array | 서비스 API 엔드포인트 도메인 네임 정보 객체 목록 |
-| servicegateway.domain_names.domain_name | Body | String | 서비스 API 엔드포인트 도메인 네임 |
+| servicegateway.domain_names | Body | Array | API 엔드포인트 도메인 정보 객체 목록 |
+| servicegateway.domain_names.domain_name | Body | String | API 엔드포인트 도메인 |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
 
