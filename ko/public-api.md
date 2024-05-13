@@ -30,8 +30,8 @@ X-Auth-Token: {tokenId}
 | name | Query | String | - | 조회할 서비스 게이트웨이 이름 |
 | service_endpoint_id | Query | UUID | - | 조회할 서비스 게이트웨이의 서비스 엔드포인트 ID |
 | network_id | Query | UUID | - | 조회할 서비스 게이트웨이 VPC ID |
-| subnet_id | Query | UUID | - | 조회할 서비스 게이트웨이 Subnet ID |
-| port_id | Query | UUID | - | 조회할 서비스 게이트웨이 Port ID |
+| subnet_id | Query | UUID | - | 조회할 서비스 게이트웨이 서브넷 ID |
+| port_id | Query | UUID | - | 조회할 서비스 게이트웨이 포트 ID |
 | fixed_ip| Query | String | - | 조회할 서비스 게이트웨이 IP 주소 |
 
 
@@ -45,7 +45,7 @@ X-Auth-Token: {tokenId}
 | servicegateways.port_id | Body | UUID | 포트 ID |
 | servicegateways.tenant_id | Body | String | 테넌트 ID |
 | servicegateways.network_id | Body | UUID | VPC ID |
-| servicegateways.subnet_id | Body | UUID | Subnet ID |
+| servicegateways.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateways.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateways.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateways.description | Body | String | 서비스 게이트웨이 설명 |
@@ -100,7 +100,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.port_id | Body | UUID | 포트 ID |
 | servicegateway.tenant_id | Body | String | 테넌트 ID |
 | servicegateway.network_id | Body | UUID | VPC ID |
-| servicegateway.subnet_id | Body | UUID | Subnet ID |
+| servicegateway.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
@@ -151,7 +151,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.name | Body | String | - | 서비스 게이트웨이 이름 |
 | servicegateway.description | Body | String | - | 서비스 게이트웨이 설명 |
 | servicegateway.network_id | Body | UUID | O | VPC ID |
-| servicegateway.subnet_id | Body | UUID | O | Subnet ID |
+| servicegateway.subnet_id | Body | UUID | O | 서브넷 ID |
 | servicegateway.service_endpoint_id | Body | UUID | O | 서비스 엔드포인트 ID |
 
 
@@ -182,7 +182,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.port_id | Body | UUID | 포트 ID |
 | servicegateway.tenant_id | Body | String | 테넌트 ID |
 | servicegateway.network_id | Body | UUID | VPC ID |
-| servicegateway.subnet_id | Body | UUID | Subnet ID |
+| servicegateway.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
@@ -257,7 +257,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.port_id | Body | UUID | 포트 ID |
 | servicegateway.tenant_id | Body | String | 테넌트 ID |
 | servicegateway.network_id | Body | UUID | VPC ID |
-| servicegateway.subnet_id | Body | UUID | Subnet ID |
+| servicegateway.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
