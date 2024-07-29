@@ -19,7 +19,7 @@
 | IaaS API Network | IaaS API Network | https://kr1-api-network-infrastructure.gncloud.go.kr |
 | IaaS API Volume v2 | IaaS API Volume v2 | https://kr1api-block-storage-infrastructure.gncloud.go.kr |
 | IaaS API Container - Infra | IaaS API Container - Infra | https://kr1-api-kubernetes-infrastructure.gncloud.go.kr |
-| NHN Container Registry(NCR) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://`{region code}`-ncr.api.gncloud.go.kr |
+| NHN Container Registry(NCR) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com|
 | Object Storage | Object Storage | https://kr1-api-object-storage.gncloud.go.kr |
 | RDS for MySQL | API Gateway | https://kr1-rds-mysql.api.gncloud.go.kr |
 | CloudTrail | CloudTrail<br>API Gateway | https://cloud-trail.api.gncloud.go.kr |
