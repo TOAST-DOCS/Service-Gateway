@@ -28,7 +28,7 @@
 | IaaS API Network | IaaS API Network | https://`{region code}`-api-network-infrastructure.gov-nhncloudservice.com |
 | IaaS API Volume v2 | IaaS API Volume v2 | https://`{region code}`api-block-storage-infrastructure.gov-nhncloudservice.com |
 | IaaS API Container - Infra | IaaS API Container - Infra | https://`{region code}`-api-kubernetes-infrastructure.gov-nhncloudservice.com |
-| NHN Container Registry(NCR) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://`{region code}`-ncr.api.gov-nhncloudservice.com |
+| NHN Container Registry(NCR) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com |
 | DNS Plus | API Gateway | https://dnsplus.api.gov-nhncloudservice.com |
 | Object Storage | Object Storage | https://`{region code}`-api-object-storage.gov-nhncloudservice.com |
 | RDS for MySQL | API Gateway | https://`{region code}`-rds-mysql.api.gov-nhncloudservice.com |
