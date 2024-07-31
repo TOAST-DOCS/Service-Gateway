@@ -13,6 +13,7 @@ The **Service Gateway** service allows you to use the **services** of NHN Cloud 
 ### Provided Services
 
 If you need to access NHN Cloud's services from a VM Instance in the VPC without going through the internet, create a service gateway by selecting a service provided by the service gateway.
-For details on how to use each service, refer to the [**User Guide**](https://docs.nhncloud.com/zh/nhncloud/zh/overview/). The services provided will be increased gradually.
+For details on how to use each service, refer to the [**User Guide**](https://docs.nhncloud.com/zh/nhncloud/zh/overview/). 
 
-* IaaS API Identity is a service required to use object storage. For more detailed description, refer to [**User Guide > Storage > Object Storage > API Guide > Authentication Token Issuance**](https://docs.nhncloud.com/zh/Storage/Object%20Storage/zh/api-guide/).
+제공 서비스는 [서비스 엔드포인트](Network/Service%20Gateway/ko/service-endpoint/)를 참고하시기 바랍니다.
+The services provided will be increased gradually.

@@ -22,21 +22,23 @@
 
 | 서비스 | 서비스 게이트웨이 엔드포인트 이름 | 엔드포인트 주소 |
 | --- | ------------------ | -------- |
-| IaaS API Identity (nhncloudservice.com) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.gov-nhncloudservice.com |
-| IaaS API Key-Manager | IaaS API Key-Manager | https://`{region code}`-api-key-manager-infrastructure.gov-nhncloudservice.com |
-| IaaS API Compute | IaaS API Compute | https://`{region code}`-api-instance-infrastructure.gov-nhncloudservice.com |
-| IaaS API Network | IaaS API Network | https://`{region code}`-api-network-infrastructure.gov-nhncloudservice.com |
-| IaaS API Volume v2 | IaaS API Volume v2 | https://`{region code}`api-block-storage-infrastructure.gov-nhncloudservice.com |
-| IaaS API Container - Infra | IaaS API Container - Infra | https://`{region code}`-api-kubernetes-infrastructure.gov-nhncloudservice.com |
-| NHN Container Registry(NCR) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com |
-| DNS Plus | API Gateway | https://dnsplus.api.gov-nhncloudservice.com |
-| Object Storage | Object Storage | https://`{region code}`-api-object-storage.gov-nhncloudservice.com |
-| RDS for MySQL | API Gateway | https://`{region code}`-rds-mysql.api.gov-nhncloudservice.com |
-| RDS for MariaDB | API Gateway | https://`{region code}`-rds-mariadb.api.gov-nhncloudservice.com |
-| Security Monitoring | API Gateway | https://`{region code}`<-secmon.api.gov-nhncloudservice.com |
-| CDN | API Gateway | https://cdn.api.gov-nhncloudservice.com |
-| API Gateway | API Gateway | https://`{region code}`-apigateway.api.gov-nhncloudservice.com |
-| Pipeline | API Gateway | https://`{region code}`-pipeline.api.gov-nhncloudservice.com |
-| Certificate Manager | API Gateway | https://certmanager.api.gov-nhncloudservice.com |
-| CloudTrail | CloudTrail<br>API Gateway | https://cloud-trail.api.gov-nhncloudservice.com |
-| Resource Watcher | API Gateway | https://resource-watcher.api.gov-nhncloudservice.com |
+| [IaaS API Identity (nhncloudservice.com)](Compute/Compute/ko/identity-api/#token) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
+| [IaaS API Key-Manager](Network/Load%20Balancer/ko/public-api/) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
+| [IaaS API Compute](Compute/Instance/ko/public-api/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
+| [IaaS API Network](Network/VPC/ko/public-api/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
+| [IaaS API Volume v2](Storage/Block%20Storage/ko/public-api/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
+| [IaaS API Container - Infra](CContainer/NKS/ko/public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
+| [NHN Container Registry(NCR)](Container/NCR/ko/public-api) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com |
+| [DNS Plus](Network/DNS%20Plus/ko/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
+| [Object Storage](Storage/Object%20Storage/ko/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
+| [RDS for MySQL](Database/RDS%20for%20MySQL/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
+| [RDS for MariaDB](RDS%20for%20MariaDB/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
+| [Security Monitoring](Security/Security%20Monitoring/ko/api-guide-v1.1/) | API Gateway | https://{region code}-secmon.api.nhncloudservice.com |
+| [CDN](Contents%20Delivery/CDN/ko/api-guide-v2.0/) | API Gateway | https://cdn.api.nhncloudservice.com |
+| [API Gateway](Application%20Service/API%20Gateway/ko/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
+| [Pipeline](Dev%20Tools/Pipeline/ko/api-guide/) | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
+| [Certificate Manager](Management/Certificate%20Manager/ko/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
+| [CloudTrail](Governance%20&%20Audit/CloudTrail/ko/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
+| [Resource Watcher](Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com |
+
+
