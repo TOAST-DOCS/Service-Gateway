@@ -24,37 +24,39 @@
 
 | 서비스 | 서비스 게이트웨이 엔드포인트 이름 | 엔드포인트 주소 |
 | --- | ------------------ | -------- |
-| IaaS API Identity (nhncloudservice.com) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
-| IaaS API Key-Manager | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
-| IaaS API Compute | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
-| IaaS API Network | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
-| IaaS API Volume v2 | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
-| IaaS API Container - Infra | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
-| NHN Container Registry(NCR) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com |
-| DNS Plus | API Gateway | https://dnsplus.api.nhncloudservice.com |
-| Object Storage | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
-| RDS for MySQL | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
-| RDS for MariaDB | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
-| Server Security Check | Server Security Check | https://api-serversecuritycheck.nhncloudservice.com |
-| Security Monitoring | API Gateway | https://{region code}-secmon.api.nhncloudservice.com |
-| Gamebase | API Gateway | https://api-gamebase.nhncloudservice.com|
-| Launching | API Gateway | https://launching.api.nhncloudservice.com |
-| CDN | API Gateway | https://cdn.api.nhncloudservice.com |
-| RCS Bizmessage | API Gateway | https://rcs-bizmessage.api.nhncloudservice.com |
-| Email | API Gateway | https://email.api.nhncloudservice.com |
-| Face Recognition | API Gateway | https://face-recognition.api.nhncloudservice.com |
-| AI Fashion | API Gateway | https://api-aifashion.nhncloudservice.com |
-| OCR | API Gateway | https://ocr.api.nhncloudservice.com |
-| Text to Speech | API Gateway | https://speech.api.nhncloudservice.com |
-| Speech to Text | API Gateway | https://speech.api.nhncloudservice.com |
-| Pose Estimation | API Gateway | https://pose-estimation.api.nhncloudservice.com |
-| Maps | API Gateway | https://{region code}-maps.api.nhncloudservice.com |
-| ROLE | API Gateway | https://role.api.nhncloudservice.com |
-| API Gateway | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
-| Cloud Search | API Gateway | https://{region code}-search.api.nhncloudservice.com |
-| Autocomplete | API Gateway | https://{region code}-autocomplete.api.nhncloudservice.com |
-| Word Suggestion | API Gateway | https://word-suggestion.api.nhncloudservice.com |
-| Pipeline | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
-| Certificate Manager | API Gateway | https://certmanager.api.nhncloudservice.com |
-| CloudTrail | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
-| Resource Watcher | API Gateway | https://resource-watcher.api.nhncloudservice.com |
+| [IaaS API Identity (nhncloudservice.com)](Compute/Compute/ja/identity-api/#token) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
+| [IaaS API Key-Manager](Network/Load%20Balancer/ja/public-api/) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
+| [IaaS API Compute](Compute/Instance/ja/public-api/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
+| [IaaS API Network](Network/VPC/ja/public-api/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
+| [IaaS API Volume v2](Storage/Block%20Storage/ja/public-api/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
+| [IaaS API Container - Infra](CContainer/NKS/ja/public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
+| [NHN Container Registry(NCR)](Container/NCR/ja/public-api) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com |
+| [DNS Plus](Network/DNS%20Plus/ja/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
+| [Object Storage](Storage/Object%20Storage/ja/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
+| [RDS for MySQL](Database/RDS%20for%20MySQL/ja/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
+| [RDS for MariaDB](RDS%20for%20MariaDB/ja/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
+| [Server Security Check](Security/Server%20Security%20Check/ja/Overview/) | Server Security Check | https://api-serversecuritycheck.nhncloudservice.com |
+| [Security Monitoring](Security/Security%20Monitoring/ja/api-guide-v1.1/) | API Gateway | https://{region code}-secmon.api.nhncloudservice.com |
+| [Gamebase](Game/Gamebase/ja/api-guide/) | API Gateway | https://api-gamebase.nhncloudservice.com|
+| [Launching](Game/Launching/ja/api-guide/) | API Gateway | https://launching.api.nhncloudservice.com |
+| [CDN](Contents%20Delivery/CDN/ja/api-guide-v2.0/) | API Gateway | https://cdn.api.nhncloudservice.com |
+| [RCS Bizmessage](Notification/RCS%20Bizmessage/ja/api-guide/) | API Gateway | https://rcs-bizmessage.api.nhncloudservice.com |
+| [Email](Notification/Email/ja/api-guide/) | API Gateway | https://email.api.nhncloudservice.com |
+| [Face Recognition](AI%20Service/Face%20Recognition/ja/api-guide-v2.0/) | API Gateway | https://face-recognition.api.nhncloudservice.com |
+| [AI Fashion](AI%20Service/AI%20Fashion/ja/api-guide-v2.0/) | API Gateway | https://api-aifashion.nhncloudservice.com |
+| [OCR](AI%20Service/OCR/ja/general-ocr-api-guide/) | API Gateway | https://ocr.api.nhncloudservice.com |
+| [Text to Speech](AI%20Service/Text%20to%20Speech/ja/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
+| [Speech to Text](AI%20Service/Speech%20to%20Text/ja/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
+| [Pose Estimation](AI%20Service/Pose%20Estimation/ja/api-guide/) | API Gateway | https://pose-estimation.api.nhncloudservice.com |
+| [Maps](Application%20Service/Maps/ja/api-guide-v3.0/) | API Gateway | https://{region code}-maps.api.nhncloudservice.com |
+| [ROLE](Application%20Service/ROLE/ja/api-v3-guide/) | API Gateway | https://role.api.nhncloudservice.com |
+| [API Gateway](Application%20Service/API%20Gateway/ja/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
+| [Cloud Search](Search/Cloud%20Search/ja/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-search.api.nhncloudservice.com |
+| [Autocomplete](Search/Autocomplete/ja/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-autocomplete.api.nhncloudservice.com |
+| [Word Suggestion](Search/Word%20Suggestion/ja/api-guide/) | API Gateway | https://word-suggestion.api.nhncloudservice.com |
+| [Pipeline](Dev%20Tools/Pipeline/ja/api-guide/) | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
+| [Certificate Manager](Management/Certificate%20Manager/ja/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
+| [CloudTrail](Governance%20&%20Audit/CloudTrail/ja/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
+| [Resource Watcher](Governance%20&%20Audit/Resource%20Watcher/ja/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com |
+
+
