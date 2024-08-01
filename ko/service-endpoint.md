@@ -50,7 +50,7 @@
 | [Pose Estimation](/AI%20Service/Pose%20Estimation/ko/api-guide/) | API Gateway | https://pose-estimation.api.nhncloudservice.com |
 | [Maps](/Application%20Service/Maps/ko/api-guide-v3.0/) | API Gateway | https://{region code}-maps.api.nhncloudservice.com |
 | [ROLE](/Application%20Service/ROLE/ko/api-v3-guide/) | API Gateway | https://role.api.nhncloudservice.com |
-| [API Gateway](A/pplication%20Service/API%20Gateway/ko/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
+| [API Gateway](/Application%20Service/API%20Gateway/ko/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
 | [Cloud Search](/Search/Cloud%20Search/ko/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-search.api.nhncloudservice.com |
 | [Autocomplete](/Search/Autocomplete/ko/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-autocomplete.api.nhncloudservice.com |
 | [Word Suggestion](/Search/Word%20Suggestion/ko/api-guide/) | API Gateway | https://word-suggestion.api.nhncloudservice.com |
