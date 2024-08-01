@@ -15,4 +15,4 @@ The **Service Gateway** service allows you to use the **services** of NHN Cloud 
 If you need to access NHN Cloud's services from a VM Instance in the VPC without going through the internet, create a service gateway by selecting a service provided by the service gateway.
 For details on how to use each service, refer to the [**User Guide**](https://docs.nhncloud.com/en/nhncloud/en/overview/). 
 
-제공 서비스는 [**Service Endpoint**](Network/Service%20Gateway/ko/service-endpoint/)를 참고하시기 바랍니다.The services provided will be increased gradually.
+제공 서비스는 [**Service Endpoint**](/Network/Service%20Gateway/ko/service-endpoint/)를 참고하시기 바랍니다.The services provided will be increased gradually.
