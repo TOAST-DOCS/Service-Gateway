@@ -34,7 +34,7 @@
 | [DNS Plus](/Network/DNS%20Plus/zh/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
 | [Object Storage](/Storage/Object%20Storage/zh/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
 | [RDS for MySQL](/Database/RDS%20for%20MySQL/zh/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
-| [RDS for MariaDB](/Database/RDS%20for%20MariaDB/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
+| [RDS for MariaDB](/Database/RDS%20for%20MariaDB/zh/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
 | [Server Security Check](/Security/Server%20Security%20Check/zh/Overview/) | Server Security Check | https://api-serversecuritycheck.nhncloudservice.com |
 | [Security Monitoring](/Security/Security%20Monitoring/zh/api-guide-v1.1/) | API Gateway | https://{region code}-secmon.api.nhncloudservice.com |
 | [Gamebase](/Game/Gamebase/zh/api-guide/) | API Gateway | https://api-gamebase.nhncloudservice.com|
@@ -50,7 +50,7 @@
 | [Pose Estimation](/AI%20Service/Pose%20Estimation/zh/api-guide/) | API Gateway | https://pose-estimation.api.nhncloudservice.com |
 | [Maps](/Application%20Service/Maps/zh/api-guide-v3.0/) | API Gateway | https://{region code}-maps.api.nhncloudservice.com |
 | [ROLE](/Application%20Service/ROLE/zh/api-v3-guide/) | API Gateway | https://role.api.nhncloudservice.com |
-| [API Gateway](A/pplication%20Service/API%20Gateway/zh/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
+| [API Gateway](/Application%20Service/API%20Gateway/zh/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
 | [Cloud Search](/Search/Cloud%20Search/zh/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-search.api.nhncloudservice.com |
 | [Autocomplete](/Search/Autocomplete/zh/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-autocomplete.api.nhncloudservice.com |
 | [Word Suggestion](/Search/Word%20Suggestion/zh/api-guide/) | API Gateway | https://word-suggestion.api.nhncloudservice.com |
