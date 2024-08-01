@@ -32,7 +32,7 @@
 | [DNS Plus](/Network/DNS%20Plus/ko/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
 | [Object Storage](/Storage/Object%20Storage/ko/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
 | [RDS for MySQL](/Database/RDS%20for%20MySQL/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
-| [RDS for MariaDB](/RDS%20for%20MariaDB/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
+| [RDS for MariaDB](/Database/RDS%20for%20MariaDB/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
 | [Security Monitoring](/Security/Security%20Monitoring/ko/api-guide-v1.1/) | API Gateway | https://{region code}-secmon.api.nhncloudservice.com |
 | [CDN](/Contents%20Delivery/CDN/ko/api-guide-v2.0/) | API Gateway | https://cdn.api.nhncloudservice.com |
 | [API Gateway](/Application%20Service/API%20Gateway/ko/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |

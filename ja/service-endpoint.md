@@ -34,7 +34,7 @@
 | [DNS Plus](/Network/DNS%20Plus/ja/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
 | [Object Storage](/Storage/Object%20Storage/ja/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
 | [RDS for MySQL](/Database/RDS%20for%20MySQL/ja/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
-| [RDS for MariaDB](/RDS%20for%20MariaDB/ja/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
+| [RDS for MariaDB](/Database/RDS%20for%20MariaDB/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mariadb.api.nhncloudservice.com |
 | [Server Security Check](/Security/Server%20Security%20Check/ja/Overview/) | Server Security Check | https://api-serversecuritycheck.nhncloudservice.com |
 | [Security Monitoring](/Security/Security%20Monitoring/ja/api-guide-v1.1/) | API Gateway | https://{region code}-secmon.api.nhncloudservice.com |
 | [Gamebase](/Game/Gamebase/ja/api-guide/) | API Gateway | https://api-gamebase.nhncloudservice.com|
