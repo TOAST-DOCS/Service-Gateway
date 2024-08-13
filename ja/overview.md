@@ -15,5 +15,4 @@
 VPCのVM Instanceからインターネットを経由せずにNHN Cloudのサービスにアクセスする必要がある場合は、サービスゲートウェイで提供されるサービスを選択してサービスゲートウェイを作成します。
 詳細な使い方は[**ユーザーガイド**](https://docs.nhncloud.com/ja/nhncloud/ja/overview/)を参照してください。
 
-제공 서비스는 [**サービスエンドポイント**](/Network/Service%20Gateway/ko/service-endpoint/)를 참고하시기 바랍니다. 提供されるサービスは順次増える予定です。
-
+提供サービス提供[**サービスエンドポイント**](/Network/Service%20Gateway/ko/service-endpoint/)ポイントをご覧ください。提供されるサービスは徐々に拡大していく予定です。
