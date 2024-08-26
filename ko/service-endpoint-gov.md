@@ -24,7 +24,7 @@
 | --- | ------------------ | -------- |
 | [IaaS API Identity (nhncloudservice.com)](/Compute/Compute/ko/identity-api-gov/#token) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
 | [IaaS API Key-Manager](/Network/Load%20Balancer/ko/public-api-gov/) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
-| [IaaS API Compute](/Compute/Instance/ko/public-api/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
+| [IaaS API Compute](/Compute/Instance/ko/public-api-gov/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
 | [IaaS API Network](/Network/VPC/ko/public-api-gov/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
 | [IaaS API Volume v2](/Storage/Block%20Storage/ko/public-api-gov/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
 | [IaaS API Container - Infra](/Container/NKS/ko/gov-public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
