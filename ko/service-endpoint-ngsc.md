@@ -13,13 +13,12 @@
 
 | 서비스 | 서비스 게이트웨이 엔드포인트 이름 | 엔드포인트 주소 |
 | --- | ------------------ | -------- |
-| [IaaS API Identity (nhncloudservice.com)](/Compute/Compute/ko/identity-api/#token) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
-| [IaaS API Key-Manager](/Network/Load%20Balancer/ko/public-api/) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
-| [IaaS API Compute](/Compute/Instance/ko/public-api/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
-| [IaaS API Network](/Network/VPC/ko/public-api/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
-| [IaaS API Volume v2](/Storage/Block%20Storage/ko/public-api/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
-| [IaaS API Container - Infra](/Container/NKS/ko/public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
-| [NHN Container Registry(NCR)](/Container/NCR/ko/public-api) | NHN Container Registry(NCR)<br>API Gateway | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com |
-| [Object Storage](/Storage/Object%20Storage/ko/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
-| [RDS for MySQL](/Database/RDS%20for%20MySQL/ko/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
-| [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
+| IaaS API Identity (nhncloudservice.com) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
+| [IaaS API Key-Manager](/Network/Load%20Balancer/ko/overview-ngsc) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
+| [IaaS API Compute](/Compute/Instance/ko/overview-gov/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
+| [IaaS API Network](/Network/VPC/ko/overview/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
+| [IaaS API Volume v2](/Storage/Block%20Storage/ko/overview/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
+| [IaaS API Container - Infra](/Container/NKS/ko/overview/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
+| [NHN Container Registry(NCR)](/Container/NCR/ko/overview-ngsc) | NHN Container Registry(NCR) | 사용자 레지스트리 URI<br>https://{region code}-ncr.api.nhncloudservice.com |
+| [Object Storage](/Storage/Object%20Storage/ko/api-guide-ngsc/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
+| [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide-ngsc/) | CloudTrail | https://cloud-trail.api.nhncloudservice.com |
