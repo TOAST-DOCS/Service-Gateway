@@ -13,6 +13,6 @@
 ### 提供サービス
 
 VPCのVM Instanceからインターネットを経由せずにNHN Cloudのサービスにアクセスする必要がある場合は、サービスゲートウェイで提供されるサービスを選択してサービスゲートウェイを作成します。
-詳細な使い方は[**ユーザーガイド**](https://docs.nhncloud.com/ja/nhncloud/ja/overview/)を参照してください。提供されるサービスは順次増える予定です。
+詳細な使い方は[**ユーザーガイド**](https://docs.nhncloud.com/ja/nhncloud/ja/overview/)を参照してください。
 
-* IaaS API Identity項目はオブジェクトストレージの利用に必要なサービスです。 詳細については[**ユーザーガイド > Storage > Object Storage > APIガイド > 認証トークン発行**](https://docs.nhncloud.com/ja/Storage/Object%20Storage/ja/api-guide/)を参照してください。
+提供サービス提供[**サービスエンドポイント**](/Network/Service%20Gateway/ko/service-endpoint/)ポイントをご覧ください。提供されるサービスは徐々に拡大していく予定です。

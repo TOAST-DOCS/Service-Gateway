@@ -15,4 +15,6 @@
 VPC의 VM Instance에서 인터넷을 경유하지 않고 NHN Cloud의 서비스에 접근이 필요한 경우 서비스 게이트웨이에서 제공되는 서비스를 선택하여 서비스 게이트웨이를 생성합니다.
 자세한 사용 방법은 [**사용자 가이드**](/nhncloud/ko/overview-gov/)를 참고하시기 바랍니다. 제공되는 서비스는 점차 늘려나갈 예정입니다.
 
+제공 서비스는 [**서비스 엔드포인트**](/Network/Service%20Gateway/ko/service-endpoint-gov/)를 참고하세요. 제공되는 서비스는 점차 확대될 예정입니다.
+
 * IaaS API Identity 항목은 오브젝트 스토리지 이용에 필요한 서비스입니다. 더 자세한 설명은 [**사용자 가이드 > Storage > Object Storage > API 가이드 > 인증 토큰 발급**](/Storage/Object%20Storage/ko/api-guide-gov/)을 참고하시기 바랍니다.
