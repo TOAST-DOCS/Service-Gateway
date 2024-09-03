@@ -20,3 +20,5 @@
 | [IaaS API Container - Infra](/Container/NKS/ko/overview/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.gncloud.go.kr |
 | [NHN Container Registry(NCR)](/Container/NCR/ko/overview-ngsc) | NHN Container Registry(NCR) | 사용자 레지스트리 URI |
 | [Object Storage](/Storage/Object%20Storage/ko/api-guide-ngsc/) | Object Storage | https://{region code}-api-object-storage.gncloud.go.kr |
+| [RDS for MySQL](/Database/RDS%20for%20MySQL/ko/api-guide-v3.0-ngsc/) | API Gateway | https://{region code}-rds-mysql.api.gov-nhncloudservice.com |
+| [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide-ngsc/) | API Gateway | https://cloud-trail.api.gov-nhncloudservice.com |
