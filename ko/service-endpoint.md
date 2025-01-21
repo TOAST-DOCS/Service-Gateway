@@ -43,7 +43,6 @@
 | [RCS Bizmessage](/Notification/RCS%20Bizmessage/ko/api-guide/) | API Gateway | https://rcs-bizmessage.api.nhncloudservice.com |
 | [Email](/Notification/Email/ko/api-guide/) | API Gateway | https://email.api.nhncloudservice.com |
 | [Face Recognition](/AI%20Service/Face%20Recognition/ko/api-guide-v2.0/) | API Gateway | https://face-recognition.api.nhncloudservice.com |
-| [AI Fashion](/AI%20Service/AI%20Fashion/ko/api-guide-v2.0/) | API Gateway | https://api-aifashion.nhncloudservice.com |
 | [OCR](/AI%20Service/OCR/ko/general-ocr-api-guide/) | API Gateway | https://ocr.api.nhncloudservice.com |
 | [Text to Speech](/AI%20Service/Text%20to%20Speech/ko/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
 | [Speech to Text](/AI%20Service/Speech%20to%20Text/ko/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
