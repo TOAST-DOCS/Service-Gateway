@@ -325,7 +325,7 @@ X-Auth-Token: {tokenId}
 
 ## 서비스 엔드포인트
 
-### 서비스 엔드포인트 보기
+### 서비스 엔드포인트 목록 보기
 
 ```
 GET /v2.0/gateways/serviceendpoints/
