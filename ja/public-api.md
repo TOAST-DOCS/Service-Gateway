@@ -152,6 +152,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.description | Body | String | - | サービスゲートウェイの説明 |
 | servicegateway.network_id | Body | UUID | O | VPC ID |
 | servicegateway.subnet_id | Body | UUID | O | サブネットID |
+| servicegateway.fixed_ip | Body | String | - | サービスゲートウェイIPアドレス |
 | servicegateway.service_endpoint_id | Body | UUID | O | サービスエンドポイントID |
 
 
@@ -164,6 +165,7 @@ X-Auth-Token: {tokenId}
   "servicegateway": {
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "subnet_id": "72d9d6e0-3ee2-4287-bcf9-be45a8422ff1",
+    "fixed_ip": "192.168.0.82",    
     "service_endpoint_id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5",
     "name": "sgw_test",
     "description": "test"
@@ -323,7 +325,7 @@ X-Auth-Token: {tokenId}
 
 ## サービスエンドポイント
 
-### サービスエンドポイント表示
+### サービスエンドポイントリスト表示
 
 ```
 GET /v2.0/gateways/serviceendpoints/
