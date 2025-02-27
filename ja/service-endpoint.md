@@ -47,13 +47,11 @@
 | [OCR](/AI%20Service/OCR/ko/general-ocr-api-guide/) | API Gateway | https://ocr.api.nhncloudservice.com |
 | [Text to Speech](/AI%20Service/Text%20to%20Speech/ko/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
 | [Speech to Text](/AI%20Service/Speech%20to%20Text/ko/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
-| [Pose Estimation](/AI%20Service/Pose%20Estimation/ko/api-guide/) | API Gateway | https://pose-estimation.api.nhncloudservice.com |
 | [Maps](/Application%20Service/Maps/ko/api-guide-v3.0/) | API Gateway | https://{region code}-maps.api.nhncloudservice.com |
 | [ROLE](/Application%20Service/ROLE/ko/api-v3-guide/) | API Gateway | https://role.api.nhncloudservice.com |
 | [API Gateway](/Application%20Service/API%20Gateway/ko/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
 | [Cloud Search](/Search/Cloud%20Search/ko/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-search.api.nhncloudservice.com |
 | [Autocomplete](/Search/Autocomplete/ko/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-autocomplete.api.nhncloudservice.com |
-| [Word Suggestion](/Search/Word%20Suggestion/ko/api-guide/) | API Gateway | https://word-suggestion.api.nhncloudservice.com |
 | [Pipeline](/Dev%20Tools/Pipeline/ko/api-guide/) | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
 | [Certificate Manager](/Management/Certificate%20Manager/ko/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
