@@ -13,6 +13,6 @@
 ### 提供サービス
 
 VPCのVM Instanceからインターネットを経由せずにNHN Cloudのサービスにアクセスする必要がある場合は、サービスゲートウェイで提供されるサービスを選択してサービスゲートウェイを作成します。
-詳細な使い方は[**ユーザーガイド**](/Network/Service%20Gateway/ja/console-guide/)を参照してください。
+詳細な使い方は[Service Gateway > コンソール使用ガイド](/Network/Service%20Gateway/ja/console-guide/)を参照してください。
 
 提供サービス提供[**サービスエンドポイント**](/Network/Service%20Gateway/ja/service-endpoint/)ポイントをご覧ください。提供されるサービスは徐々に拡大していく予定です。
