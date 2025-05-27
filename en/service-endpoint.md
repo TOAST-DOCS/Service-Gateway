@@ -52,6 +52,7 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [API Gateway](/Application%20Service/API%20Gateway/en/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
 | [Cloud Search](/Search/Cloud%20Search/en/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-search.api.nhncloudservice.com |
 | [Autocomplete](/Search/Autocomplete/en/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-autocomplete.api.nhncloudservice.com |
+| [Log & Crash Search](/Data%20&%20Analytics/Log%20&%20Crash%20Search/ko/api-guide/) | Log & Crash Search | https://api-logncrash.nhncloudservice.com |
 | [Pipeline](/Dev%20Tools/Pipeline/en/api-guide/) | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
 | [Certificate Manager](/Management/Certificate%20Manager/en/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/en/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
