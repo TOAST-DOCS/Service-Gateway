@@ -56,4 +56,4 @@
 | [Pipeline](/Dev%20Tools/Pipeline/ko/api-guide/) | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
 | [Certificate Manager](/Management/Certificate%20Manager/ko/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
-| [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com |
+| [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
