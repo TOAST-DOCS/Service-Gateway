@@ -57,3 +57,6 @@
 | [Certificate Manager](/Management/Certificate%20Manager/ko/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
+| [API Authentication](nhncloud/ko/public-api/api-authentication/) | Oauth | https://oauth.api.nhncloudservice.com | 
+| [Framework API](nhncloud/ko/public-api/framework-api/) | Core | https://core.api.nhncloudservice.com | 
+
