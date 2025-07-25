@@ -41,8 +41,8 @@
 | [Certificate Manager](/Management/Certificate%20Manager/ko/api-guide-v1.1-gov/) | API Gateway | https://certmanager.api.gov-nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide-gov/) | CloudTrail<br>API Gateway | https://cloud-trail.api.gov-nhncloudservice.com |
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide-gov/) | API Gateway | https://resource-watcher.api.gov-nhncloudservice.com | 
-| [API Authentication](nhncloud/ko/public-api/api-authentication/) | Oauth | https://oauth.api.nhncloudservice.com | 
-| [Framework API](nhncloud/ko/public-api/framework-api/) | Core | https://core.api.nhncloudservice.com | 
+| [API Authentication](/nhncloud/ko/public-api/api-authentication/) | Oauth | https://oauth.api.nhncloudservice.com | 
+| [Framework API](/nhncloud/ko/public-api/framework-api/) | Core | https://core.api.nhncloudservice.com | 
 
 
 
