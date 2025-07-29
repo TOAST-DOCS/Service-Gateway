@@ -43,11 +43,7 @@
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide-gov/) | API Gateway | https://resource-watcher.api.gov-nhncloudservice.com | 
 | [API Authentication](/nhncloud/ko/public-api/api-authentication/) | Oauth | https://oauth.api.nhncloudservice.com | 
 | [Framework API](/nhncloud/ko/public-api/framework-api/) | Core | https://core.api.nhncloudservice.com | 
-
-=======
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide-gov/) | API Gateway | https://resource-watcher.api.gov-nhncloudservice.com | 
 | [API Authentication](/nhncloud/ko/public-api/api-authentication/) | Oauth | https://oauth.api.nhncloudservice.com | 
 | [Framework API](/nhncloud/ko/public-api/framework-api/) | Core | https://core.api.nhncloudservice.com | 
->>>>>>> 0880840 (Merge branch 'alpha' into beta)
-
 
