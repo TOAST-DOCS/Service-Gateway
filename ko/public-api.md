@@ -269,6 +269,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateway.include_gateway_identity| Body | Boolean | NAT IP 주소 고정 사용 여부 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
 | servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
@@ -281,7 +282,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
-    "include_gateway_identity": true,
+    "include_gateway_identity": false,
     "description": "test1",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
