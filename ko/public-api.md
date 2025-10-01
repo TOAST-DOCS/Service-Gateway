@@ -205,7 +205,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
-    "include_gateway_identity": true,
+    "include_gateway_identity": false,
     "description": "",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
