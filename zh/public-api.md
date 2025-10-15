@@ -33,6 +33,7 @@ This API does not require a request body.
 | subnet_id | Query | UUID | - | The subnet ID of the service gateway to retrieve |
 | port_id | Query | UUID | - | The port ID of the service gateway to retrieve |
 | fixed_ip| Query | String | - | The IP address of the service gateway to retrieve |
+include_gateway_identity| Query | Boolean | - | Whether to use fixed NAT IP address |
 
 
 #### Response
@@ -47,6 +48,7 @@ This API does not require a request body.
 | servicegateways.network_id | Body | UUID | VPC ID |
 | servicegateways.subnet_id | Body | UUID | Subnet ID |
 | servicegateways.fixed_ip | Body | String | The IP address of the service gateway |
+| servicegateways.include_gateway_identity| Body | Boolean | Whether to use fixed NAT IP address |
 | servicegateways.service_endpoint_id | Body | UUID | Service endpoint ID |
 | servicegateways.description | Body | String | The description for the service gateway |
 
@@ -57,6 +59,7 @@ This API does not require a request body.
   "servicegateways": [
     {
       "status": "AVAILABLE",
+      "include_gateway_identity": true,
       "description": "",
       "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
       "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -102,6 +105,7 @@ This API does not require a request body.
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | The IP address of the service gateway |
+| servicegateway.include_gateway_identity| Body | Boolean | Whether to use fixed NAT IP address |
 | servicegateway.service_endpoint_id | Body | UUID | Service endpoint ID |
 | servicegateway.api_endpoints | Body | Array | List of API endpoint information objects |
 | servicegateway.api_endpoints.domain_name | Body | String | API endpoint domain |
@@ -113,6 +117,7 @@ This API does not require a request body.
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": true,
     "description": "",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -153,6 +158,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | O | VPC ID |
 | servicegateway.subnet_id | Body | UUID | O | Subnet ID |
 | servicegateway.fixed_ip | Body | String | - | Service gateway IP address |
+| servicegateway.include_gateway_identity| Body | Boolean | - | Whether to use fixed NAT IP address |
 | servicegateway.service_endpoint_id | Body | UUID | O | Service endpoint ID |
 
 
@@ -186,6 +192,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | The IP address of the service gateway |
+| servicegateway.include_gateway_identity| Body | Boolean | Whether to sue fixed NAT IP address |
 | servicegateway.service_endpoint_id | Body | UUID | Service endpoint ID |
 | servicegateway.api_endpoints | Body | Array | List of API endpoint information objects |
 | servicegateway.api_endpoints.domain_name | Body | String | API endpoint domain |
@@ -199,6 +206,7 @@ X-Auth-Token: {tokenId}
   "servicegateway": {
     "status": "AVAILABLE",
     "description": "",
+    "include_gateway_identity": false,
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
     "fixed_ip": "192.168.0.82",
@@ -261,6 +269,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | Subnet ID |
 | servicegateway.fixed_ip | Body | String | The IP address of the service gateway |
+| servicegateway.include_gateway_identity| Body | Boolean | Whether to use fixed NAT IP address |
 | servicegateway.service_endpoint_id | Body | UUID | Service endpoint ID |
 | servicegateway.api_endpoints | Body | Array | List of API endpoint information objects |
 | servicegateway.api_endpoints.domain_name | Body | String | API endpoint domain |
@@ -273,6 +282,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": false,
     "description": "test1",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -350,6 +360,7 @@ This API does not require a request body.
 | serviceendpoints | Body | Array | List of service endpoint information objects |
 | serviceendpoints.id | Body | UUID | Service endpoint ID |
 | serviceendpoints.display_name | Body | String | The name of the service endpoint to appear in the console |
+| serviceendpoints.support_gateway_identity | Body | Boolean | Whether to use fixed NAT IP address |
 | serviceendpoints.description | Body | String | The description for the service endpoint |
 
 <details><summary>Example</summary>
@@ -359,6 +370,7 @@ This API does not require a request body.
   "serviceendpoints": [
     {
       "display_name": "Object Storage",
+      "support_gateway_identity": true,
       "description": "",
       "name": "OBS",
       "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
@@ -391,6 +403,7 @@ This API does not require a request body.
 | serviceendpoint | Body | Object | Service endpoint information object  |
 | serviceendpoint.id | Body | UUID | Service endpoint ID |
 | serviceendpoint.display_name | Body | String | The name of the service endpoint to appear in the console |
+| serviceendpoint.support_gateway_identity | Body | Boolean | Whether to use fixed NAT IP address |
 | serviceendpoint.description | Body | String | The description for the service endpoint |
 
 <details><summary>Example</summary>
@@ -399,6 +412,7 @@ This API does not require a request body.
 {
   "serviceendpoint": {
       "display_name": "Object Storage",
+      "support_gateway_identity": true,
       "description": "",
       "name": "OBS",
       "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
