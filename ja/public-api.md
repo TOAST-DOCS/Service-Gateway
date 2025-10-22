@@ -33,6 +33,7 @@ X-Auth-Token: {tokenId}
 | subnet_id | Query | UUID | - | 照会するサービスゲートウェイサブネットID |
 | port_id | Query | UUID | - | 照会するサービスゲートウェイポートID |
 | fixed_ip| Query | String | - | 照会するサービスゲートウェイIPアドレス |
+| include_gateway_identity| Query | Boolean | - | NAT IPアドレス固定の使用有無 |
 
 
 #### レスポンス
@@ -47,6 +48,7 @@ X-Auth-Token: {tokenId}
 | servicegateways.network_id | Body | UUID | VPC ID |
 | servicegateways.subnet_id | Body | UUID | サブネットID |
 | servicegateways.fixed_ip | Body | String | サービスゲートウェイIPアドレス |
+| servicegateways.include_gateway_identity| Body | Boolean | NAT IPアドレス固定の使用有無 |
 | servicegateways.service_endpoint_id | Body | UUID | サービスエンドポイントID |
 | servicegateways.description | Body | String | サービスゲートウェイの説明 |
 
@@ -57,6 +59,7 @@ X-Auth-Token: {tokenId}
   "servicegateways": [
     {
       "status": "AVAILABLE",
+      "include_gateway_identity": true,
       "description": "",
       "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
       "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -102,6 +105,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | サブネットID |
 | servicegateway.fixed_ip | Body | String | サービスゲートウェイIPアドレス |
+| servicegateway.include_gateway_identity| Body | Boolean | NAT IPアドレス固定の使用有無 |
 | servicegateway.service_endpoint_id | Body | UUID | サービスエンドポイントID |
 | servicegateway.api_endpoints | Body | Array | APIエンドポイント情報オブジェクトリスト |
 | servicegateway.api_endpoints.domain_name | Body | String | APIエンドポイントドメイン |
@@ -113,6 +117,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": true,
     "description": "",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -153,6 +158,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | O | VPC ID |
 | servicegateway.subnet_id | Body | UUID | O | サブネットID |
 | servicegateway.fixed_ip | Body | String | - | サービスゲートウェイIPアドレス |
+| servicegateway.include_gateway_identity| Body | Boolean | - | NAT IPアドレス固定の使用有無 |
 | servicegateway.service_endpoint_id | Body | UUID | O | サービスエンドポイントID |
 
 
@@ -186,6 +192,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | サブネットID |
 | servicegateway.fixed_ip | Body | String | サービスゲートウェイIPアドレス |
+| servicegateway.include_gateway_identity| Body | Boolean | NAT IPアドレス固定の使用有無 |
 | servicegateway.service_endpoint_id | Body | UUID | サービスエンドポイントID |
 | servicegateway.api_endpoints | Body | Array | APIエンドポイント情報オブジェクトリスト |
 | servicegateway.api_endpoints.domain_name | Body | String | APIエンドポイントドメイン |
@@ -198,6 +205,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": false,
     "description": "",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -261,6 +269,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | サブネットID |
 | servicegateway.fixed_ip | Body | String | サービスゲートウェイIPアドレス |
+| servicegateway.include_gateway_identity| Body | Boolean | NAT IPアドレス固定の使用有無 |
 | servicegateway.service_endpoint_id | Body | UUID | サービスエンドポイントID |
 | servicegateway.api_endpoints | Body | Array | APIエンドポイント情報オブジェクトリスト |
 | servicegateway.api_endpoints.domain_name | Body | String | APIエンドポイントドメイン |
@@ -273,6 +282,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": false,
     "description": "test1",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -350,6 +360,7 @@ X-Auth-Token: {tokenId}
 | serviceendpoints | Body | Array | サービスエンドポイント情報オブジェクトリスト |
 | serviceendpoints.id | Body | UUID | サービスエンドポイントID |
 | serviceendpoints.display_name | Body | String | コンソールに出力されるサービスエンドポイントの名前 |
+| serviceendpoints.support_gateway_identity | Body | Boolean | NAT IPアドレス固定の使用有無 |
 | serviceendpoints.description | Body | String | サービスエンドポイントの説明 |
 
 <details><summary>例</summary>
@@ -359,6 +370,7 @@ X-Auth-Token: {tokenId}
   "serviceendpoints": [
     {
       "display_name": "Object Storage",
+      "support_gateway_identity": true,
       "description": "",
       "name": "OBS",
       "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
@@ -391,6 +403,7 @@ X-Auth-Token: {tokenId}
 | serviceendpoint | Body | Object | サービスエンドポイント情報オブジェクト |
 | serviceendpoint.id | Body | UUID | サービスエンドポイントID |
 | serviceendpoint.display_name | Body | String | コンソールに出力されるサービスエンドポイントの名前 |
+| serviceendpoint.support_gateway_identity | Body | Boolean | NAT IPアドレス固定の使用有無 |
 | serviceendpoint.description | Body | String | サービスエンドポイントの説明 |
 
 <details><summary>例</summary>
@@ -399,6 +412,7 @@ X-Auth-Token: {tokenId}
 {
   "serviceendpoint": {
       "display_name": "Object Storage",
+      "support_gateway_identity": true,
       "description": "",
       "name": "OBS",
       "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
