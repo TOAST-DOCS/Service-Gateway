@@ -31,6 +31,7 @@
 | [IaaS API Volume v2](/Storage/Block%20Storage/jp/public-api/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
 | [IaaS API Container - Infra](/Container/NKS/jp/public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
 | [NHN Container Registry(NCR)](/Container/NCR/jp/public-api) | NHN Container Registry(NCR)<br>API Gateway | ユーザーレジストリURI<br>https://{region code}-ncr.api.nhncloudservice.com |
+| [NHN Container Service(NCS)](/Container/NCS/jp/public-api) | API Gateway | https://{region code}-ncs.api.nhncloudservice.com |
 | [DNS Plus](/Network/DNS%20Plus/jp/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
 | [Object Storage](/Storage/Object%20Storage/jp/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
 | [RDS for MySQL](/Database/RDS%20for%20MySQL/jp/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |

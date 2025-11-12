@@ -31,6 +31,7 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [IaaS API Volume v2](/Storage/Block%20Storage/en/public-api/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
 | [IaaS API Container - Infra](/Container/NKS/en/public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
 | [NHN Container Registry(NCR)](/Container/NCR/en/public-api) | NHN Container Registry(NCR)<br>API Gateway | User registry URI<br>https://{region code}-ncr.api.nhncloudservice.com |
+| [NHN Container Service(NCS)](/Container/NCS/en/public-api) | API Gateway | https://{region code}-ncs.api.nhncloudservice.com |
 | [DNS Plus](/Network/DNS%20Plus/en/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
 | [Object Storage](/Storage/Object%20Storage/en/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
 | [RDS for MySQL](/Database/RDS%20for%20MySQL/en/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
