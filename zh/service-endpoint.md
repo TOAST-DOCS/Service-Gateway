@@ -31,6 +31,7 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [IaaS API Volume v2](/Storage/Block%20Storage/zh/public-api/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
 | [IaaS API Container - Infra](/Container/NKS/zh/public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
 | [NHN Container Registry(NCR)](/Container/NCR/zh/public-api) | NHN Container Registry(NCR)<br>API Gateway | User registry URI<br>https://{region code}-ncr.api.nhncloudservice.com |
+| [NHN Container Service(NCS)](/Container/NCS/zh/public-api) | API Gateway | https://{region code}-ncs.api.nhncloudservice.com |
 | [DNS Plus](/Network/DNS%20Plus/zh/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
 | [Object Storage](/Storage/Object%20Storage/zh/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
 | [RDS for MySQL](/Database/RDS%20for%20MySQL/zh/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
@@ -53,7 +54,7 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [API Gateway](/Application%20Service/API%20Gateway/zh/api-guide-v1.0/) | API Gateway | https://{region code}-apigateway.api.nhncloudservice.com |
 | [Cloud Search](/Search/Cloud%20Search/zh/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-search.api.nhncloudservice.com |
 | [Autocomplete](/Search/Autocomplete/zh/api-guide/api-v2.0-guide/) | API Gateway | https://{region code}-autocomplete.api.nhncloudservice.com |
-| [Log & Crash Search](/Data%20&%20Analytics/Log%20&%20Crash%20Search/zh/api-guide/) | Log & Crash Search | https://api-logncrash.nhncloudservice.com |
+| [Log & Crash Search](/Data%20&%20Analytics/Log%20&%20Crash%20Search/zh/api-guide/) | Log & Crash Search | http://api-logncrash.nhncloudservice.com |
 | [Pipeline](/Dev%20Tools/Pipeline/zh/api-guide/) | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
 | [Certificate Manager](/Management/Certificate%20Manager/zh/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/zh/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
