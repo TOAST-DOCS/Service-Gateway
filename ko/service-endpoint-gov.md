@@ -37,7 +37,7 @@
 | [Security Monitoring](/Security/Security%20Monitoring/ko/Overview-gov/) | API Gateway | https://{region code}-secmon.api.gov-nhncloudservice.com |
 | [CDN](/Contents%20Delivery/CDN/ko/api-guide-v2.0-gov/) | API Gateway | https://cdn.api.gov-nhncloudservice.com |
 | [API Gateway](/Application%20Service/API%20Gateway/ko/api-guide-v1.0-gov/) | API Gateway | https://{region code}-apigateway.api.gov-nhncloudservice.com |
-| [Log & Crash Search](/Data%20&%20Analytics/Log%20&%20Crash%20Search/ko/api-guide/) | Log & Crash Search | https://api-logncrash.nhncloudservice.com |
+| [Log & Crash Search](/Data%20&%20Analytics/Log%20&%20Crash%20Search/ko/api-guide/) | Log & Crash Search | http://api-logncrash.nhncloudservice.com |
 | [Pipeline](/Dev%20Tools/Pipeline/ko/api-guide-gov/) | API Gateway | https://{region code}-pipeline.api.gov-nhncloudservice.com |
 | [Certificate Manager](/Management/Certificate%20Manager/ko/api-guide-v1.1-gov/) | API Gateway | https://certmanager.api.gov-nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide-gov/) | CloudTrail<br>API Gateway | https://cloud-trail.api.gov-nhncloudservice.com |
