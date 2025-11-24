@@ -11,13 +11,17 @@ To create a service gateway, use the following steps:
 1. Go to **Network > Service Gateway**.
 2. Click **Create Service Gateway**, and the screen for creation appears.
 3. Enter the **Name** to use for the service gateway.
-4. Choose a **VPC**. A service gateway dependent on the selected VPC is created.
-5. Select a **Subnet**. The IP of the service gateway is assigned from the selected subnet.
-6. Select how to assign **Private IP**.
-    * Auto assignment: Automatically assigns within the CIDR range of the selected subnet.
-    * Custom: Enter the IP address you want to use.
+4. Select the **Service**. When accessing the IP assigned to the service gateway, you will be connected to the selected service.
+5. Select the **VPC**. A service gateway dependent on the selected VPC is created.
+6. Select the **Subnet**. An IP address for the service gateway is assigned from the selected subnet.
+7. Select how to assign the **Private IP**.
+    * Auto assignment: automatically assign within the CIDR range of the selected subnet.
+    * Custom: enter the IP address you want to use.
     > [Note] The IP address you enter must be within the CIDR range of the selected subnet.
-7. Select a **Service**. When an instance accesses the IP assigned to the service gateway, it is connected to the service selected in this item.
+8. Select whether to use **Fix NAT IP**.
+    * Normally, you don't need to select it. You only need to select it if the selected **Service** requires access control settings.
+    * Selection is only possible at creation time, and changes are not supported.
+    > [Note] It is only enabled on services that allow selection.
 
 ### View a Service Gateway
 

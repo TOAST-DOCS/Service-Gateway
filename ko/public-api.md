@@ -33,6 +33,7 @@ X-Auth-Token: {tokenId}
 | subnet_id | Query | UUID | - | 조회할 서비스 게이트웨이 서브넷 ID |
 | port_id | Query | UUID | - | 조회할 서비스 게이트웨이 포트 ID |
 | fixed_ip| Query | String | - | 조회할 서비스 게이트웨이 IP 주소 |
+| include_gateway_identity| Query | Boolean | - | NAT IP 주소 고정 사용 여부 |
 
 
 #### 응답
@@ -47,6 +48,7 @@ X-Auth-Token: {tokenId}
 | servicegateways.network_id | Body | UUID | VPC ID |
 | servicegateways.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateways.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateways.include_gateway_identity| Body | Boolean | NAT IP 주소 고정 사용 여부 |
 | servicegateways.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateways.description | Body | String | 서비스 게이트웨이 설명 |
 
@@ -57,6 +59,7 @@ X-Auth-Token: {tokenId}
   "servicegateways": [
     {
       "status": "AVAILABLE",
+      "include_gateway_identity": true,
       "description": "",
       "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
       "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -102,6 +105,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateway.include_gateway_identity| Body | Boolean | NAT IP 주소 고정 사용 여부 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
 | servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
@@ -113,6 +117,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": true,
     "description": "",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -153,6 +158,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | O | VPC ID |
 | servicegateway.subnet_id | Body | UUID | O | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | - | 서비스 게이트웨이 IP 주소 |
+| servicegateway.include_gateway_identity| Body | Boolean | - | NAT IP 주소 고정 사용 여부 |
 | servicegateway.service_endpoint_id | Body | UUID | O | 서비스 엔드포인트 ID |
 
 
@@ -186,6 +192,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateway.include_gateway_identity| Body | Boolean | NAT IP 주소 고정 사용 여부 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
 | servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
@@ -198,6 +205,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": false,
     "description": "",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -261,6 +269,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.network_id | Body | UUID | VPC ID |
 | servicegateway.subnet_id | Body | UUID | 서브넷 ID |
 | servicegateway.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
+| servicegateway.include_gateway_identity| Body | Boolean | NAT IP 주소 고정 사용 여부 |
 | servicegateway.service_endpoint_id | Body | UUID | 서비스 엔드포인트 ID |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
 | servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
@@ -273,6 +282,7 @@ X-Auth-Token: {tokenId}
 {
   "servicegateway": {
     "status": "AVAILABLE",
+    "include_gateway_identity": false,
     "description": "test1",
     "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
     "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
@@ -350,6 +360,7 @@ X-Auth-Token: {tokenId}
 | serviceendpoints | Body | Array | 서비스 엔드포인트 정보 객체 목록 |
 | serviceendpoints.id | Body | UUID | 서비스 엔드포인트 ID |
 | serviceendpoints.display_name | Body | String | 콘솔에 출력되는 서비스 엔드포인트 이름 |
+| serviceendpoints.support_gateway_identity | Body | Boolean | NAT IP 주소 고정 사용 가능 여부 |
 | serviceendpoints.description | Body | String | 서비스 엔드포인트 설명 |
 
 <details><summary>예시</summary>
@@ -359,6 +370,7 @@ X-Auth-Token: {tokenId}
   "serviceendpoints": [
     {
       "display_name": "Object Storage",
+      "support_gateway_identity": true,
       "description": "",
       "name": "OBS",
       "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
@@ -391,6 +403,7 @@ X-Auth-Token: {tokenId}
 | serviceendpoint | Body | Object | 서비스 엔드포인트 정보 객체  |
 | serviceendpoint.id | Body | UUID | 서비스 엔드포인트 ID |
 | serviceendpoint.display_name | Body | String | 콘솔에 출력되는 서비스 엔드포인트 이름 |
+| serviceendpoint.support_gateway_identity | Body | Boolean | NAT IP 주소 고정 사용 가능 여부 |
 | serviceendpoint.description | Body | String | 서비스 엔드포인트 설명 |
 
 <details><summary>예시</summary>
@@ -399,6 +412,7 @@ X-Auth-Token: {tokenId}
 {
   "serviceendpoint": {
       "display_name": "Object Storage",
+      "support_gateway_identity": true,
       "description": "",
       "name": "OBS",
       "id": "7ba5b6e7-d871-43d3-90d2-7e2beecaaae5"
