@@ -57,7 +57,7 @@
 | [Log & Crash Search](/Data%20&%20Analytics/Log%20&%20Crash%20Search/jp/api-guide/) | Log & Crash Search | http://api-logncrash.nhncloudservice.com |
 | [Pipeline](/Dev%20Tools/Pipeline/jp/api-guide/) | API Gateway | https://{region code}-pipeline.api.nhncloudservice.com |
 | [Certificate Manager](/Management/Certificate%20Manager/jp/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
-| [Private CA](/Management/Certificate%20Manager/jp/api-guide-v1.2/) | API Gateway | https://{region code}-pca.api.nhncloudservice.com |
+| [Private CA](/Management/Private%20CA/jp/api-guide-v2.0/) | API Gateway | https://{region code}-pca.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/jp/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/jp/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
 | [API Authentication](/nhncloud/ja/public-api/api-authentication/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
