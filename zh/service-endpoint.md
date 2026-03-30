@@ -10,8 +10,8 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | --- | ----- |
 | Korea (Pangyo) | kr1 |
 | Korea (Pyeongchon) | kr2 |
+| Korea (Gwangju) | kr3 |
 | Japan (Tokyo) | jp1 |
-| United States (California) | us1 |
 
 ### Service Gateway Integration Services
 
