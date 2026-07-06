@@ -880,6 +880,16 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
 | id | Query | UUID | - | 조회할 사용자 정의 엔드포인트 ID(복수 지정 가능, 생략 시 소유한 모든 엔드포인트 대상) |
+| network_id | Query | UUID | - | 조회할 서비스 게이트웨이 VPC ID(복수 지정 가능) |
+| subnet_id | Query | UUID | - | 조회할 서비스 게이트웨이 서브넷 ID(복수 지정 가능) |
+| limit | Query | Integer | - | 한 번에 조회할 최대 개수(생략 시 전체 반환) |
+| marker | Query | UUID | - | 직전 페이지 마지막 항목의 서비스 게이트웨이 ID(다음 페이지 조회 시 사용) |
+| page_reverse | Query | Boolean | - | `true`로 지정하면 이전 페이지 방향으로 조회 |
+| sort_key | Query | String | - | 정렬 기준 필드(복수 지정 가능) |
+| sort_dir | Query | String | - | 정렬 방향(`asc` 또는 `desc`). `sort_key`와 반드시 쌍으로, 같은 개수로 지정 |
+
+> 결과는 기본적으로 서비스 게이트웨이 ID(`id`) 오름차순으로 정렬됩니다. 생성 시각순으로 조회하려면 `sort_key=create_time&sort_dir=desc`와 같이 명시해야 합니다. `sort_key`에는 응답 필드(`id`, `name`, `fixed_ip`, `status`, `tenant_id`, `network_id`, `subnet_id`, `service_endpoint_id`, `create_time`)를 사용할 수 있습니다.
+> `limit`을 지정하면 응답에 다음/이전 페이지 링크(`serviceendpointusages_links`)가 포함됩니다. 다음 페이지는 링크의 URL을 그대로 호출하거나, 현재 페이지 마지막 항목의 `id`를 `marker`로 지정해 조회합니다. 페이지를 순회하는 동안에는 동일한 필터/정렬 조건을 유지해야 합니다.
 
 #### 응답
 
@@ -892,7 +902,12 @@ X-Auth-Token: {tokenId}
 | serviceendpointusages.status | Body | String | 서비스 게이트웨이 상태 |
 | serviceendpointusages.tenant_id | Body | String | 서비스 게이트웨이를 생성한 소비자 프로젝트의 테넌트 ID |
 | serviceendpointusages.network_id | Body | UUID | 서비스 게이트웨이 VPC ID |
+| serviceendpointusages.subnet_id | Body | UUID | 서비스 게이트웨이 서브넷 ID |
 | serviceendpointusages.service_endpoint_id | Body | UUID | 연결된 사용자 정의 엔드포인트 ID |
+| serviceendpointusages.create_time | Body | String | 서비스 게이트웨이 생성 시각 |
+| serviceendpointusages_links | Body | Array | 페이지네이션 링크 목록(`limit` 지정 시에만 포함) |
+| serviceendpointusages_links.rel | Body | String | 링크 유형. `next`=다음 페이지 / `previous`=이전 페이지 |
+| serviceendpointusages_links.href | Body | String | 해당 페이지를 조회할 수 있는 URL |
 
 <details><summary>예시</summary>
 
@@ -906,8 +921,19 @@ X-Auth-Token: {tokenId}
       "status": "AVAILABLE",
       "tenant_id": "302406c4a1d44b2cb2bc07a652c0b202",
       "network_id": "55529e1d-c6ee-4be8-baa9-2b6546667e6d",
+      "subnet_id": "72d9d6e0-3ee2-4287-bcf9-be45a8422ff1",
       "service_endpoint_id": "ef2b41aa-81f4-40de-9dc9-677ca58428f1",
       "create_time": "2023-08-31 02:11:09"
+    }
+  ],
+  "serviceendpointusages_links": [
+    {
+      "rel": "next",
+      "href": "https://kr1-api-network-infrastructure.nhncloudservice.com/v2.0/gateways/serviceendpointusages?limit=20&marker=d383a4a3-dae7-4609-b2db-ecdf5859fac5"
+    },
+    {
+      "rel": "previous",
+      "href": "https://kr1-api-network-infrastructure.nhncloudservice.com/v2.0/gateways/serviceendpointusages?limit=20&marker=d383a4a3-dae7-4609-b2db-ecdf5859fac5&page_reverse=True"
     }
   ]
 }
