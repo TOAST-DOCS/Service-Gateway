@@ -475,7 +475,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoints.name | Body | String | 이름 |
 | myserviceendpoints.display_name | Body | String | 표시 이름(서비스 게이트웨이에 노출되는 이름) |
 | myserviceendpoints.endpoint_type | Body | String | 엔드포인트 유형(리소스 유형, 예: `lb.type1`) |
-| myserviceendpoints.port_id | Body | UUID | 대상 리소스(로드 밸런서) 포트 ID |
+| myserviceendpoints.port_id | Body | UUID | 대상 리소스(로드 밸런서) 포트 ID. `GET /v2.0/lbaas/loadbalancers?vip_port_id={port_id}`로 대상 로드 밸런서를 찾을 수 있습니다. |
 | myserviceendpoints.service_name | Body | String | 공유용 서비스 이름(형식 `{region}.sep-{12 hex}`) |
 | myserviceendpoints.max_count | Body | Integer | 최대 생성 개수(이 엔드포인트로 생성 가능한 서비스 게이트웨이 최대 개수). `0`=생성 차단, 미설정=무제한 |
 | myserviceendpoints.current_count | Body | Integer | 사용 현황(이 엔드포인트로 현재 생성된 서비스 게이트웨이 수) |
@@ -532,7 +532,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint.name | Body | String | 이름 |
 | myserviceendpoint.display_name | Body | String | 표시 이름 |
 | myserviceendpoint.endpoint_type | Body | String | 엔드포인트 유형(리소스 유형) |
-| myserviceendpoint.port_id | Body | UUID | 대상 리소스(로드 밸런서) 포트 ID |
+| myserviceendpoint.port_id | Body | UUID | 대상 리소스(로드 밸런서) 포트 ID. `GET /v2.0/lbaas/loadbalancers?vip_port_id={port_id}`로 대상 로드 밸런서를 찾을 수 있습니다. |
 | myserviceendpoint.service_name | Body | String | 공유용 서비스 이름 |
 | myserviceendpoint.max_count | Body | Integer | 최대 생성 개수 |
 | myserviceendpoint.current_count | Body | Integer | 사용 현황(현재 생성된 서비스 게이트웨이 수) |
