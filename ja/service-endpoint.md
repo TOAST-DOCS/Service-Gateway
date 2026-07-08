@@ -1,6 +1,12 @@
+<!-- pre-align:aligned sig=1d1c35e9431e -->
+
+<a id="network-service-gateway-service-endpoint"></a>
+
 ## Network > Service Gateway > 連動サービスエンドポイント
 
 サービスゲートウェイを利用してNHN Cloudの内部ネットワークと通信できるサービスリスト及び各サービスのエンドポイントです。
+
+<a id="region-code"></a>
 
 ### リージョンコード
 
@@ -12,6 +18,8 @@
 | 韓国(ピョンチョン) | kr2 |
 | 韓国(光州) | kr3 |
 | 日本(東京) | jp1 |
+
+<a id="service-gateway-integration-services"></a>
 
 ### サービスゲートウェイ連動サービス
 

@@ -1,3 +1,7 @@
+<!-- pre-align:aligned sig=0f36aac40dbd -->
+
+<a id="network-service-gateway-api-v2-guide"></a>
+
 ## Network > Service Gateway > API v2 가이드
 
 NHN Cloud Network 서비스는 API 호출 시 인증/인가를 위해 IaaS 토큰을 사용합니다. IaaS 토큰은 NHN Cloud의 OpenStack 기반 인프라 서비스(IaaS)에서 사용하는 인증 토큰입니다. IaaS 토큰 발급 및 사용에 대한 자세한 내용은 [IaaS 토큰](/nhncloud/ko/public-api/iaas-token)을 참고하세요.
@@ -10,7 +14,11 @@ NHN Cloud Network 서비스는 API 호출 시 인증/인가를 위해 IaaS 토�
 
 API 응답에 가이드에 명시되지 않은 필드가 나타날 수 있습니다. 이런 필드는 NHN Cloud 내부 용도로 사용되며 사전 공지 없이 변경될 수 있으므로 사용하지 않습니다.
 
+<a id="service-gateway"></a>
+
 ## 서비스 게이트웨이
+
+<a id="get-a-list-of-service-gateways"></a>
 
 ### 서비스 게이트웨이 목록 보기
 
@@ -18,6 +26,8 @@ API 응답에 가이드에 명시되지 않은 필드가 나타날 수 있습니
 GET /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
+
+<a id="request"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -34,6 +44,8 @@ X-Auth-Token: {tokenId}
 | fixed_ip| Query | String | - | 조회할 서비스 게이트웨이 IP 주소 |
 | include_gateway_identity| Query | Boolean | - | NAT IP 주소 고정 사용 여부 |
 
+
+<a id="response"></a>
 
 #### 응답
 
@@ -80,12 +92,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="get-a-service-gateway"></a>
+
 ### 서비스 게이트웨이 보기
 
 ```
 GET /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-service-gateway-request"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -94,6 +110,8 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
 | serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
+
+<a id="get-a-service-gateway-response"></a>
 
 #### 응답
 
@@ -145,12 +163,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="create-a-service-gateway"></a>
+
 ### 서비스 게이트웨이 생성하기
 
 ```
 POST /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
+
+<a id="create-a-service-gateway-request"></a>
 
 #### 요청
 
@@ -185,6 +207,8 @@ X-Auth-Token: {tokenId}
 ```
 
 </details>
+
+<a id="create-a-service-gateway-response"></a>
 
 #### 응답
 
@@ -237,12 +261,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="modify-a-service-gateway"></a>
+
 ### 서비스 게이트웨이 수정하기
 
 ```
 PUT /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="modify-a-service-gateway-request"></a>
 
 #### 요청
 
@@ -268,6 +296,8 @@ X-Auth-Token: {tokenId}
 ```
 
 </details>
+
+<a id="modify-a-service-gateway-response"></a>
 
 #### 응답
 
@@ -320,12 +350,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="delete-a-service-gateway"></a>
+
 ### 서비스 게이트웨이 삭제하기
 
 ```
 DELETE /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="delete-a-service-gateway-request"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -335,6 +369,8 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
 
+
+<a id="delete-a-service-gateway-response"></a>
 
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
@@ -352,7 +388,11 @@ X-Auth-Token: {tokenId}
 
 
 
+<a id="service-endpoint"></a>
+
 ## 서비스 엔드포인트
+
+<a id="get-a-list-of-service-endpoints"></a>
 
 ### 서비스 엔드포인트 목록 보기
 
@@ -360,6 +400,8 @@ X-Auth-Token: {tokenId}
 GET /v2.0/gateways/serviceendpoints/
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-list-of-service-endpoints-request"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -373,6 +415,8 @@ X-Auth-Token: {tokenId}
 
 > 서비스 게이트웨이를 사용자 정의 엔드포인트에 연결할 때는 게시자에게 전달받은 `service_name`으로 조회하여 서비스 엔드포인트 ID를 획득합니다. 보안을 위해 `service_name` 값은 응답에 포함되지 않으며, 허용 프로젝트에 포함되지 않은 경우 빈 목록이 반환됩니다.
 
+
+<a id="get-a-list-of-service-endpoints-response"></a>
 
 #### 응답
 
@@ -403,12 +447,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="get-a-service-endpoint"></a>
+
 ### 서비스 엔드포인트 보기
 
 ```
 GET /v2.0/gateways/serviceendpoints/{seerviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-service-endpoint-request"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -417,6 +465,8 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
 | serviceEndpointId | URL | UUID | O | 서비스 엔드포인트 ID |
+
+<a id="get-a-service-endpoint-response"></a>
 
 #### 응답
 
@@ -445,9 +495,13 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="section-1"></a>
+
 ## 사용자 정의 엔드포인트
 
 사용자가 자신의 리소스(로드 밸런서)를 엔드포인트로 게시하여 다른 프로젝트와 공유하는 기능입니다. 게시자(소유자)가 생성/관리하며, 생성 시 공유용 서비스 이름(`service_name`)이 발급됩니다.
+
+<a id="section-1-1"></a>
 
 ### 사용자 정의 엔드포인트 목록 보기
 
@@ -455,6 +509,8 @@ X-Auth-Token: {tokenId}
 GET /v2.0/gateways/myserviceendpoints
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-1-1-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -465,6 +521,8 @@ X-Auth-Token: {tokenId}
 | id | Query | UUID | - | 조회할 사용자 정의 엔드포인트 ID |
 | endpoint_type | Query | String | - | 조회할 엔드포인트 유형(예: `lb.type1`) |
 | port_id | Query | UUID | - | 조회할 대상 리소스(로드 밸런서) 포트 ID |
+
+<a id="section-1-1-2"></a>
 
 #### 응답
 
@@ -508,12 +566,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="section-1-2"></a>
+
 ### 사용자 정의 엔드포인트 보기
 
 ```
 GET /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-1-2-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -522,6 +584,8 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
 | serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
+
+<a id="section-1-2-2"></a>
 
 #### 응답
 
@@ -563,12 +627,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="section-1-3"></a>
+
 ### 사용자 정의 엔드포인트 생성하기
 
 ```
 POST /v2.0/gateways/myserviceendpoints
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-1-3-1"></a>
 
 #### 요청
 
@@ -600,16 +668,22 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="section-1-3-2"></a>
+
 #### 응답
 응답 본문은 [사용자 정의 엔드포인트 보기](#사용자-정의-엔드포인트-보기)와 동일하며, 자동 발급된 `service_name`이 포함됩니다.
 
 ---
+<a id="section-1-4"></a>
+
 ### 사용자 정의 엔드포인트 수정하기
 
 ```
 PUT /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-1-4-1"></a>
 
 #### 요청
 
@@ -640,16 +714,22 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="section-1-4-2"></a>
+
 #### 응답
 응답 본문은 [사용자 정의 엔드포인트 보기](#사용자-정의-엔드포인트-보기)와 동일합니다.
 
 ---
+<a id="section-1-5"></a>
+
 ### 사용자 정의 엔드포인트 삭제하기
 
 ```
 DELETE /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-1-5-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -661,16 +741,22 @@ X-Auth-Token: {tokenId}
 
 > 이 엔드포인트를 사용 중인 서비스 게이트웨이가 있으면 삭제할 수 없습니다. 삭제 시 등록된 허용 프로젝트도 함께 삭제됩니다.
 
+<a id="section-1-5-2"></a>
+
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
 
 ---
+<a id="section-1-6"></a>
+
 ### 서비스 이름 재발급하기
 
 ```
 PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/generate_service_name
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-1-6-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -681,6 +767,8 @@ X-Auth-Token: {tokenId}
 | serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
 
 > 엔드포인트를 생성한 프로젝트의 구성원(소유자)만 수행할 수 있습니다. 재발급 시 기존 `service_name`은 즉시 폐기되어 더 이상 조회되지 않습니다. 기존 `service_name`으로 생성한 서비스 게이트웨이는 정상 동작하지만, 신규 생성 시에는 재발급된 `service_name`을 사용해야 합니다.
+
+<a id="section-1-6-2"></a>
 
 #### 응답
 
@@ -699,9 +787,13 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="section-2"></a>
+
 ## 허용 프로젝트
 
 사용자 정의 엔드포인트에 연결(서비스 게이트웨이 생성)을 허용할 대상(테넌트)을 관리하는 목록(white list)입니다. 순수 허용 목록(권한)이며 생성 개수 제한은 다루지 않습니다(개수 제한은 엔드포인트의 `max_count`에서 관리).
+
+<a id="section-2-1"></a>
 
 ### 허용 프로젝트 목록 보기
 
@@ -709,6 +801,8 @@ X-Auth-Token: {tokenId}
 GET /v2.0/gateways/serviceendpointallowprojects
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-2-1-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -718,6 +812,8 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | service_endpoint_id | Query | UUID | - | 조회할 사용자 정의 엔드포인트 ID |
 | target_tenant_id | Query | String | - | 조회할 허용 대상 테넌트 ID |
+
+<a id="section-2-1-2"></a>
 
 #### 응답
 
@@ -749,12 +845,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="section-2-2"></a>
+
 ### 허용 프로젝트 보기
 
 ```
 GET /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-2-2-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -764,16 +864,22 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | allowProjectId | URL | UUID | O | 허용 프로젝트 ID |
 
+<a id="section-2-2-2"></a>
+
 #### 응답
 응답 본문은 [허용 프로젝트 목록 보기](#허용-프로젝트-목록-보기)의 단일 객체(`serviceendpointallowproject`)와 동일합니다.
 
 ---
+<a id="section-2-3"></a>
+
 ### 허용 프로젝트 생성하기
 
 ```
 POST /v2.0/gateways/serviceendpointallowprojects
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-2-3-1"></a>
 
 #### 요청
 
@@ -803,16 +909,22 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="section-2-3-2"></a>
+
 #### 응답
 응답 본문은 [허용 프로젝트 목록 보기](#허용-프로젝트-목록-보기)의 단일 객체(`serviceendpointallowproject`)와 동일합니다.
 
 ---
+<a id="section-2-4"></a>
+
 ### 허용 프로젝트 수정하기
 
 ```
 PUT /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-2-4-1"></a>
 
 #### 요청
 
@@ -839,16 +951,22 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="section-2-4-2"></a>
+
 #### 응답
 응답 본문은 [허용 프로젝트 목록 보기](#허용-프로젝트-목록-보기)의 단일 객체(`serviceendpointallowproject`)와 동일합니다.
 
 ---
+<a id="section-2-5"></a>
+
 ### 허용 프로젝트 삭제하기
 
 ```
 DELETE /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-2-5-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -858,13 +976,19 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | allowProjectId | URL | UUID | O | 허용 프로젝트 ID |
 
+<a id="section-2-5-2"></a>
+
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
 
 ---
+<a id="section-3"></a>
+
 ## 사용 현황
 
 사용자 정의 엔드포인트를 사용 중인(연결한) 소비자 측 서비스 게이트웨이 목록을 조회합니다.
+
+<a id="section-3-1"></a>
 
 ### 사용 현황 목록 보기
 
@@ -872,6 +996,8 @@ X-Auth-Token: {tokenId}
 GET /v2.0/gateways/serviceendpointusages
 X-Auth-Token: {tokenId}
 ```
+
+<a id="section-3-1-1"></a>
 
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
@@ -890,6 +1016,8 @@ X-Auth-Token: {tokenId}
 
 > 결과는 기본적으로 서비스 게이트웨이 ID(`id`) 오름차순으로 정렬됩니다. 생성 시각순으로 조회하려면 `sort_key=create_time&sort_dir=desc`와 같이 명시해야 합니다. `sort_key`에는 응답 필드(`id`, `name`, `fixed_ip`, `status`, `tenant_id`, `network_id`, `subnet_id`, `service_endpoint_id`, `create_time`)를 사용할 수 있습니다.
 > `limit`을 지정하면 응답에 다음/이전 페이지 링크(`serviceendpointusages_links`)가 포함됩니다. 다음 페이지는 링크의 URL을 그대로 호출하거나, 현재 페이지 마지막 항목의 `id`를 `marker`로 지정해 조회합니다. 페이지를 순회하는 동안에는 동일한 필터/정렬 조건을 유지해야 합니다.
+
+<a id="section-3-1-2"></a>
 
 #### 응답
 

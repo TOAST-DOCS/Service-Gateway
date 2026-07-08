@@ -1,3 +1,6 @@
+<!-- pre-align:aligned sig=0f36aac40dbd -->
+
+<a id="network-service-gateway-api-v2-guide"></a>
 
 ## Network > Service Gateway > API v2 Guide
 
@@ -11,7 +14,11 @@ For Service Gateway APIs, the `network` type endpoint is used. For more details,
 
 In each API response, you may find fields that are not specified within this guide. Those fields are for NHN Cloud internal usage, so refrain from using them because they may be changed without prior notice.
 
+<a id="service-gateway"></a>
+
 ## Service Gateway
+
+<a id="get-a-list-of-service-gateways"></a>
 
 ### Get a List of Service Gateways
 
@@ -19,6 +26,8 @@ In each API response, you may find fields that are not specified within this gui
 GET /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
+
+<a id="request"></a>
 
 #### Request
 This API does not require a request body.
@@ -35,6 +44,8 @@ This API does not require a request body.
 | fixed_ip| Query | String | - | The IP address of the service gateway to retrieve |
 include_gateway_identity| Query | Boolean | - | Whether to use fixed NAT IP address |
 
+
+<a id="response"></a>
 
 #### Response
 
@@ -78,12 +89,16 @@ include_gateway_identity| Query | Boolean | - | Whether to use fixed NAT IP addr
 </details>
 
 ---
+<a id="get-a-service-gateway"></a>
+
 ### Get a Service Gateway
 
 ```
 GET /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-service-gateway-request"></a>
 
 #### Request
 This API does not require a request body.
@@ -92,6 +107,8 @@ This API does not require a request body.
 |---|---|---|---|---|
 | tokenId | Header | String | O | Token ID |
 | serviceGatewayId | URL | UUID | O | The ID of the service gateway |
+
+<a id="get-a-service-gateway-response"></a>
 
 #### Response
 
@@ -140,12 +157,16 @@ This API does not require a request body.
 </details>
 
 ---
+<a id="create-a-service-gateway"></a>
+
 ### Create a Service Gateway
 
 ```
 POST /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
+
+<a id="create-a-service-gateway-request"></a>
 
 #### Request
 
@@ -179,6 +200,8 @@ X-Auth-Token: {tokenId}
 }
 ```
 </details>
+
+<a id="create-a-service-gateway-response"></a>
 
 #### Response
 
@@ -228,12 +251,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="modify-a-service-gateway"></a>
+
 ### Modify a Service Gateway
 
 ```
 PUT /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="modify-a-service-gateway-request"></a>
 
 #### Request
 
@@ -256,6 +283,8 @@ X-Auth-Token: {tokenId}
 }
 ```
 </details>
+
+<a id="modify-a-service-gateway-response"></a>
 
 #### Response
 
@@ -305,12 +334,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="delete-a-service-gateway"></a>
+
 ### Delete a Service Gateway
 
 ```
 DELETE /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="delete-a-service-gateway-request"></a>
 
 #### Request
 This API does not require a request body.
@@ -320,6 +353,8 @@ This API does not require a request body.
 | tokenId | Header | String | O | Token ID |
 | serviceGatewayId | URL | UUID | O | The ID of the service gateway |
 
+
+<a id="delete-a-service-gateway-response"></a>
 
 #### Response
 Stops the specified node group.
@@ -333,7 +368,11 @@ Stops the specified node group.
 
 
 
+<a id="service-endpoint"></a>
+
 ## Service Endpoint
+
+<a id="get-a-list-of-service-endpoints"></a>
 
 ### Get a List of Service Endpoints
 
@@ -341,6 +380,8 @@ Stops the specified node group.
 GET /v2.0/gateways/serviceendpoints/
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-list-of-service-endpoints-request"></a>
 
 #### Request
 This API does not require a request body.
@@ -352,6 +393,8 @@ This API does not require a request body.
 | display_name | Query | UUID | - | The name of the service endpoint to retrieve |
 
 
+
+<a id="get-a-list-of-service-endpoints-response"></a>
 
 #### Response
 
@@ -381,12 +424,16 @@ This API does not require a request body.
 </details>
 
 ---
+<a id="get-a-service-endpoint"></a>
+
 ### Get a Service Endpoint
 
 ```
 GET /v2.0/gateways/serviceendpoints/{seerviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-service-endpoint-request"></a>
 
 #### Request
 This API does not require a request body.
@@ -395,6 +442,8 @@ This API does not require a request body.
 |---|---|---|---|---|
 | tokenId | Header | String | O | Token ID |
 | serviceEndpointId | URL | UUID | O | Service endpoint ID |
+
+<a id="get-a-service-endpoint-response"></a>
 
 #### Response
 
@@ -422,3 +471,237 @@ This API does not require a request body.
 </details>
 
 ---
+<a id="section-1"></a>
+
+## Custom endpoint
+
+<!-- TODO: translate body -->
+
+<a id="section-1-1"></a>
+
+### View Custom Endpoint List
+
+<!-- TODO: translate body -->
+
+<a id="section-1-1-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-1-1-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-1-2"></a>
+
+### Get a Custom Endpoint
+
+<!-- TODO: translate body -->
+
+<a id="section-1-2-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-1-2-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-1-3"></a>
+
+### Create Custom Endpoint
+
+<!-- TODO: translate body -->
+
+<a id="section-1-3-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-1-3-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-1-4"></a>
+
+### Modify Custom Endpoint
+
+<!-- TODO: translate body -->
+
+<a id="section-1-4-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-1-4-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-1-5"></a>
+
+### Delete Custom Endpoint
+
+<!-- TODO: translate body -->
+
+<a id="section-1-5-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-1-5-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-1-6"></a>
+
+### Reissue the Service Name
+
+<!-- TODO: translate body -->
+
+<a id="section-1-6-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-1-6-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-2"></a>
+
+## Allowed Projects
+
+<!-- TODO: translate body -->
+
+<a id="section-2-1"></a>
+
+### View Allowed Project List
+
+<!-- TODO: translate body -->
+
+<a id="section-2-1-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-2-1-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-2-2"></a>
+
+### View Allowed Projects
+
+<!-- TODO: translate body -->
+
+<a id="section-2-2-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-2-2-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-2-3"></a>
+
+### Create an Allowed Project
+
+<!-- TODO: translate body -->
+
+<a id="section-2-3-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-2-3-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-2-4"></a>
+
+### Modify Allowed Projects
+
+<!-- TODO: translate body -->
+
+<a id="section-2-4-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-2-4-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-2-5"></a>
+
+### Delete an Allowed Project
+
+<!-- TODO: translate body -->
+
+<a id="section-2-5-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-2-5-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+
+<a id="section-3"></a>
+
+## Usage Status
+
+<!-- TODO: translate body -->
+
+<a id="section-3-1"></a>
+
+### View Usage Status List
+
+<!-- TODO: translate body -->
+
+<a id="section-3-1-1"></a>
+
+#### Request
+
+<!-- TODO: translate body -->
+
+<a id="section-3-1-2"></a>
+
+#### Response
+
+<!-- TODO: translate body -->
+

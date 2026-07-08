@@ -1,8 +1,16 @@
+<!-- pre-align:aligned sig=0acd3d23fa1f -->
+
+<a id="network-service-gateway-console-user-guide"></a>
+
 ## Network > Service Gateway > 콘솔 사용 가이드
 
 콘솔에서 **Service Gateway** 서비스를 사용하는 방법을 설명합니다.
 
+<a id="service-gateway"></a>
+
 ## 서비스 게이트웨이
+
+<a id="create-a-service-gateway"></a>
 
 ### 서비스 게이트웨이 생성
 
@@ -26,9 +34,13 @@
     * 생성 시에만 선택이 가능하며 변경은 지원하지 않습니다.
     > [참고] 선택이 가능한 서비스에서만 활성화됩니다.
 
+<a id="view-a-service-gateway"></a>
+
 ### 서비스 게이트웨이 조회
 
 생성한 서비스 게이트웨이는 **Network > Service Gateway** 화면에서 확인할 수 있습니다. 서비스 게이트웨이를 선택하면 하단에 서비스 게이트웨이 정보가 나타납니다. 연결 유형이 **사용자 정의 엔드포인트**인 경우, 상세 정보의 **연결 대상**에서 엔드포인트의 표시 이름과 식별자를 확인할 수 있습니다.
+
+<a id="modify-a-service-gateway"></a>
 
 ### 서비스 게이트웨이 변경
 
@@ -37,13 +49,19 @@
 1. **Network > Service Gateway**로 이동합니다.
 2. **서비스 게이트웨이 변경** 버튼을 클릭한 후 변경 화면에서 원하는 항목을 변경합니다.
 
+<a id="delete-a-service-gateway"></a>
+
 ### 서비스 게이트웨이 삭제
 
 서비스 게이트웨이를 삭제하려면 **Network > Service Gateway** 화면에서 삭제할 서비스 게이트웨이를 선택하고 **서비스 게이트웨이 삭제** 버튼을 클릭합니다.
 
+<a id="section-1"></a>
+
 ## 사용자 정의 엔드포인트
 
 사용자 정의 엔드포인트는 사용자가 자신의 리소스(로드 밸런서)를 엔드포인트로 게시하여, 다른 프로젝트에서 서비스 게이트웨이로 연결할 수 있도록 공유하는 기능입니다. 게시자는 공유용 **서비스 이름(service_name)**을 발급받아 연결을 허용할 대상에게 전달하고, 허용 프로젝트를 직접 관리합니다.
+
+<a id="section-1-1"></a>
 
 ### 사용자 정의 엔드포인트 생성
 
@@ -62,9 +80,13 @@
 
 > [참고] 사용자 정의 엔드포인트는 프로젝트당 기본 5개까지 생성할 수 있습니다.
 
+<a id="section-1-2"></a>
+
 ### 사용자 정의 엔드포인트 조회
 
 **사용자 정의 엔드포인트** 탭에서 생성한 엔드포인트 목록을 확인할 수 있습니다. 엔드포인트를 선택하면 하단에 상세 정보가 나타나며, **기본 정보**(서비스 이름, 리소스 유형, 대상 리소스, 최대 생성 개수 등), **허용 프로젝트**, **사용 현황**을 확인할 수 있습니다.
+
+<a id="section-1-3"></a>
 
 ### 사용자 정의 엔드포인트 변경
 
@@ -75,11 +97,15 @@
 
 > [참고] 최대 생성 개수를 줄여도 이미 생성된 서비스 게이트웨이는 유지됩니다. 다만 현재 개수가 최대 생성 개수를 초과하는 동안에는 새 서비스 게이트웨이를 추가로 생성할 수 없습니다.
 
+<a id="section-1-4"></a>
+
 ### 사용자 정의 엔드포인트 삭제
 
 **사용자 정의 엔드포인트** 탭에서 삭제할 엔드포인트를 선택하고 **삭제** 버튼을 클릭합니다.
 
 > [주의] 이 엔드포인트를 사용 중인 서비스 게이트웨이가 하나라도 있으면 삭제할 수 없습니다. 엔드포인트를 삭제하면 등록된 허용 프로젝트도 함께 삭제됩니다.
+
+<a id="section-1-5"></a>
 
 ### 서비스 이름 재발급
 
@@ -90,6 +116,8 @@
 
 > [주의] 재발급하면 기존 서비스 이름은 즉시 폐기되어 더 이상 조회되지 않습니다. 기존 서비스 이름으로 생성한 서비스 게이트웨이는 정상 동작하지만, 새로 서비스 게이트웨이를 생성하려면 재발급된 서비스 이름을 사용해야 합니다.<br>
 > [참고] 서비스 이름 재발급은 엔드포인트를 생성한 프로젝트의 구성원(소유자)만 수행할 수 있습니다.
+
+<a id="section-1-6"></a>
 
 ### 허용 프로젝트 관리
 
@@ -105,17 +133,25 @@
 
 기존 허용 대상은 **설명**만 변경할 수 있으며, 허용 범위와 테넌트 ID는 변경할 수 없습니다. 허용 대상을 삭제하려면 목록에서 대상을 선택하고 **삭제** 버튼을 클릭합니다.
 
+<a id="section-1-7"></a>
+
 ### 사용 현황 확인
 
 엔드포인트 상세 정보의 **사용 현황** 탭에서 이 엔드포인트에 연결 중인 서비스 게이트웨이 목록을 확인할 수 있습니다. (읽기 전용)
 
+<a id="use-a-service-gateway"></a>
+
 ## 서비스 게이트웨이 사용
+
+<a id="check-the-service-gateway-ip"></a>
 
 ### 서비스 게이트웨이 IP확인
 
 1. **Network > Service Gateway**로 이동합니다.
 2. 서비스 게이트웨이 목록에서 **IP 주소**를 확인합니다.<br>
    이 VM Instance에서 이 IP 주소로 접속 시 서비스 게이트웨이가 연결하고 있는 서비스로 연결됩니다.
+
+<a id="connect-to-the-service-gateway"></a>
 
 ### 서비스 게이트웨이 접속
 
@@ -138,9 +174,13 @@
 
             ~# wget https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
 
+<a id="example-of-using-object-storage-from-a-service-gateway"></a>
+
 ## 서비스 게이트웨이에서 오브젝트 스토리지 사용 예제
 
 **오브젝트 스토리지**에 관련된 내용은 예제 설명을 위한 수준에서만 기술합니다. 오브젝트 스토리지의 자세한 사용 방법은 **사용자 가이드 > Storage > Oject Storage**를 참고하시기 바랍니다.
+
+<a id="example-of-using-object-storage-from-a-service-gateway-create-a-service-gateway"></a>
 
 ### 서비스 게이트웨이 생성
 
@@ -151,6 +191,8 @@
 2. **IaaS API Identity** 서비스를 선택하여 서비스 게이트웨이를 생성합니다.<br>
    인증 토큰(token) 발급을 위한 서비스 게이트웨이입니다.
 3. 생성된 두 개의 서비스 게이트웨이에서 IP 주소를 확인합니다.
+
+<a id="edit-the-etchosts-file"></a>
 
 ### /etc/hosts 파일 편집
 
@@ -163,6 +205,8 @@
 192.168.1.42	api-identity-infrastructure.nhncloudservice.com
 192.168.1.57	kr1-api-object-storage.nhncloudservice.com
 ```
+
+<a id="obtain-the-authentication-token"></a>
 
 ### 인증 토큰 발급
 
@@ -185,6 +229,8 @@
   아래 응답에서 `access.token.id` 항목의 값이 인증 토큰입니다. `access.token.expires`에 기록된 시간까지 인증 토큰이 유효합니다.
 
             {"access":{"token":{"id":"gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY","expires":"2022-04-13T19:19:30Z","tenant":{"id":"2fda9d4b8821111192ff23841198e2e6","name":"tTMgSSSF","groupId":"XXj2zkH7777modGU","description":"","enabled":true,"project_domain":"NORMAL","swift":true},"issued_at":"2022-04-13T07:32:14.000441"},"serviceCatalog":[{"endpoints":[{"region":"KR1","publicURL":"https://api-identity.infrastructure.cloud.toast.com/v2.0"}],"type":"identity","name":"keystone"},{"endpoints":[{"region":"KR2","publicURL":"https://kr2-api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"},{"region":"KR1","publicURL":"https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"}],"type":"object-store","name":"swift"}],"user":{"id":"80884888887b45dbaf9b815117130671","username":"5111111c-b111-4b11-b11b-01111f81111f","name":"5211122c-bfc4-4115-b11b-05b52f84
+
+<a id="use-the-object-storage-api"></a>
 
 ### 오브젝트 스토리지 API 사용
 

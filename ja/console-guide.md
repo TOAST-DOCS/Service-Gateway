@@ -1,8 +1,16 @@
+<!-- pre-align:aligned sig=0acd3d23fa1f -->
+
+<a id="network-service-gateway-console-user-guide"></a>
+
 ## Network > Service Gateway > コンソール使用ガイド
 
 コンソールで**Service Gateway**サービスを使用する方法を説明します。
 
+<a id="service-gateway"></a>
+
 ## サービスゲートウェイ
+
+<a id="create-a-service-gateway"></a>
 
 ### サービスゲートウェイの作成
 
@@ -19,9 +27,13 @@
     > [参考]入力するIPアドレスは選択したサブネットのCIDR範囲内にある必要があります。
 7. **サービス**を選択します。サービスゲートウェイに割り当てられたIPでアクセスすると、選択したサービスと接続されます。
 
+<a id="view-a-service-gateway"></a>
+
 ### サービスゲートウェイの照会
 
 作成したサービスゲートウェイは**Network > Service Gateway**画面で確認できます。サービスゲートウェイを選択すると、下部にサービスゲートウェイ情報が表示されます。
+
+<a id="modify-a-service-gateway"></a>
 
 ### サービスゲートウェイの変更
 
@@ -30,17 +42,73 @@
 1. **Network > Service Gateway**に移動します。
 2. **サービスゲートウェイ変更**ボタンをクリックし、変更画面で項目を変更します。
 
+<a id="delete-a-service-gateway"></a>
+
 ### サービスゲートウェイの削除
 
 サービスゲートウェイを削除するには**Network > Service Gateway**画面で削除するサービスゲートウェイを選択し、**サービスゲートウェイ削除**ボタンをクリックします。
 
+<a id="section-1"></a>
+
+## カスタムエンドポイント
+
+<!-- TODO: translate body -->
+
+<a id="section-1-1"></a>
+
+### カスタムエンドポイントの作成
+
+<!-- TODO: translate body -->
+
+<a id="section-1-2"></a>
+
+### カスタムエンドポイントの照会
+
+<!-- TODO: translate body -->
+
+<a id="section-1-3"></a>
+
+### ユーザー定義エンドポイントの変更
+
+<!-- TODO: translate body -->
+
+<a id="section-1-4"></a>
+
+### カスタムエンドポイントの削除
+
+<!-- TODO: translate body -->
+
+<a id="section-1-5"></a>
+
+### サービス名の再発行
+
+<!-- TODO: translate body -->
+
+<a id="section-1-6"></a>
+
+### 許可プロジェクトの管理
+
+<!-- TODO: translate body -->
+
+<a id="section-1-7"></a>
+
+### 使用状況の確認
+
+<!-- TODO: translate body -->
+
+<a id="use-a-service-gateway"></a>
+
 ## サービスゲートウェイの使用
+
+<a id="check-the-service-gateway-ip"></a>
 
 ### サービスゲートウェイIPの確認
 
 1. **Network > Service Gateway**に移動します。
 2. サービスゲートウェイリストで**IPアドレス**を確認します。<br>
   このVM InstanceからこのIPアドレスに接続すると、サービスゲートウェイが接続しているサービスに接続されます。
+
+<a id="connect-to-the-service-gateway"></a>
 
 ### サービスゲートウェイ接続
 
@@ -63,9 +131,13 @@
 
             ~# wget https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
 
+<a id="example-of-using-object-storage-from-a-service-gateway"></a>
+
 ## サービスゲートウェイでオブジェクトストレージを使用する例
 
 **オブジェクトストレージ**に関連する内容は、例を説明するための水準でのみ記述します。オブジェクトストレージの詳細については**ユーザーガイド > Storage > Oject Storage**を参照してください。
+
+<a id="example-of-using-object-storage-from-a-service-gateway-create-a-service-gateway"></a>
 
 ### サービスゲートウェイの作成
 
@@ -76,6 +148,8 @@
 2. **IaaS API Identity**サービスを選択してサービスゲートウェイを作成します。<br>
  認証トークン(token)を発行するためのサービスゲートウェイです。
 3. 作成された2つのサービスゲートウェイでIPアドレスを確認します。
+
+<a id="edit-the-etchosts-file"></a>
 
 ### /etc/hostsファイルの編集
 
@@ -88,6 +162,8 @@
 192.168.1.42	api-identity-infrastructure.nhncloudservice.com
 192.168.1.57	kr1-api-object-storage.nhncloudservice.com
 ```
+
+<a id="obtain-the-authentication-token"></a>
 
 ### 認証トークンの発行
 
@@ -108,6 +184,8 @@
  以下のレスポンスで`access.token.id`項目の値が認証トークンです。`access.token.expires`に記録された時間まで認証トークンが有効です。
 
             {"access":{"token":{"id":"gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY","expires":"2022-04-13T19:19:30Z","tenant":{"id":"2fda9d4b8821111192ff23841198e2e6","name":"tTMgSSSF","groupId":"XXj2zkH7777modGU","description":"","enabled":true,"project_domain":"NORMAL","swift":true},"issued_at":"2022-04-13T07:32:14.000441"},"serviceCatalog":[{"endpoints":[{"region":"KR1","publicURL":"https://api-identity.infrastructure.cloud.toast.com/v2.0"}],"type":"identity","name":"keystone"},{"endpoints":[{"region":"KR2","publicURL":"https://kr2-api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"},{"region":"KR1","publicURL":"https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"}],"type":"object-store","name":"swift"}],"user":{"id":"80884888887b45dbaf9b815117130671","username":"5111111c-b111-4b11-b11b-01111f81111f","name":"5211122c-bfc4-4115-b11b-05b52f84
+
+<a id="use-the-object-storage-api"></a>
 
 ### オブジェクトストレージAPIの使用
 

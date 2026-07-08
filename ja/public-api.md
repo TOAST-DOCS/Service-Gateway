@@ -1,3 +1,6 @@
+<!-- pre-align:aligned sig=0f36aac40dbd -->
+
+<a id="network-service-gateway-api-v2-guide"></a>
 
 ## Network > Service Gateway > API v2ガイド
 
@@ -11,7 +14,11 @@ NHN Cloud Networkサービスは、API呼び出し時の認証/認可のため�
 
 APIレスポンスにガイドに記載されていないフィールドが表示される場合があります。このようなフィールドは、NHN Cloudの内部用途に使用され、事前告知なしに変更される可能性があるため、使用しないでください。
 
+<a id="service-gateway"></a>
+
 ## サービスゲートウェイ
+
+<a id="get-a-list-of-service-gateways"></a>
 
 ### サービスゲートウェイリスト表示
 
@@ -19,6 +26,8 @@ APIレスポンスにガイドに記載されていないフィールドが表�
 GET /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
+
+<a id="request"></a>
 
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
@@ -34,6 +43,8 @@ X-Auth-Token: {tokenId}
 | port_id | Query | UUID | - | 照会するサービスゲートウェイポートID |
 | fixed_ip| Query | String | - | 照会するサービスゲートウェイIPアドレス |
 
+
+<a id="response"></a>
 
 #### レスポンス
 
@@ -75,12 +86,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="get-a-service-gateway"></a>
+
 ### サービスゲートウェイ表示
 
 ```
 GET /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-service-gateway-request"></a>
 
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
@@ -89,6 +104,8 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | トークンID |
 | serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
+
+<a id="get-a-service-gateway-response"></a>
 
 #### レスポンス
 
@@ -135,12 +152,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="create-a-service-gateway"></a>
+
 ### サービスゲートウェイを作成する
 
 ```
 POST /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
+
+<a id="create-a-service-gateway-request"></a>
 
 #### リクエスト
 
@@ -173,6 +194,8 @@ X-Auth-Token: {tokenId}
 }
 ```
 </details>
+
+<a id="create-a-service-gateway-response"></a>
 
 #### レスポンス
 
@@ -220,12 +243,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="modify-a-service-gateway"></a>
+
 ### サービスゲートウェイを修正する
 
 ```
 PUT /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="modify-a-service-gateway-request"></a>
 
 #### リクエスト
 
@@ -248,6 +275,8 @@ X-Auth-Token: {tokenId}
 }
 ```
 </details>
+
+<a id="modify-a-service-gateway-response"></a>
 
 #### レスポンス
 
@@ -295,12 +324,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="delete-a-service-gateway"></a>
+
 ### サービスゲートウェイを削除する
 
 ```
 DELETE /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="delete-a-service-gateway-request"></a>
 
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
@@ -310,6 +343,8 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | トークンID |
 | serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
 
+
+<a id="delete-a-service-gateway-response"></a>
 
 #### レスポンス
 このAPIはレスポンス本文を返しません。
@@ -323,7 +358,11 @@ X-Auth-Token: {tokenId}
 
 
 
+<a id="service-endpoint"></a>
+
 ## サービスエンドポイント
+
+<a id="get-a-list-of-service-endpoints"></a>
 
 ### サービスエンドポイントリスト表示
 
@@ -331,6 +370,8 @@ X-Auth-Token: {tokenId}
 GET /v2.0/gateways/serviceendpoints/
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-list-of-service-endpoints-request"></a>
 
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
@@ -342,6 +383,8 @@ X-Auth-Token: {tokenId}
 | display_name | Query | UUID | - | 照会するサービスエンドポイントの名前 |
 
 
+
+<a id="get-a-list-of-service-endpoints-response"></a>
 
 #### レスポンス
 
@@ -369,12 +412,16 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="get-a-service-endpoint"></a>
+
 ### サービスエンドポイント表示
 
 ```
 GET /v2.0/gateways/serviceendpoints/{seerviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
+
+<a id="get-a-service-endpoint-request"></a>
 
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
@@ -383,6 +430,8 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | トークンID |
 | serviceEndpointId | URL | UUID | O | サービスエンドポイントID |
+
+<a id="get-a-service-endpoint-response"></a>
 
 #### レスポンス
 
@@ -408,3 +457,237 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
+<a id="section-1"></a>
+
+## カスタムエンドポイント
+
+<!-- TODO: translate body -->
+
+<a id="section-1-1"></a>
+
+### カスタムエンドポイントリスト表示
+
+<!-- TODO: translate body -->
+
+<a id="section-1-1-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-1-1-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-1-2"></a>
+
+### カスタムエンドポイント表示
+
+<!-- TODO: translate body -->
+
+<a id="section-1-2-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-1-2-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-1-3"></a>
+
+### カスタムエンドポイントの作成
+
+<!-- TODO: translate body -->
+
+<a id="section-1-3-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-1-3-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-1-4"></a>
+
+### カスタムエンドポイントの修正
+
+<!-- TODO: translate body -->
+
+<a id="section-1-4-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-1-4-2"></a>
+
+#### 応答
+
+<!-- TODO: translate body -->
+
+<a id="section-1-5"></a>
+
+### カスタムエンドポイントの削除
+
+<!-- TODO: translate body -->
+
+<a id="section-1-5-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-1-5-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-1-6"></a>
+
+### サービス名の再発行
+
+<!-- TODO: translate body -->
+
+<a id="section-1-6-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-1-6-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-2"></a>
+
+## 許可プロジェクト
+
+<!-- TODO: translate body -->
+
+<a id="section-2-1"></a>
+
+### 許可プロジェクトリスト表示
+
+<!-- TODO: translate body -->
+
+<a id="section-2-1-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-2-1-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-2-2"></a>
+
+### 許可プロジェクト表示
+
+<!-- TODO: translate body -->
+
+<a id="section-2-2-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-2-2-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-2-3"></a>
+
+### 許可プロジェクトの作成
+
+<!-- TODO: translate body -->
+
+<a id="section-2-3-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-2-3-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-2-4"></a>
+
+### 許可プロジェクトの変更
+
+<!-- TODO: translate body -->
+
+<a id="section-2-4-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-2-4-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-2-5"></a>
+
+### 許可プロジェクトの削除
+
+<!-- TODO: translate body -->
+
+<a id="section-2-5-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-2-5-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+
+<a id="section-3"></a>
+
+## 使用状況
+
+<!-- TODO: translate body -->
+
+<a id="section-3-1"></a>
+
+### 使用状況リスト表示
+
+<!-- TODO: translate body -->
+
+<a id="section-3-1-1"></a>
+
+#### リクエスト
+
+<!-- TODO: translate body -->
+
+<a id="section-3-1-2"></a>
+
+#### レスポンス
+
+<!-- TODO: translate body -->
+

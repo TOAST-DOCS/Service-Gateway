@@ -1,6 +1,12 @@
+<!-- pre-align:aligned sig=1d1c35e9431e -->
+
+<a id="network-service-gateway-service-endpoint"></a>
+
 ## Network > Service Gateway > Service Endpoint
 
 A list of services that can communicate with the NHN Cloud internal network using Service Gateway and the endpoints for each service.
+
+<a id="region-code"></a>
 
 ### Region Code
 
@@ -12,6 +18,8 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | Korea (Pyeongchon) | kr2 |
 | Korea (Gwangju) | kr3 |
 | Japan (Tokyo) | jp1 |
+
+<a id="service-gateway-integration-services"></a>
 
 ### Service Gateway Integration Services
 

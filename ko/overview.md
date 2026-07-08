@@ -1,6 +1,12 @@
+<!-- pre-align:aligned sig=d880ee4f6445 -->
+
+<a id="network-service-gateway-overview"></a>
+
 ## Network > Service Gateway > 개요
 
 **Service Gateway** 서비스를 이용하면 **플로팅 IP**를 쓰지 않고 트래픽이 인터넷을 경유하지 않고도 **VPC** 외부의 NHN Cloud의 **서비스**나 다른 사용자가 게시한 **사용자 정의 엔드포인트**를 이용할 수 있습니다. **서비스 게이트웨이 생성** 시 선택된 연결 대상과 자동으로 할당된 IP는 1:1 연결 관계를 유지하며, **VPC**에서는 **서비스 게이트웨이**의 IP를 이용하여 NHN Cloud의 내부 네트워크를 경유해 대상을 안전하게 이용할 수 있습니다.
+
+<a id="main-features"></a>
 
 ### 주요 기능
 
@@ -13,12 +19,16 @@
 * 서비스 게이트웨이는 현재 한국(판교), 한국(평촌), 한국(광주) 리전에서 제공됩니다. 점차 다른 리전도 지원할 예정입니다.
 * 단, 사용자 정의 엔드포인트는 한국(판교), 한국(평촌) 리전에서만 지원합니다
 
+<a id="provided-services"></a>
+
 ### 제공 서비스
 
 VPC의 VM Instance에서 인터넷을 경유하지 않고 NHN Cloud의 서비스에 접근이 필요한 경우 서비스 게이트웨이에서 제공되는 서비스를 선택하여 서비스 게이트웨이를 생성합니다.
 자세한 사용 방법은 [Service Gateway > 콘솔 사용 가이드](/Network/Service%20Gateway/ko/console-guide/)를 참고하세요.
 
 제공 서비스는 [**서비스 엔드포인트**](/Network/Service%20Gateway/ko/service-endpoint/)를 참고하세요. 제공되는 서비스는 점차 확대될 예정입니다.
+
+<a id="network-service-gateway-overview-1"></a>
 
 ### 사용자 정의 엔드포인트
 
