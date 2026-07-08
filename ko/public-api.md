@@ -578,7 +578,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint | Body | Object | O | 사용자 정의 엔드포인트 정보 객체 |
 | myserviceendpoint.name | Body | String | O | 이름(255자 이내, 영문/숫자/-/_) |
 | myserviceendpoint.display_name | Body | String | - | 표시 이름(생략 시 `name`과 동일하게 적용) |
-| myserviceendpoint.port_id | Body | UUID | O | 대상 리소스(로드 밸런서) 포트 ID |
+| myserviceendpoint.port_id | Body | UUID | O | 대상 리소스(로드 밸런서) 포트 ID. 로드 밸런서 보기(`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`) 응답의 `vip_port_id`를 사용합니다. |
 | myserviceendpoint.max_count | Body | Integer | - | 최대 생성 개수. `0`=생성 차단, 미입력=무제한 |
 | myserviceendpoint.description | Body | String | - | 설명 |
 
