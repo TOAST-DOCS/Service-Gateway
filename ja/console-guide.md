@@ -1,10 +1,15 @@
-## Network > Service Gateway > コンソール使用ガイド
+<!-- pre-align:aligned sig=618efc96173d -->
+
+<a id="network-service-gateway-console-user-guide"></a>
+## Network > Service Gateway > コンソール使用ガイド { #network-service-gateway-console-user-guide }
 
 コンソールで**Service Gateway**サービスを使用する方法を説明します。
 
-## サービスゲートウェイ
+<a id="service-gateway"></a>
+## サービスゲートウェイ { #service-gateway }
 
-### サービスゲートウェイの作成
+<a id="create-a-service-gateway"></a>
+### サービスゲートウェイの作成 { #create-a-service-gateway }
 
 サービスゲートウェイを作成する方法は次のとおりです。
 
@@ -23,30 +28,36 @@
     * 作成時にのみ選択可能で、変更はサポートしていません。
     > [参考] 選択が可能なサービスでのみ有効になります。
 
-### サービスゲートウェイの照会
+<a id="view-a-service-gateway"></a>
+### サービスゲートウェイの照会 { #view-a-service-gateway }
 
 作成したサービスゲートウェイは**Network > Service Gateway**画面で確認できます。サービスゲートウェイを選択すると、下部にサービスゲートウェイ情報が表示されます。
 
-### サービスゲートウェイの変更
+<a id="modify-a-service-gateway"></a>
+### サービスゲートウェイの変更 { #modify-a-service-gateway }
 
 サービスゲートウェイを変更する方法は次のとおりです。**名前**、**説明**のみ変更できます。
 
 1. **Network > Service Gateway**に移動します。
 2. **サービスゲートウェイ変更**ボタンをクリックし、変更画面で項目を変更します。
 
-### サービスゲートウェイの削除
+<a id="delete-a-service-gateway"></a>
+### サービスゲートウェイの削除 { #delete-a-service-gateway }
 
 サービスゲートウェイを削除するには**Network > Service Gateway**画面で削除するサービスゲートウェイを選択し、**サービスゲートウェイ削除**ボタンをクリックします。
 
-## サービスゲートウェイの使用
+<a id="use-a-service-gateway"></a>
+## サービスゲートウェイの使用 { #use-a-service-gateway }
 
-### サービスゲートウェイIPの確認
+<a id="check-the-service-gateway-ip"></a>
+### サービスゲートウェイIPの確認 { #check-the-service-gateway-ip }
 
 1. **Network > Service Gateway**に移動します。
 2. サービスゲートウェイリストで**IPアドレス**を確認します。<br>
   このVM InstanceからこのIPアドレスに接続すると、サービスゲートウェイが接続しているサービスに接続されます。
 
-### サービスゲートウェイ接続
+<a id="connect-to-the-service-gateway"></a>
+### サービスゲートウェイ接続 { #connect-to-the-service-gateway }
 
 作成されたサービスゲートウェイのIPアドレスが`192.168.1.42`である場合、次のような方法でサービスにアクセスできます。
 
@@ -67,11 +78,13 @@
 
             ~# wget https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
 
-## サービスゲートウェイでオブジェクトストレージを使用する例
+<a id="example-of-using-object-storage-from-a-service-gateway"></a>
+## サービスゲートウェイでオブジェクトストレージを使用する例 { #example-of-using-object-storage-from-a-service-gateway }
 
 **オブジェクトストレージ**に関連する内容は、例を説明するための水準でのみ記述します。オブジェクトストレージの詳細については**ユーザーガイド > Storage > Oject Storage**を参照してください。
 
-### サービスゲートウェイの作成
+<a id="example-of-using-object-storage-from-a-service-gateway-create-a-service-gateway"></a>
+### サービスゲートウェイの作成 { #example-of-using-object-storage-from-a-service-gateway-create-a-service-gateway }
 
 **オブジェクトストレージAPI**を使用するには**認証トークン**を発行する必要があります。インターネットを使用できない隔離された環境のVPCからObject Storageを使用するには認証トークンもサービスゲートウェイを利用して発行する必要があり、次の手順に従ってサービスゲートウェイを作成する必要があります。
 
@@ -81,7 +94,8 @@
  認証トークン(token)を発行するためのサービスゲートウェイです。
 3. 作成された2つのサービスゲートウェイでIPアドレスを確認します。
 
-### /etc/hostsファイルの編集
+<a id="edit-the-etchosts-file"></a>
+### /etc/hostsファイルの編集 { #edit-the-etchosts-file }
 
 **Object Storage**を選択して作成したサービスゲートウェイのIPアドレスが192.168.1.42で、**IaaS API Identity**を選択して作成したサービスゲートウェイのIPアドレスに192.168.1.57が割り当てられた場合、VM Instanceの`/etc/hosts`ファイルに以下のようにIPアドレスとURLを追加します。
 
@@ -93,7 +107,8 @@
 192.168.1.57	kr1-api-object-storage.nhncloudservice.com
 ```
 
-### 認証トークンの発行
+<a id="obtain-the-authentication-token"></a>
+### 認証トークンの発行 { #obtain-the-authentication-token }
 
 オブジェクトストレージの**APIパスワード設定**を行い、認証トークンを発行します。
 
@@ -113,7 +128,8 @@
 
             {"access":{"token":{"id":"gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY","expires":"2022-04-13T19:19:30Z","tenant":{"id":"2fda9d4b8821111192ff23841198e2e6","name":"tTMgSSSF","groupId":"XXj2zkH7777modGU","description":"","enabled":true,"project_domain":"NORMAL","swift":true},"issued_at":"2022-04-13T07:32:14.000441"},"serviceCatalog":[{"endpoints":[{"region":"KR1","publicURL":"https://api-identity.infrastructure.cloud.toast.com/v2.0"}],"type":"identity","name":"keystone"},{"endpoints":[{"region":"KR2","publicURL":"https://kr2-api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"},{"region":"KR1","publicURL":"https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"}],"type":"object-store","name":"swift"}],"user":{"id":"80884888887b45dbaf9b815117130671","username":"5111111c-b111-4b11-b11b-01111f81111f","name":"5211122c-bfc4-4115-b11b-05b52f84
 
-### オブジェクトストレージAPIの使用
+<a id="use-the-object-storage-api"></a>
+### オブジェクトストレージAPIの使用 { #use-the-object-storage-api }
 
 認証トークンの発行が完了したらオブジェクトストレージAPIを使用できます。オブジェクトストレージにexampleというコンテナを作成し、test_file.txtを入れたと仮定した場合、以下のようなAPI使用方法でコンテナにあるファイルを照会できます。
 

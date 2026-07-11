@@ -1,5 +1,7 @@
+<!-- pre-align:aligned sig=0fdf7e57a581 -->
 
-## Network > Service Gateway > API v2ガイド
+<a id="network-service-gateway-api-v2-guide"></a>
+## Network > Service Gateway > API v2ガイド { #network-service-gateway-api-v2-guide }
 
 NHN Cloud Networkサービスは、API呼び出し時の認証/認可のためにIaaSトークンを使用します。IaaSトークンは、NHN CloudのOpenStackベースのインフラサービス(IaaS)で使用する認証トークンです。IaaSトークンの発行及び使用に関する詳細は、[IaaSトークン](/nhncloud/ja/public-api/iaas-token)を参照してください。
 
@@ -11,15 +13,18 @@ NHN Cloud Networkサービスは、API呼び出し時の認証/認可のため�
 
 APIレスポンスにガイドに記載されていないフィールドが表示される場合があります。このようなフィールドは、NHN Cloudの内部用途に使用され、事前告知なしに変更される可能性があるため、使用しないでください。
 
-## サービスゲートウェイ
+<a id="service-gateway"></a>
+## サービスゲートウェイ { #service-gateway }
 
-### サービスゲートウェイリスト表示
+<a id="get-a-list-of-service-gateways"></a>
+### サービスゲートウェイリスト表示 { #get-a-list-of-service-gateways }
 
 ```
 GET /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-list-of-service-gateways-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -36,6 +41,7 @@ X-Auth-Token: {tokenId}
 | include_gateway_identity| Query | Boolean | - | NAT IPアドレス固定の使用有無 |
 
 
+<a id="get-a-list-of-service-gateways-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -78,13 +84,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### サービスゲートウェイ表示
+<a id="get-a-service-gateway"></a>
+### サービスゲートウェイ表示 { #get-a-service-gateway }
 
 ```
 GET /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-service-gateway-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -93,6 +101,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | トークンID |
 | serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
 
+<a id="get-a-service-gateway-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -140,13 +149,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### サービスゲートウェイを作成する
+<a id="create-a-service-gateway"></a>
+### サービスゲートウェイを作成する { #create-a-service-gateway }
 
 ```
 POST /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-a-service-gateway-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -180,6 +191,7 @@ X-Auth-Token: {tokenId}
 ```
 </details>
 
+<a id="create-a-service-gateway-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -228,13 +240,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### サービスゲートウェイを修正する
+<a id="modify-a-service-gateway"></a>
+### サービスゲートウェイを修正する { #modify-a-service-gateway }
 
 ```
 PUT /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-a-service-gateway-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -257,6 +271,7 @@ X-Auth-Token: {tokenId}
 ```
 </details>
 
+<a id="modify-a-service-gateway-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -305,13 +320,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### サービスゲートウェイを削除する
+<a id="delete-a-service-gateway"></a>
+### サービスゲートウェイを削除する { #delete-a-service-gateway }
 
 ```
 DELETE /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-a-service-gateway-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -321,6 +338,7 @@ X-Auth-Token: {tokenId}
 | serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
 
 
+<a id="delete-a-service-gateway-response"></a>
 #### レスポンス
 このAPIはレスポンス本文を返しません。
 
@@ -333,15 +351,18 @@ X-Auth-Token: {tokenId}
 
 
 
-## サービスエンドポイント
+<a id="service-endpoint"></a>
+## サービスエンドポイント { #service-endpoint }
 
-### サービスエンドポイントリスト表示
+<a id="get-a-list-of-service-endpoints"></a>
+### サービスエンドポイントリスト表示 { #get-a-list-of-service-endpoints }
 
 ```
 GET /v2.0/gateways/serviceendpoints/
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-list-of-service-endpoints-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -353,6 +374,7 @@ X-Auth-Token: {tokenId}
 
 
 
+<a id="get-a-list-of-service-endpoints-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -381,13 +403,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### サービスエンドポイント表示
+<a id="get-a-service-endpoint"></a>
+### サービスエンドポイント表示 { #get-a-service-endpoint }
 
 ```
 GET /v2.0/gateways/serviceendpoints/{seerviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-service-endpoint-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -396,6 +420,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | トークンID |
 | serviceEndpointId | URL | UUID | O | サービスエンドポイントID |
 
+<a id="get-a-service-endpoint-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
