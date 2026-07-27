@@ -579,7 +579,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint.name | Body | String | O | 이름(255자 이내, 영문/숫자/-/_) |
 | myserviceendpoint.display_name | Body | String | - | 표시 이름(생략 시 `name`과 동일하게 적용) |
 | myserviceendpoint.port_id | Body | UUID | O | 대상 리소스(로드 밸런서) 포트 ID. 로드 밸런서 보기(`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`) 응답의 `vip_port_id`를 사용합니다. |
-| myserviceendpoint.max_count | Body | Integer | - | 최대 생성 개수. `0`=생성 차단, 미입력=무제한 |
+| myserviceendpoint.max_count | Body | Integer | - | 최대 생성 개수(0~1,000). 0: 생성 차단, null 또는 미입력: 무제한 |
 | myserviceendpoint.description | Body | String | - | 설명 |
 
 > 대상 리소스로 로드 밸런서를 지정하면 `endpoint_type`이 `lb.type1`로, `service_provider`가 `user`로 자동 설정됩니다. 생성이 완료되면 공유용 `service_name`이 자동으로 발급됩니다. 프로젝트당 기본 5개까지 생성할 수 있습니다.
@@ -620,7 +620,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint | Body | Object | O | 사용자 정의 엔드포인트 정보 객체 |
 | myserviceendpoint.name | Body | String | - | 이름 |
 | myserviceendpoint.display_name | Body | String | - | 표시 이름 |
-| myserviceendpoint.max_count | Body | Integer | - | 최대 생성 개수 |
+| myserviceendpoint.max_count | Body | Integer | - | 최대 생성 개수(0~1000). 0: 생성 차단, null: 무제한으로 변경, 필드 미포함 시 기존 값 유지 |
 | myserviceendpoint.description | Body | String | - | 설명 |
 
 > 리소스 유형(`endpoint_type`)과 대상 리소스(`port_id`)는 변경할 수 없습니다. 최대 생성 개수를 줄여도 기존 서비스 게이트웨이는 유지되며, 현재 개수가 최대 생성 개수를 초과하는 동안에는 추가 생성할 수 없습니다.
