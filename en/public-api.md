@@ -1,5 +1,7 @@
+<!-- pre-align:aligned sig=0fdf7e57a581 -->
 
-## Network > Service Gateway > API v2 Guide
+<a id="network-service-gateway-api-v2-guide"></a>
+## Network > Service Gateway > API v2 Guide { #network-service-gateway-api-v2-guide }
 
 NHN Cloud Network services use IaaS tokens for authentication and authorization when making API calls. The IaaS token is an authentication token used for NHN Cloud's OpenStack-based infrastructure services (IaaS). For more information on issuing and using IaaS tokens, please refer to the [IaaS Token](/nhncloud/en/public-api/iaas-token).
 
@@ -11,15 +13,18 @@ For Service Gateway APIs, the `network` type endpoint is used. For more details,
 
 In each API response, you may find fields that are not specified within this guide. Those fields are for NHN Cloud internal usage, so refrain from using them because they may be changed without prior notice.
 
-## Service Gateway
+<a id="service-gateway"></a>
+## Service Gateway { #service-gateway }
 
-### Get a List of Service Gateways
+<a id="get-a-list-of-service-gateways"></a>
+### Get a List of Service Gateways { #get-a-list-of-service-gateways }
 
 ```
 GET /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-list-of-service-gateways-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -36,6 +41,7 @@ This API does not require a request body.
 include_gateway_identity| Query | Boolean | - | Whether to use fixed NAT IP address |
 
 
+<a id="get-a-list-of-service-gateways-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -78,13 +84,15 @@ include_gateway_identity| Query | Boolean | - | Whether to use fixed NAT IP addr
 </details>
 
 ---
-### Get a Service Gateway
+<a id="get-a-service-gateway"></a>
+### Get a Service Gateway { #get-a-service-gateway }
 
 ```
 GET /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-service-gateway-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -93,6 +101,7 @@ This API does not require a request body.
 | tokenId | Header | String | O | Token ID |
 | serviceGatewayId | URL | UUID | O | The ID of the service gateway |
 
+<a id="get-a-service-gateway-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -140,13 +149,15 @@ This API does not require a request body.
 </details>
 
 ---
-### Create a Service Gateway
+<a id="create-a-service-gateway"></a>
+### Create a Service Gateway { #create-a-service-gateway }
 
 ```
 POST /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-a-service-gateway-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -180,6 +191,7 @@ X-Auth-Token: {tokenId}
 ```
 </details>
 
+<a id="create-a-service-gateway-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -228,13 +240,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### Modify a Service Gateway
+<a id="modify-a-service-gateway"></a>
+### Modify a Service Gateway { #modify-a-service-gateway }
 
 ```
 PUT /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-a-service-gateway-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -257,6 +271,7 @@ X-Auth-Token: {tokenId}
 ```
 </details>
 
+<a id="modify-a-service-gateway-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -305,13 +320,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### Delete a Service Gateway
+<a id="delete-a-service-gateway"></a>
+### Delete a Service Gateway { #delete-a-service-gateway }
 
 ```
 DELETE /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-a-service-gateway-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -321,6 +338,7 @@ This API does not require a request body.
 | serviceGatewayId | URL | UUID | O | The ID of the service gateway |
 
 
+<a id="delete-a-service-gateway-response"></a>
 #### Response
 Stops the specified node group.
 
@@ -333,15 +351,18 @@ Stops the specified node group.
 
 
 
-## Service Endpoint
+<a id="service-endpoint"></a>
+## Service Endpoint { #service-endpoint }
 
-### Get a List of Service Endpoints
+<a id="get-a-list-of-service-endpoints"></a>
+### Get a List of Service Endpoints { #get-a-list-of-service-endpoints }
 
 ```
 GET /v2.0/gateways/serviceendpoints/
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-list-of-service-endpoints-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -353,6 +374,7 @@ This API does not require a request body.
 
 
 
+<a id="get-a-list-of-service-endpoints-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -381,13 +403,15 @@ This API does not require a request body.
 </details>
 
 ---
-### Get a Service Endpoint
+<a id="get-a-service-endpoint"></a>
+### Get a Service Endpoint { #get-a-service-endpoint }
 
 ```
 GET /v2.0/gateways/serviceendpoints/{seerviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-service-endpoint-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -396,6 +420,7 @@ This API does not require a request body.
 | tokenId | Header | String | O | Token ID |
 | serviceEndpointId | URL | UUID | O | Service endpoint ID |
 
+<a id="get-a-service-endpoint-response"></a>
 #### Response
 
 | Name | Type | Format | Description |

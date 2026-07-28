@@ -1,8 +1,12 @@
-## Network > Service Gateway > Overview
+<!-- pre-align:aligned sig=321428a4bf12 -->
+
+<a id="network-service-gateway-overview"></a>
+## Network > Service Gateway > Overview { #network-service-gateway-overview }
 
 The **Service Gateway** service allows you to use the **services** of NHN Cloud outside the **VPC** without using a **floating IP** and having the traffic going through the internet. The **service** selected when **creating the service gateway** and the automatically assigned IP maintain a one-to-one relationship. In the **VPC**, you can use the target **service** safely through the NHN Cloud's internal network using the **service gateway**'s IP address.
 
-### Main Features
+<a id="main-features"></a>
+### Main Features { #main-features }
 
 * You can connect to the services of NHN Cloud provided by the service gateway from your VPC without going through the internet.
 * You can use only the services provided in the service list when creating a service gateway.
@@ -10,7 +14,8 @@ The **Service Gateway** service allows you to use the **services** of NHN Cloud 
 * When the VM Instance in the VPC communicates with the IP address of the service gateway, it communicates with the service associated with the service gateway.
 * This service is currently only available in the Korea (Pangyo) and Korea (Pyeongchon) regions, and will be supported by other regions gradually.
 
-### Provided Services
+<a id="provided-services"></a>
+### Provided Services { #provided-services }
 
 If you need to access NHN Cloud's services from a VM Instance in the VPC without going through the internet, create a service gateway by selecting a service provided by the service gateway.
 For details on how to use each service, refer to the [Service Gateway > Console User Guide](/Network/Service%20Gateway/en/console-guide/). 

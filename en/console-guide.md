@@ -1,10 +1,15 @@
-## Network > Service Gateway > Console User Guide
+<!-- pre-align:aligned sig=618efc96173d -->
+
+<a id="network-service-gateway-console-user-guide"></a>
+## Network > Service Gateway > Console User Guide { #network-service-gateway-console-user-guide }
 
 This guides describes how to use the **Service Gateway** service from the console.
 
-## Service Gateway
+<a id="service-gateway"></a>
+## Service Gateway { #service-gateway }
 
-### Create a Service Gateway
+<a id="create-a-service-gateway"></a>
+### Create a Service Gateway { #create-a-service-gateway }
 
 To create a service gateway, use the following steps:
 
@@ -23,30 +28,36 @@ To create a service gateway, use the following steps:
     * Selection is only possible at creation time, and changes are not supported.
     > [Note] It is only enabled on services that allow selection.
 
-### View a Service Gateway
+<a id="view-a-service-gateway"></a>
+### View a Service Gateway { #view-a-service-gateway }
 
 You can check the created service gateway on the **Network > Service Gateway** page. If you select a service gateway, the service gateway information appears at the bottom.
 
-### Modify a Service Gateway
+<a id="modify-a-service-gateway"></a>
+### Modify a Service Gateway { #modify-a-service-gateway }
 
 A service gateway can be modified as follows. You can only change the **Name** and **Description**.
 
 1. Go to **Network > Service Gateway**.
 2. Click **Change Service Gateway** and change items on the change screen.
 
-### Delete a Service Gateway
+<a id="delete-a-service-gateway"></a>
+### Delete a Service Gateway { #delete-a-service-gateway }
 
 To delete a service gateway, select the service gateway you want to delete in the **Network > Service Gateway** page and click the **Delete Service Gateway** button.
 
-## Use a Service Gateway
+<a id="use-a-service-gateway"></a>
+## Use a Service Gateway { #use-a-service-gateway }
 
-### Check the Service Gateway IP
+<a id="check-the-service-gateway-ip"></a>
+### Check the Service Gateway IP { #check-the-service-gateway-ip }
 
 1. Go to **Network > Service Gateway**.
 2. Check the **IP address** in the list of service gateways.<br>
    When the VM Instance accesses this IP address, it is connected to the service that the service gateway is connected to.
 
-### Connect to the Service Gateway
+<a id="connect-to-the-service-gateway"></a>
+### Connect to the Service Gateway { #connect-to-the-service-gateway }
 
 For example, if the IP address of the created service gateway is `192.168.1.42`, the service can be accessed in the following ways.
 
@@ -67,11 +78,13 @@ For example, if the IP address of the created service gateway is `192.168.1.42`,
 
             ~# wget https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_8222a22c22244badbf876dcd521f3f98/test-obs/test_file.txt
 
-## Example of Using Object Storage from a Service Gateway
+<a id="example-of-using-object-storage-from-a-service-gateway"></a>
+## Example of Using Object Storage from a Service Gateway { #example-of-using-object-storage-from-a-service-gateway }
 
 Content related to **object storage** are described only at the level required for explaining the example. For details on how to use object storage, refer to **User Guide > Storage > Object Storage**.
 
-### Create a Service Gateway
+<a id="example-of-using-object-storage-from-a-service-gateway-create-a-service-gateway"></a>
+### Create a Service Gateway { #example-of-using-object-storage-from-a-service-gateway-create-a-service-gateway }
 
 To use the **Object Storage API**, you must obtain an **authentication token**. To use object storage in a VPC in an isolated environment where internet is not available, you must obtain an authentication token also using the service gateway, and create the service gateway according to the following steps.
 
@@ -81,7 +94,8 @@ To use the **Object Storage API**, you must obtain an **authentication token**. 
    A service gateway for obtaining the authentication token.
 3. Check the IP addresses on the two service gateways that have been created.
 
-### Edit the /etc/hosts File
+<a id="edit-the-etchosts-file"></a>
+### Edit the /etc/hosts File { #edit-the-etchosts-file }
 
 For example, if the IP address of the service gateway created by selecting **Object Storage** is 192.168.1.42 and 192.168.1.57 is assigned as the IP address of the service gateway created by selecting **IaaS API Identity**, add the IP addresses and URLs to the `/etc/hosts` file of the VM Instance, as shown below.
 
@@ -93,7 +107,8 @@ For example, if the IP address of the service gateway created by selecting **Obj
 192.168.1.57	kr1-api-object-storage.nhncloudservice.com
 ```
 
-### Obtain the Authentication Token
+<a id="obtain-the-authentication-token"></a>
+### Obtain the Authentication Token { #obtain-the-authentication-token }
 
 **Set the API password** for object storage and get an authentication token.
 
@@ -115,7 +130,8 @@ For example, if the IP address of the service gateway created by selecting **Obj
 
             {"access":{"token":{"id":"gAAAAABiVnmCOJVJhh1W2eXGo3aL0eaZxXmd-SMDMIE3zmip2lXy6eH0BlZAlTZBG20dWEm7TF4zi4YIOTKnc6yKh_wqZsyxgMWKkpVNShzE-k6GaSThBP54QeUePSjC2t-R10X6G4xL_Wecl-V-lV-bnOfVo6Ccpz6rv9eLYJnbJw7KrIMSSiY","expires":"2022-04-13T19:19:30Z","tenant":{"id":"2fda9d4b8821111192ff23841198e2e6","name":"tTMgSSSF","groupId":"XXj2zkH7777modGU","description":"","enabled":true,"project_domain":"NORMAL","swift":true},"issued_at":"2022-04-13T07:32:14.000441"},"serviceCatalog":[{"endpoints":[{"region":"KR1","publicURL":"https://api-identity.infrastructure.cloud.toast.com/v2.0"}],"type":"identity","name":"keystone"},{"endpoints":[{"region":"KR2","publicURL":"https://kr2-api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"},{"region":"KR1","publicURL":"https://api-storage.cloud.toast.com/v1/AUTH_2fda9d4b88244a0a92ff23841198e2e6"}],"type":"object-store","name":"swift"}],"user":{"id":"80884888887b45dbaf9b815117130671","username":"5111111c-b111-4b11-b11b-01111f81111f","name":"5211122c-bfc4-4115-b11b-05b52f84
 
-### Use the Object Storage API
+<a id="use-the-object-storage-api"></a>
+### Use the Object Storage API { #use-the-object-storage-api }
 
 When you have finished obtaining the authentication token, you can use the Object Storage API. Assuming that a container named example is created in the object storage and test_file.txt is uploaded to the container, you can query the file in the container by using the API as shown below.
 

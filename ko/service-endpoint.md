@@ -1,8 +1,12 @@
-## Network > Service Gateway > 서비스 엔드포인트
+<!-- pre-align:aligned sig=1d1c35e9431e -->
+
+<a id="network-service-gateway-service-endpoint"></a>
+## Network > Service Gateway > 서비스 엔드포인트 { #network-service-gateway-service-endpoint }
 
 서비스 게이트웨이를 이용하여 NHN Cloud 내부 네트워크로 통신할 수 있는 서비스 목록 및 각 서비스별 엔드포인트입니다.
 
-### 리전 코드
+<a id="region-code"></a>
+### 리전 코드 { #region-code }
 
 * 리전 서비스는 각 리전별로 엔드포인트 주소가 다르므로 `{region code}`에 아래의 리전 코드를 기입해야 합니다.
 
@@ -13,7 +17,8 @@
 | 한국(광주) | kr3 |
 | 일본(도쿄) | jp1 |
 
-### 서비스 게이트웨이 연동 서비스
+<a id="service-gateway-integration-services"></a>
+### 서비스 게이트웨이 연동 서비스 { #service-gateway-integration-services }
 
 * 아래 서비스로 서비스 게이트웨이를 생성하면 인터넷을 경유하지 않고, NHN Cloud 내부 네트워크로 접근할 수 있습니다.
     * 서비스 게이트웨이를 생성하는 방법은 [Service Gateway > 콘솔 사용 가이드](/Network/Service%20Gateway/ko/console-guide/)를 참고하세요.

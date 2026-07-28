@@ -1,5 +1,7 @@
+<!-- pre-align:aligned sig=0fdf7e57a581 -->
 
-## Network > Service Gateway > API v2 가이드
+<a id="network-service-gateway-api-v2-guide"></a>
+## Network > Service Gateway > API v2 가이드 { #network-service-gateway-api-v2-guide }
 
 NHN Cloud Network 서비스는 API 호출 시 인증/인가를 위해 IaaS 토큰을 사용합니다. IaaS 토큰은 NHN Cloud의 OpenStack 기반 인프라 서비스(IaaS)에서 사용하는 인증 토큰입니다. IaaS 토큰 발급 및 사용에 대한 자세한 내용은 [IaaS 토큰](/nhncloud/ko/public-api/iaas-token)을 참고하세요.
 
@@ -11,15 +13,18 @@ NHN Cloud Network 서비스는 API 호출 시 인증/인가를 위해 IaaS 토�
 
 API 응답에 가이드에 명시되지 않은 필드가 나타날 수 있습니다. 이런 필드는 NHN Cloud 내부 용도로 사용되며 사전 공지 없이 변경될 수 있으므로 사용하지 않습니다.
 
-## 서비스 게이트웨이
+<a id="service-gateway"></a>
+## 서비스 게이트웨이 { #service-gateway }
 
-### 서비스 게이트웨이 목록 보기
+<a id="get-a-list-of-service-gateways"></a>
+### 서비스 게이트웨이 목록 보기 { #get-a-list-of-service-gateways }
 
 ```
 GET /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-list-of-service-gateways-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -36,6 +41,7 @@ X-Auth-Token: {tokenId}
 | include_gateway_identity| Query | Boolean | - | NAT IP 주소 고정 사용 여부 |
 
 
+<a id="get-a-list-of-service-gateways-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -78,13 +84,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### 서비스 게이트웨이 보기
+<a id="get-a-service-gateway"></a>
+### 서비스 게이트웨이 보기 { #get-a-service-gateway }
 
 ```
 GET /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-service-gateway-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -93,6 +101,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
 
+<a id="get-a-service-gateway-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -140,13 +149,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### 서비스 게이트웨이 생성하기
+<a id="create-a-service-gateway"></a>
+### 서비스 게이트웨이 생성하기 { #create-a-service-gateway }
 
 ```
 POST /v2.0/gateways/servicegateways
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-a-service-gateway-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -180,6 +191,7 @@ X-Auth-Token: {tokenId}
 ```
 </details>
 
+<a id="create-a-service-gateway-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -228,13 +240,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### 서비스 게이트웨이 수정하기
+<a id="modify-a-service-gateway"></a>
+### 서비스 게이트웨이 수정하기 { #modify-a-service-gateway }
 
 ```
 PUT /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-a-service-gateway-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -257,6 +271,7 @@ X-Auth-Token: {tokenId}
 ```
 </details>
 
+<a id="modify-a-service-gateway-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -305,13 +320,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### 서비스 게이트웨이 삭제하기
+<a id="delete-a-service-gateway"></a>
+### 서비스 게이트웨이 삭제하기 { #delete-a-service-gateway }
 
 ```
 DELETE /v2.0/gateways/servicegateways/{serviceGatewayId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-a-service-gateway-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -321,6 +338,7 @@ X-Auth-Token: {tokenId}
 | serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
 
 
+<a id="delete-a-service-gateway-response"></a>
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
 
@@ -333,15 +351,18 @@ X-Auth-Token: {tokenId}
 
 
 
-## 서비스 엔드포인트
+<a id="service-endpoint"></a>
+## 서비스 엔드포인트 { #service-endpoint }
 
-### 서비스 엔드포인트 목록 보기
+<a id="get-a-list-of-service-endpoints"></a>
+### 서비스 엔드포인트 목록 보기 { #get-a-list-of-service-endpoints }
 
 ```
 GET /v2.0/gateways/serviceendpoints/
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-list-of-service-endpoints-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -353,6 +374,7 @@ X-Auth-Token: {tokenId}
 
 
 
+<a id="get-a-list-of-service-endpoints-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -381,13 +403,15 @@ X-Auth-Token: {tokenId}
 </details>
 
 ---
-### 서비스 엔드포인트 보기
+<a id="get-a-service-endpoint"></a>
+### 서비스 엔드포인트 보기 { #get-a-service-endpoint }
 
 ```
 GET /v2.0/gateways/serviceendpoints/{seerviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-service-endpoint-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -396,6 +420,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | serviceEndpointId | URL | UUID | O | 서비스 엔드포인트 ID |
 
+<a id="get-a-service-endpoint-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
