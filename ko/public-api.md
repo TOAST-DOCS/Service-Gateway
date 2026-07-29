@@ -358,19 +358,6 @@ X-Auth-Token: {tokenId}
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
 
-> 서비스 게이트웨이 생성 시 연결 대상 엔드포인트의 권한/개수 제한에 따라 다음 오류가 반환될 수 있습니다.
-> - `ServiceEndpointNotAllowed` (409): 해당 엔드포인트의 생성 **권한**이 없습니다. (허용 프로젝트 미등록)
-> - `ServiceEndpointLimitExceeded` (409): 해당 엔드포인트의 생성 가능 **개수**(`max_count`)를 초과했거나 `max_count=0`으로 차단되었습니다.
-
-
-
-
-
-
-
-
-
-
 <a id="service-endpoint"></a>
 ## 서비스 엔드포인트 { #service-endpoint }
 
