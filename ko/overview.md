@@ -3,7 +3,7 @@
 <a id="network-service-gateway-overview"></a>
 ## Network > Service Gateway > 개요 { #network-service-gateway-overview }
 
-**Service Gateway** 서비스를 이용하면 **플로팅 IP**를 쓰지 않고 트래픽이 인터넷을 경유하지 않고도 **VPC** 외부의 NHN Cloud의 **서비스**나 다른 사용자가 게시한 **사용자 정의 엔드포인트**를 이용할 수 있습니다. **서비스 게이트웨이 생성** 시 선택된 연결 대상과 자동으로 할당된 IP는 1:1 연결 관계를 유지하며, **VPC**에서는 **서비스 게이트웨이**의 IP를 이용하여 NHN Cloud의 내부 네트워크를 경유해 대상을 안전하게 이용할 수 있습니다.
+Service Gateway 서비스를 이용하면 플로팅 IP를 쓰지 않고 트래픽이 인터넷을 경유하지 않고도 VPC 외부의 NHN Cloud의 서비스나 다른 사용자가 게시한 **사용자 정의 엔드포인트**를 이용할 수 있습니다. **서비스 게이트웨이 생성** 시 선택된 연결 대상과 자동으로 할당된 IP는 1:1 연결 관계를 유지하며, VPC에서는 서비스 게이트웨이의 IP를 이용하여 NHN Cloud의 내부 네트워크를 경유해 대상을 안전하게 이용할 수 있습니다.
 
 <a id="main-features"></a>
 ### 주요 기능 { #main-features }
