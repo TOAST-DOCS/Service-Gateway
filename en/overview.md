@@ -23,7 +23,7 @@ The Service Gateway service allows you to use NHN Cloud services outside the VPC
 If you need to access NHN Cloud's services from a VM Instance in the VPC without going through the internet, create a service gateway by selecting a service provided by the service gateway.
 For more information, see [Service Gateway > Console User Guide](/Network/Service%20Gateway/en/console-guide/).
 
-For the services offered, see the [**Service Endpoints**](/Network/Service%20Gateway/ko/service-endpoint/). The services offered will be expanded.
+For the services offered, see the [**Service Endpoints**](/Network/Service%20Gateway/en/service-endpoint/). The services offered will be expanded.
 
 <a id="custom-endpoints"></a>
 ### Custom Endpoints { #custom-endpoints }
