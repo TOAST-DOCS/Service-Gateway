@@ -667,7 +667,7 @@ X-Auth-Token: {tokenId}
 
 <a id="modify-a-custom-endpoint-response"></a>
 #### 응답
-응답 본문은 [사용자 정의 엔드포인트 보기](#사용자-정의-엔드포인트-보기)와 동일합니다.
+응답 본문은 [사용자 정의 엔드포인트 보기](#get-a-custom-endpoint)와 동일합니다.
 
 ---
 <a id="delete-custom-endpoint"></a>
