@@ -882,7 +882,7 @@ X-Auth-Token: {tokenId}
 
 <a id="modify-allowed-projects-response"></a>
 #### レスポンス
-レスポンス本文は、[許可プロジェクトリスト表示](#허용-프로젝트-목록-보기)の単一オブジェクト（`serviceendpointallowproject`）と同じです。
+レスポンス本文は、[許可プロジェクトリスト表示](#view-allow-project-list)の単一オブジェクト（`serviceendpointallowproject`）と同じです。
 
 <a id="delete-an-allowed-project"></a>
 ### 許可プロジェクトの削除 { #delete-an-allowed-project }
