@@ -626,7 +626,7 @@ X-Auth-Token: {tokenId}
 
 <a id="create-a-custom-endpoint-response"></a>
 #### レスポンス
-レスポンス本文は[ユーザー定義エンドポイント表示](#사용자-정의-엔드포인트-보기)と同じで、自動発行された `service_name` が含まれます。
+レスポンス本文は[ユーザー定義エンドポイント表示](#get-a-custom-endpoint)と同じで、自動発行された `service_name` が含まれます。
 
 ---
 
