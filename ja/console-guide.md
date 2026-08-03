@@ -214,7 +214,7 @@
     2. **[API エンドポイント設定]** 画面の **[API パスワードの設定]** に使用するパスワードを入力し、**[変更]** ボタンをクリックします。
 
     !!! tip "ヒント"
-        詳しい使用方法については、[ユーザーガイド > Storage > Object Storage > API ガイド](https://docs.nhncloud.com/ja/Storage/Object%20Storage/ko/api-guide/)を参照してください。
+        詳しい使用方法については、[ユーザーガイド > Storage > Object Storage > API ガイド](https://docs.nhncloud.com/ko/Storage/Object%20Storage/ko/api-guide/)を参照してください。
 
             ~# curl -X POST -H 'Content-Type:application/json' https://api-identity-infrastructure.nhncloudservice.com/v2.0/tokens -d '{"auth": {"tenantId": "2fda9d4b88244a0a92ff23841198e2e6", "passwordCredentials": {"username": "example@nhn.com", "password": "example123"}}}'
 
