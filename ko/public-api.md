@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=0fdf7e57a581 -->
+<!-- pre-align:aligned sig=fbbff493af43 -->
 
 <a id="network-service-gateway-api-v2-guide"></a>
 ## Network > Service Gateway > API v2 가이드 { #network-service-gateway-api-v2-guide }
