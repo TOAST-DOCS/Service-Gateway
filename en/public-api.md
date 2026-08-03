@@ -624,7 +624,7 @@ X-Auth-Token: {tokenId}
 
 <a id="create-a-custom-endpoint-response"></a>
 #### Response
-The response body is the same as [Get a Custom Endpoint](#사용자-정의-엔드포인트-보기), and includes the automatically issued `service_name`.
+The response body is the same as [Get a Custom Endpoint](#get-a-custom-endpoint), and includes the automatically issued `service_name`.
 
 <a id="modify-a-custom-endpoint"></a>
 ### Modify a Custom Endpoint { #modify-a-custom-endpoint }
