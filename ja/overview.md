@@ -1,13 +1,11 @@
 <!-- pre-align:aligned sig=321428a4bf12 -->
 
 <a id="network-service-gateway-overview"></a>
-
 ## Network > Service Gateway > 概要 { #network-service-gateway-overview }
 
 Service Gateway サービスを利用すると、フローティング IP を使用せず、トラフィックがインターネットを経由せずに VPC 外部の NHN Cloud のサービスや、他のユーザーが公開した**ユーザー定義エンドポイント**を利用できます。**サービスゲートウェイの作成**時に選択した接続先と自動的に割り当てられた IP は 1:1 接続関係を維持し、VPC ではサービスゲートウェイの IP を使用して NHN Cloud の内部ネットワークを経由して対象を安全に利用できます。
 
 <a id="main-features"></a>
-
 ### 主な機能 { #main-features }
 
 * VPCからインターネットを経由せず、サービスゲートウェイが提供するNHN Cloudのサービスに接続できます。
@@ -20,7 +18,6 @@ Service Gateway サービスを利用すると、フローティング IP を使
 * ただし、ユーザー定義エンドポイントは韓国（板橋）、韓国（坪村）リージョンのみでサポートされます。
 
 <a id="provided-services"></a>
-
 ### 提供サービス { #provided-services }
 
 VPC の VM インスタンスからインターネットを経由せず NHN Cloud のサービスにアクセスする必要がある場合、サービスゲートウェイで提供されるサービスを選択してサービスゲートウェイを作成します。
@@ -28,7 +25,8 @@ VPC の VM インスタンスからインターネットを経由せず NHN Clou
 
 提供サービス提供[**サービスエンドポイント**](/Network/Service%20Gateway/ja/service-endpoint/)ポイントをご覧ください。提供されるサービスは徐々に拡大していく予定です。
 
-### ユーザー定義エンドポイント
+<a id="custom-endpoints"></a>
+### ユーザー定義エンドポイント { #custom-endpoints }
 
 NHN Cloud が提供するサービス以外にも、他のユーザーが公開したリソースにサービスゲートウェイで接続できます。リソースの所有者は、自身のロードバランサーをユーザー定義エンドポイントとして公開し、共有用のサービス名を発行して接続を許可する対象に伝達します。コンシューマーは受け取ったサービス名でサービスゲートウェイを作成して接続します。
 詳細な使用方法については、[Service Gateway > コンソール使用ガイド](/Network/Service%20Gateway/ja/console-guide/)を参照してください。
