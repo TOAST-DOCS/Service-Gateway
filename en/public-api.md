@@ -25,7 +25,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="get-a-list-of-service-gateways-request"></a>
-
 #### Request
 This API does not require a request body.
 
@@ -41,7 +40,6 @@ This API does not require a request body.
 | fixed_ip| Query | String | - | The IP address of the service gateway to retrieve |
 | include_gateway_identity| Query | Boolean | - | Whether to use a static NAT IP address |
 <a id="get-a-list-of-service-gateways-response"></a>
-
 #### Response
 
 | Name | Type | Format | Description |
@@ -105,7 +103,6 @@ This API does not require a request body.
 | serviceGatewayId | URL | UUID | O | The ID of the service gateway |
 
 <a id="get-a-service-gateway-response"></a>
-
 #### Response
 
 | Name | Type | Format | Description |
@@ -165,7 +162,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="create-a-service-gateway-request"></a>
-
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -199,7 +195,6 @@ X-Auth-Token: {tokenId}
 </details>
 
 <a id="create-a-service-gateway-response"></a>
-
 #### Response
 
 | Name | Type | Format | Description |
@@ -260,7 +255,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="modify-a-service-gateway-request"></a>
-
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -287,7 +281,6 @@ X-Auth-Token: {tokenId}
 </details>
 
 <a id="modify-a-service-gateway-response"></a>
-
 #### Response
 
 | Name | Type | Format | Description |
@@ -382,7 +375,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="get-a-list-of-service-endpoints-request"></a>
-
 #### Request
 This API does not require a request body.
 
@@ -468,17 +460,20 @@ This API does not require a request body.
 
 ---
 
-## Custom Endpoints
+<a id="custom-endpoints"></a>
+## Custom Endpoints { #custom-endpoints }
 
 This feature allows you to publish your own resources (load balancers) as endpoints to share with other projects. The publisher (owner) creates and manages them. When created, a service name (`service_name`) for sharing is issued.
 
-### View Custom Endpoint List
+<a id="view-custom-endpoint-list"></a>
+### View Custom Endpoint List { #view-custom-endpoint-list }
 
 ```
 GET /v2.0/gateways/myserviceendpoints
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-custom-endpoint-list-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -489,6 +484,7 @@ This API does not require a request body.
 | endpoint_type | Query | String | - | Endpoint type to retrieve (e.g., `lb.type1`) |
 | port_id | Query | UUID | - | Port ID of the target resource (load balancer) to retrieve |
 
+<a id="view-custom-endpoint-list-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -530,13 +526,15 @@ This API does not require a request body.
 
 </details>
 
-### Get a Custom Endpoint
+<a id="get-a-custom-endpoint"></a>
+### Get a Custom Endpoint { #get-a-custom-endpoint }
 
 ```
 GET /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-custom-endpoint-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -545,6 +543,7 @@ This API does not require a request body.
 | tokenId | Header | String | O | Token ID |
 | serviceEndpointId | URL | UUID | O | Custom endpoint ID |
 
+<a id="get-a-custom-endpoint-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -584,13 +583,15 @@ This API does not require a request body.
 
 </details>
 
-### Create a Custom Endpoint
+<a id="create-a-custom-endpoint"></a>
+### Create a Custom Endpoint { #create-a-custom-endpoint }
 
 ```
 POST /v2.0/gateways/myserviceendpoints
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-a-custom-endpoint-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -621,16 +622,19 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="create-a-custom-endpoint-response"></a>
 #### Response
 The response body is the same as [Get a Custom Endpoint](#사용자-정의-엔드포인트-보기), and includes the automatically issued `service_name`.
 
-### Modify a Custom Endpoint
+<a id="modify-a-custom-endpoint"></a>
+### Modify a Custom Endpoint { #modify-a-custom-endpoint }
 
 ```
 PUT /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-a-custom-endpoint-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -660,16 +664,19 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="modify-a-custom-endpoint-response"></a>
 #### Response
 The response body is the same as [Get a Custom Endpoint](#사용자-정의-엔드포인트-보기).
 
-### Delete Custom Endpoint
+<a id="delete-custom-endpoint"></a>
+### Delete Custom Endpoint { #delete-custom-endpoint }
 
 ```
 DELETE /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-custom-endpoint-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -680,16 +687,19 @@ This API does not require a request body.
 
 > If there is a service gateway using this endpoint, it cannot be deleted. When deleted, the registered allowed projects are also deleted.
 
+<a id="delete-custom-endpoint-response"></a>
 #### Response
 This API does not return a response body.
 
-### Reissue a Service Name
+<a id="reissue-a-service-name"></a>
+### Reissue a Service Name { #reissue-a-service-name }
 
 ```
 PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/generate_service_name
 X-Auth-Token: {tokenId}
 ```
 
+<a id="reissue-a-service-name-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -700,6 +710,7 @@ This API does not require a request body.
 
 > Only a member (owner) of the project that created the endpoint can perform this action. Upon reissuance, the existing `service_name` is immediately invalidated and can no longer be retrieved. Service gateways created with the existing `service_name` continue to function normally, but the reissued `service_name` must be used when creating new ones.
 
+<a id="reissue-a-service-name-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -716,17 +727,20 @@ This API does not require a request body.
 
 </details>
 
-## Allowed Projects
+<a id="allowed-projects"></a>
+## Allowed Projects { #allowed-projects }
 
 This is a list (whitelist) that manages the targets (tenants) that are allowed to connect to a custom endpoint (create a service gateway). It is a pure allowlist (permissions) and does not cover creation count limits (count limits are managed in the endpoint's `max_count`).
 
-### View Allow Project List
+<a id="view-allow-project-list"></a>
+### View Allow Project List { #view-allow-project-list }
 
 ```
 GET /v2.0/gateways/serviceendpointallowprojects
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-allow-project-list-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -736,6 +750,7 @@ This API does not require a request body.
 | service_endpoint_id | Query | UUID | - | Custom endpoint ID to retrieve |
 | target_tenant_id | Query | String | - | Allowed target tenant ID to retrieve |
 
+<a id="view-allow-project-list-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -765,13 +780,15 @@ This API does not require a request body.
 
 </details>
 
-### View Allowed Projects
+<a id="view-allowed-projects"></a>
+### View Allowed Projects { #view-allowed-projects }
 
 ```
 GET /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-allowed-projects-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -780,16 +797,19 @@ This API does not require a request body.
 | tokenId | Header | String | O | Token ID |
 | allowProjectId | URL | UUID | O | Allowed project ID |
 
+<a id="view-allowed-projects-response"></a>
 #### Response
 The response body is the same as the single object (`serviceendpointallowproject`) in [View Allowed Project List](#허용-프로젝트-목록-보기).
 
-### Create an Allowed Project
+<a id="create-an-allowed-project"></a>
+### Create an Allowed Project { #create-an-allowed-project }
 
 ```
 POST /v2.0/gateways/serviceendpointallowprojects
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-an-allowed-project-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -818,16 +838,19 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="create-an-allowed-project-response"></a>
 #### Response
 The response body is identical to a single object (`serviceendpointallowproject`) from [View Allowing Project List](#허용-프로젝트-목록-보기).
 
-### Modify Allowed Projects
+<a id="modify-allowed-projects"></a>
+### Modify Allowed Projects { #modify-allowed-projects }
 
 ```
 PUT /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-allowed-projects-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -853,16 +876,19 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="modify-allowed-projects-response"></a>
 #### Response
 The response body is the same as a single object (`serviceendpointallowproject`) in [View Allowed Project List](#허용-프로젝트-목록-보기).
 
-### Delete an Allowed Project
+<a id="delete-an-allowed-project"></a>
+### Delete an Allowed Project { #delete-an-allowed-project }
 
 ```
 DELETE /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-an-allowed-project-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -871,20 +897,24 @@ This API does not require a request body.
 | tokenId | Header | String | O | Token ID |
 | allowProjectId | URL | UUID | O | Allowed project ID |
 
+<a id="delete-an-allowed-project-response"></a>
 #### Response
 This API does not return a response body.
 
-## Usage Status
+<a id="usage-status"></a>
+## Usage Status { #usage-status }
 
 Retrieves the list of consumer-side service gateways that are using (connected to) the custom endpoint.
 
-### View Usage Status List
+<a id="view-usage-status-list"></a>
+### View Usage Status List { #view-usage-status-list }
 
 ```
 GET /v2.0/gateways/serviceendpointusages
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-usage-status-list-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -903,6 +933,7 @@ This API does not require a request body.
 > By default, results are sorted in ascending order by service gateway ID (`id`). To retrieve results in order of creation time, you must specify it explicitly, such as `sort_key=create_time&sort_dir=desc`. The following response fields can be used for `sort_key`: `id`, `name`, `fixed_ip`, `status`, `tenant_id`, `network_id`, `subnet_id`, `service_endpoint_id`, `create_time`.
 > If `limit` is specified, the response includes links to the next/previous pages (`serviceendpointusages_links`). To retrieve the next page, either call the URL in the link directly, or specify the `id` of the last item on the current page as the `marker`. The same filter and sort conditions must be maintained while paginating.
 
+<a id="view-usage-status-list-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
