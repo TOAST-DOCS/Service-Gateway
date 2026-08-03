@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=321428a4bf12 -->
+<!-- pre-align:aligned sig=9381b37cc171 -->
 
 <a id="network-service-gateway-overview"></a>
 ## Network > Service Gateway > 概要 { #network-service-gateway-overview }
