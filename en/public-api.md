@@ -666,7 +666,7 @@ X-Auth-Token: {tokenId}
 
 <a id="modify-a-custom-endpoint-response"></a>
 #### Response
-The response body is the same as [Get a Custom Endpoint](#사용자-정의-엔드포인트-보기).
+The response body is the same as [Get a Custom Endpoint](#get-a-custom-endpoint).
 
 <a id="delete-custom-endpoint"></a>
 ### Delete Custom Endpoint { #delete-custom-endpoint }
