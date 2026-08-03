@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=321428a4bf12 -->
+<!-- pre-align:aligned sig=9381b37cc171 -->
 
 <a id="network-service-gateway-overview"></a>
 ## Network > Service Gateway > 개요 { #network-service-gateway-overview }
@@ -25,7 +25,8 @@ VPC의 VM Instance에서 인터넷을 경유하지 않고 NHN Cloud의 서비스
 
 제공 서비스는 [**서비스 엔드포인트**](/Network/Service%20Gateway/ko/service-endpoint/)를 참고하세요. 제공되는 서비스는 점차 확대될 예정입니다.
 
-### 사용자 정의 엔드포인트
+<a id="custom-endpoints"></a>
+### 사용자 정의 엔드포인트 { #custom-endpoints }
 
 NHN Cloud가 제공하는 서비스 외에, 다른 사용자가 게시한 리소스에도 서비스 게이트웨이로 연결할 수 있습니다. 리소스 소유자는 자신의 로드 밸런서를 사용자 정의 엔드포인트로 게시하고 공유용 서비스 이름을 발급받아 연결을 허용할 대상에게 전달하며, 소비자는 전달받은 서비스 이름으로 서비스 게이트웨이를 생성하여 연결합니다.
 자세한 사용 방법은 [Service Gateway > 콘솔 사용 가이드](/Network/Service%20Gateway/ko/console-guide/)를 참고하세요.
