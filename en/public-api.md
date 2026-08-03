@@ -799,7 +799,7 @@ This API does not require a request body.
 
 <a id="view-allowed-projects-response"></a>
 #### Response
-The response body is the same as the single object (`serviceendpointallowproject`) in [View Allowed Project List](#허용-프로젝트-목록-보기).
+The response body is the same as the single object (`serviceendpointallowproject`) in [View Allowed Project List](#view-allow-project-list).
 
 <a id="create-an-allowed-project"></a>
 ### Create an Allowed Project { #create-an-allowed-project }
