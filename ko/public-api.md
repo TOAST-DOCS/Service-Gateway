@@ -178,7 +178,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.include_gateway_identity| Body | Boolean | - | NAT IP 주소 고정 사용 여부 |
 | servicegateway.service_endpoint_id | Body | UUID | O | 서비스 엔드포인트(또는 사용자 정의 엔드포인트) ID |
 
-> 사용자 정의 엔드포인트에 연결하려면 게시자에게 전달받은 `service_name`으로 [서비스 엔드포인트 목록 보기](#서비스-엔드포인트-목록-보기)를 조회해 얻은 `service_endpoint_id`를 사용합니다. 연결 유형(`service_provider`)은 연결된 엔드포인트에서 자동으로 결정되며 요청 값으로 지정하지 않습니다.
+> 사용자 정의 엔드포인트에 연결하려면 게시자에게 전달받은 `service_name`으로 [서비스 엔드포인트 목록 보기](#get-a-list-of-service-endpoints)를 조회해 얻은 `service_endpoint_id`를 사용합니다. 연결 유형(`service_provider`)은 연결된 엔드포인트에서 자동으로 결정되며 요청 값으로 지정하지 않습니다.
 
 
 <details><summary>예시</summary>
