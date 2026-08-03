@@ -9,7 +9,6 @@ This guides describes how to use the **Service Gateway** service from the consol
 ## Service Gateway { #service-gateway }
 
 <a id="create-a-service-gateway"></a>
-
 ### Create a Service Gateway { #create-a-service-gateway }
 
 To create a service gateway, use the following steps:
@@ -41,7 +40,6 @@ To create a service gateway, use the following steps:
     This is enabled only for services that support selection.
 
 <a id="view-a-service-gateway"></a>
-
 ### View a Service Gateway { #view-a-service-gateway }
 
 You can check the created service gateway on the **Network > Service Gateway** page. If you select a service gateway, the service gateway information appears at the bottom. If the connection type is **Custom Endpoint**, you can check the display name and identifier of the endpoint under **Connection Target** in the details.
@@ -59,13 +57,13 @@ A service gateway can be modified as follows. You can only change the **Name** a
 
 To delete a service gateway, select the service gateway you want to delete in the **Network > Service Gateway** page and click the **Delete Service Gateway** button.
 
-<a id="use-a-service-gateway"></a>
-
-## Custom Endpoints
+<a id="custom-endpoints"></a>
+## Custom Endpoints { #custom-endpoints }
 
 A custom endpoint is a feature that allows you to publish your own resources (load balancers) as endpoints, sharing them so that other projects can connect to them through a service gateway. The publisher receives a shared ***service name** (`service_name`), delivers it to the parties that are allowed to connect, and directly manages the list of allowed projects.
 
-### Create a Custom Endpoint
+<a id="create-a-custom-endpoint"></a>
+### Create a Custom Endpoint { #create-a-custom-endpoint }
 
 To create a custom endpoint, follow these steps:
 
@@ -83,11 +81,13 @@ To create a custom endpoint, follow these steps:
 !!! tip "Note"
     By default, you can create up to 5 custom endpoints per project.
 
-### View custom endpoints
+<a id="view-custom-endpoints"></a>
+### View custom endpoints { #view-custom-endpoints }
 
 You can view the list of endpoints that you have created on the **Custom Endpoint** tab. If you select an endpoint, the detailed information appears at the bottom, where you can view **Basic Information** (service name, resource type, target resource, maximum number of endpoints, and more), **Allowed Projects**, and **Usage**.
 
-### Modify a Custom Endpoint
+<a id="modify-a-custom-endpoint"></a>
+### Modify a Custom Endpoint { #modify-a-custom-endpoint }
 
 You can only change the **Name**, **Display Name**, **Maximum Creation Count**, and **Description**. The resource type and target resource cannot be changed.
 
@@ -97,14 +97,16 @@ You can only change the **Name**, **Display Name**, **Maximum Creation Count**, 
 !!! tip "Note"
     Even if you reduce the maximum creation count, service gateways that have already been created are retained. However, while the current count exceeds the maximum creation count, you cannot create additional service gateways.
 
-### Delete a Custom Endpoint
+<a id="delete-a-custom-endpoint"></a>
+### Delete a Custom Endpoint { #delete-a-custom-endpoint }
 
 On the **Custom Endpoint** tab, select the endpoint to delete and click the **Delete** button.
 
 !!! danger "Caution"
     You cannot delete an endpoint if it is in use by any service gateway. Deleting an endpoint also deletes all registered allowed projects associated with it.
 
-### Reissue a Service Name
+<a id="reissue-a-service-name"></a>
+### Reissue a Service Name { #reissue-a-service-name }
 
 You can reissue a service name if it needs to be changed — for example, if the shared service name has been leaked to outside parties.
 
@@ -117,7 +119,8 @@ You can reissue a service name if it needs to be changed — for example, if the
 !!! tip "Note"
     Only a member (owner) of the project that created the endpoint can reissue a service name.
 
-### Manage Allowed Projects
+<a id="manage-allowed-projects"></a>
+### Manage Allowed Projects { #manage-allowed-projects }
 
 The allowed projects list manages the targets that are permitted to connect to this endpoint (by creating a service gateway).
 
@@ -132,12 +135,12 @@ The allowed projects list manages the targets that are permitted to connect to t
 
 For existing allowed targets, only the **Description** can be modified; the allowed scope and tenant ID cannot be changed. To delete an allowed target, select the target from the list and click **Delete**.
 
-### Check Usage Status
+<a id="check-usage-status"></a>
+### Check Usage Status { #check-usage-status }
 
 On the **Usage Status** tab of the endpoint details, you can check the list of service gateways currently connected to this endpoint. (Read-only)
 
 <a id="use-a-service-gateway"></a>
-
 ## Use a Service Gateway { #use-a-service-gateway }
 
 <a id="check-the-service-gateway-ip"></a>
@@ -186,7 +189,6 @@ To use the **Object Storage API**, you must obtain an **authentication token**. 
 3. Check the IP addresses on the two service gateways that have been created.
 
 <a id="edit-the-etchosts-file"></a>
-
 ### Edit the /etc/hosts File { #edit-the-etchosts-file }
 
 For example, if the IP address of the service gateway created by selecting **Object Storage** is 192.168.1.42 and 192.168.1.57 is assigned as the IP address of the service gateway created by selecting **IaaS API Identity**, add the IP addresses and URLs to the `/etc/hosts` file of the VM Instance, as shown below.
@@ -203,7 +205,6 @@ For example, if the IP address of the service gateway created by selecting **Obj
 ```
 
 <a id="obtain-the-authentication-token"></a>
-
 ### Obtain the Authentication Token { #obtain-the-authentication-token }
 
 **Set the API password** for object storage and get an authentication token.
