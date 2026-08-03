@@ -624,7 +624,7 @@ X-Auth-Token: {tokenId}
 
 <a id="create-a-custom-endpoint-response"></a>
 #### 응답
-응답 본문은 [사용자 정의 엔드포인트 보기](#사용자-정의-엔드포인트-보기)와 동일하며, 자동 발급된 `service_name`이 포함됩니다.
+응답 본문은 [사용자 정의 엔드포인트 보기](#get-a-custom-endpoint)와 동일하며, 자동 발급된 `service_name`이 포함됩니다.
 
 ---
 <a id="modify-a-custom-endpoint"></a>
