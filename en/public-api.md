@@ -175,7 +175,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.fixed_ip | Body | String | - | Service gateway IP address |
 | servicegateway.include_gateway_identity| Body | Boolean | - | Whether to use fixed NAT IP address |
 | servicegateway.service_endpoint_id | Body | UUID | O | Service endpoint (or custom endpoint) ID |
-> To connect to a custom endpoint, use the `service_endpoint_id` obtained by calling [Get a List of Service Endpoints](#서비스-엔드포인트-목록-보기) with the `service_name` provided by the publisher. The connection type (`service_provider`) is determined automatically from the connected endpoint and is not specified as a request value.
+> To connect to a custom endpoint, use the `service_endpoint_id` obtained by calling [Get a List of Service Endpoints](#get-a-list-of-service-endpoints) with the `service_name` provided by the publisher. The connection type (`service_provider`) is determined automatically from the connected endpoint and is not specified as a request value.
 
 <details><summary>Example</summary>
 
