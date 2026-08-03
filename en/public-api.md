@@ -840,7 +840,7 @@ X-Auth-Token: {tokenId}
 
 <a id="create-an-allowed-project-response"></a>
 #### Response
-The response body is identical to a single object (`serviceendpointallowproject`) from [View Allowing Project List](#허용-프로젝트-목록-보기).
+The response body is identical to a single object (`serviceendpointallowproject`) from [View Allowing Project List](#view-allow-project-list).
 
 <a id="modify-allowed-projects"></a>
 ### Modify Allowed Projects { #modify-allowed-projects }
