@@ -846,7 +846,7 @@ X-Auth-Token: {tokenId}
 
 <a id="create-an-allowed-project-response"></a>
 #### 응답
-응답 본문은 [허용 프로젝트 목록 보기](#허용-프로젝트-목록-보기)의 단일 객체(`serviceendpointallowproject`)와 동일합니다.
+응답 본문은 [허용 프로젝트 목록 보기](#view-allow-project-list)의 단일 객체(`serviceendpointallowproject`)와 동일합니다.
 
 ---
 <a id="modify-allowed-projects"></a>
