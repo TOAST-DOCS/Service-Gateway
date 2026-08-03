@@ -25,7 +25,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="get-a-list-of-service-gateways-request"></a>
-
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -43,7 +42,6 @@ X-Auth-Token: {tokenId}
 
 
 <a id="get-a-list-of-service-gateways-response"></a>
-
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -107,7 +105,6 @@ X-Auth-Token: {tokenId}
 | serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
 
 <a id="get-a-service-gateway-response"></a>
-
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -167,7 +164,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="create-a-service-gateway-request"></a>
-
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -201,7 +197,6 @@ X-Auth-Token: {tokenId}
 </details>
 
 <a id="create-a-service-gateway-response"></a>
-
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -262,7 +257,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="modify-a-service-gateway-request"></a>
-
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -289,7 +283,6 @@ X-Auth-Token: {tokenId}
 </details>
 
 <a id="modify-a-service-gateway-response"></a>
-
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -384,7 +377,6 @@ X-Auth-Token: {tokenId}
 ```
 
 <a id="get-a-list-of-service-endpoints-request"></a>
-
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -470,17 +462,20 @@ X-Auth-Token: {tokenId}
 
 ---
 
-## カスタムエンドポイント
+<a id="custom-endpoints"></a>
+## カスタムエンドポイント { #custom-endpoints }
 
 ユーザーが自分のリソース（ロードバランサー）をエンドポイントとして公開し、他のプロジェクトと共有する機能です。公開者（オーナー）が作成・管理し、作成時に共有用のサービス名（`service_name`）が発行されます。
 
-### カスタムエンドポイントリスト表示
+<a id="view-custom-endpoint-list"></a>
+### カスタムエンドポイントリスト表示 { #view-custom-endpoint-list }
 
 ```
 GET /v2.0/gateways/myserviceendpoints
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-custom-endpoint-list-request"></a>
 #### リクエスト
 この API はリクエスト本文を必要としません。
 
@@ -491,6 +486,7 @@ X-Auth-Token: {tokenId}
 | endpoint_type | Query | String | - | 照会するエンドポイントの種類(例: `lb.type1`) |
 | port_id | Query | UUID | - | 照会する対象リソース(ロードバランサー)のポート ID |
 
+<a id="view-custom-endpoint-list-response"></a>
 #### 応答
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -532,13 +528,15 @@ X-Auth-Token: {tokenId}
 
 </details>
 
-### ユーザー定義エンドポイント表示
+<a id="get-a-custom-endpoint"></a>
+### ユーザー定義エンドポイント表示 { #get-a-custom-endpoint }
 
 ```
 GET /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-a-custom-endpoint-request"></a>
 #### リクエスト
 この API はリクエスト本文を必要としません。
 
@@ -547,6 +545,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 認証トークン |
 | serviceEndpointId | URL | UUID | O | ユーザー定義エンドポイント ID |
 
+<a id="get-a-custom-endpoint-response"></a>
 #### 応答
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -586,13 +585,15 @@ X-Auth-Token: {tokenId}
 
 </details>
 
-### カスタムエンドポイントの作成
+<a id="create-a-custom-endpoint"></a>
+### カスタムエンドポイントの作成 { #create-a-custom-endpoint }
 
 ```
 POST /v2.0/gateways/myserviceendpoints
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-a-custom-endpoint-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -623,18 +624,21 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="create-a-custom-endpoint-response"></a>
 #### レスポンス
 レスポンス本文は[ユーザー定義エンドポイント表示](#사용자-정의-엔드포인트-보기)と同じで、自動発行された `service_name` が含まれます。
 
 ---
 
-### カスタムエンドポイントの変更
+<a id="modify-a-custom-endpoint"></a>
+### カスタムエンドポイントの変更 { #modify-a-custom-endpoint }
 
 ```
 PUT /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-a-custom-endpoint-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -664,16 +668,19 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="modify-a-custom-endpoint-response"></a>
 #### レスポンス
 レスポンス本文は[ユーザー定義エンドポイント表示](#사용자-정의-엔드포인트-보기)と同じです。
 
-### カスタムエンドポイントの削除
+<a id="delete-custom-endpoint"></a>
+### カスタムエンドポイントの削除 { #delete-custom-endpoint }
 
 ```
 DELETE /v2.0/gateways/myserviceendpoints/{serviceEndpointId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-custom-endpoint-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を必要としません。
 
@@ -684,16 +691,19 @@ X-Auth-Token: {tokenId}
 
 > このエンドポイントを使用中のサービスゲートウェイがある場合は削除できません。削除すると、登録されている許可プロジェクトも合わせて削除されます。
 
+<a id="delete-custom-endpoint-response"></a>
 #### レスポンス
 この API はレスポンス本文を返しません。
 
-### サービス名の再発行
+<a id="reissue-a-service-name"></a>
+### サービス名の再発行 { #reissue-a-service-name }
 
 ```
 PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/generate_service_name
 X-Auth-Token: {tokenId}
 ```
 
+<a id="reissue-a-service-name-request"></a>
 #### リクエスト
 この API はリクエスト本文を必要としません。
 
@@ -704,6 +714,7 @@ X-Auth-Token: {tokenId}
 
 > エンドポイントを作成したプロジェクトのメンバー（オーナー）のみ実行できます。再発行時、既存の `service_name` は即時廃棄され、以降は照会できなくなります。既存の `service_name` で作成したサービスゲートウェイは正常に動作しますが、新規作成時は再発行された `service_name` を使用する必要があります。
 
+<a id="reissue-a-service-name-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -720,17 +731,20 @@ X-Auth-Token: {tokenId}
 
 </details>
 
-## 許可プロジェクト
+<a id="allowed-projects"></a>
+## 許可プロジェクト { #allowed-projects }
 
 ユーザー定義エンドポイントへの接続（サービスゲートウェイの作成）を許可する対象（テナント）を管理するリスト（ホワイトリスト）です。純粋な許可リスト（権限）であり、作成数の制限は扱いません（数の制限はエンドポイントの `max_count` で管理）。
 
-### 許可プロジェクトリスト表示
+<a id="view-allow-project-list"></a>
+### 許可プロジェクトリスト表示 { #view-allow-project-list }
 
 ```
 GET /v2.0/gateways/serviceendpointallowprojects
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-allow-project-list-request"></a>
 #### リクエスト
 この API はリクエスト本文を必要としません。
 
@@ -740,6 +754,7 @@ X-Auth-Token: {tokenId}
 | service_endpoint_id | Query | UUID | - | 照会するユーザー定義エンドポイント ID |
 | target_tenant_id | Query | String | - | 照会する許可対象テナント ID |
 
+<a id="view-allow-project-list-response"></a>
 #### 応答
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -769,13 +784,15 @@ X-Auth-Token: {tokenId}
 
 </details>
 
-### 許可プロジェクト表示
+<a id="view-allowed-projects"></a>
+### 許可プロジェクト表示 { #view-allowed-projects }
 
 ```
 GET /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-allowed-projects-request"></a>
 #### リクエスト
 この API はリクエスト本文を必要としません。
 
@@ -784,16 +801,19 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 認証トークン |
 | allowProjectId | URL | UUID | O | 許可プロジェクト ID |
 
+<a id="view-allowed-projects-response"></a>
 #### レスポンス
 レスポンス本文は、[許可プロジェクトリスト表示](#허용-프로젝트-목록-보기)の単一オブジェクト(`serviceendpointallowproject`)と同じです。
 
-### 許可プロジェクトの作成
+<a id="create-an-allowed-project"></a>
+### 許可プロジェクトの作成 { #create-an-allowed-project }
 
 ```
 POST /v2.0/gateways/serviceendpointallowprojects
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-an-allowed-project-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -822,16 +842,19 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="create-an-allowed-project-response"></a>
 #### レスポンス
 レスポンス本文は、[許可プロジェクトリスト表示](#허용-프로젝트-목록-보기)の単一オブジェクト(`serviceendpointallowproject`)と同じです。
 
-### 許可プロジェクトの修正
+<a id="modify-allowed-projects"></a>
+### 許可プロジェクトの修正 { #modify-allowed-projects }
 
 ```
 PUT /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-allowed-projects-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -857,16 +880,19 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="modify-allowed-projects-response"></a>
 #### レスポンス
 レスポンス本文は、[許可プロジェクトリスト表示](#허용-프로젝트-목록-보기)の単一オブジェクト（`serviceendpointallowproject`）と同じです。
 
-### 許可プロジェクトの削除
+<a id="delete-an-allowed-project"></a>
+### 許可プロジェクトの削除 { #delete-an-allowed-project }
 
 ```
 DELETE /v2.0/gateways/serviceendpointallowprojects/{allowProjectId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-an-allowed-project-request"></a>
 #### リクエスト
 この API はリクエスト本文を必要としません。
 
@@ -875,20 +901,24 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 認証トークン |
 | allowProjectId | URL | UUID | O | 許可プロジェクト ID |
 
+<a id="delete-an-allowed-project-response"></a>
 #### レスポンス
 この API はレスポンス本文を返しません。
 
-## 使用状況
+<a id="usage-status"></a>
+## 使用状況 { #usage-status }
 
 カスタムエンドポイントを使用中(接続中)のコンシューマー側サービスゲートウェイのリストを照会します。
 
-### 使用状況リスト表示
+<a id="view-usage-status-list"></a>
+### 使用状況リスト表示 { #view-usage-status-list }
 
 ```
 GET /v2.0/gateways/serviceendpointusages
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-usage-status-list-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を必要としません。
 
@@ -907,6 +937,7 @@ X-Auth-Token: {tokenId}
 > 結果はデフォルトでサービスゲートウェイID（`id`）の昇順で並び替えられます。作成日時順に照会するには、`sort_key=create_time&sort_dir=desc` のように明示する必要があります。`sort_key` には、レスポンスフィールド（`id`、`name`、`fixed_ip`、`status`、`tenant_id`、`network_id`、`subnet_id`、`service_endpoint_id`、`create_time`）を使用できます。
 > `limit` を指定すると、レスポンスに次/前ページのリンク（`serviceendpointusages_links`）が含まれます。次のページはリンクのURLをそのまま呼び出すか、現在のページの最後の項目の `id` を `marker` に指定して照会します。ページを順に参照する間は、同一のフィルター/並び替え条件を維持する必要があります。
 
+<a id="view-usage-status-list-response"></a>
 #### 応答
 
 | 名前 | 種類 | 形式 | 説明 |
