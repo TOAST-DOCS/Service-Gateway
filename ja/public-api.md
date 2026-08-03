@@ -670,7 +670,7 @@ X-Auth-Token: {tokenId}
 
 <a id="modify-a-custom-endpoint-response"></a>
 #### レスポンス
-レスポンス本文は[ユーザー定義エンドポイント表示](#사용자-정의-엔드포인트-보기)と同じです。
+レスポンス本文は[ユーザー定義エンドポイント表示](#get-a-custom-endpoint)と同じです。
 
 <a id="delete-custom-endpoint"></a>
 ### カスタムエンドポイントの削除 { #delete-custom-endpoint }
