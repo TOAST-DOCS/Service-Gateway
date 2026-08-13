@@ -1,8 +1,12 @@
-## Network > Service Gateway > Service Endpoint
+<!-- pre-align:aligned sig=1d1c35e9431e -->
+
+<a id="network-service-gateway-service-endpoint"></a>
+## Network > Service Gateway > Service Endpoint { #network-service-gateway-service-endpoint }
 
 A list of services that can communicate with the NHN Cloud internal network using Service Gateway and the endpoints for each service.
 
-### Region Code
+<a id="region-code"></a>
+### Region Code { #region-code }
 
 * Region services have different endpoint addresses for each region, so you must fill in the region code below `{region code}`.
 
@@ -13,7 +17,8 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | Korea (Gwangju) | kr3 |
 | Japan (Tokyo) | jp1 |
 
-### Service Gateway Integration Services
+<a id="service-gateway-integration-services"></a>
+### Service Gateway Integration Services { #service-gateway-integration-services }
 
 * By creating a service gateway with the services below, you can access the internal network of NHN Cloud without going through the Internet.
     * To create a service gateway, see the [Service Gateway > Console User Guide](/Network/Service%20Gateway/en/console-guide/).
