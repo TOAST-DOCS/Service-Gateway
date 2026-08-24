@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=1d1c35e9431e -->
 
 <a id="network-service-gateway-service-endpoint"></a>
@@ -8,7 +10,7 @@ A list of services that can communicate with the NHN Cloud internal network usin
 <a id="region-code"></a>
 ### Region Code { #region-code }
 
-* Region services have different endpoint addresses for each region, so you must fill in the region code below `{region code}`.
+* Region services have different endpoint addresses for each region, so you must fill in the region code below in `{region code}`.
 
 | Region | Region Code |
 | --- | ----- |
@@ -35,8 +37,8 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [IaaS API Network](/Network/VPC/en/public-api/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
 | [IaaS API Volume v2](/Storage/Block%20Storage/en/public-api/) | IaaS API Volume v2 | https://{region code}-api-block-storage-infrastructure.nhncloudservice.com |
 | [IaaS API Container - Infra](/Container/NKS/en/public-api/) | IaaS API Container - Infra | https://{region code}-api-kubernetes-infrastructure.nhncloudservice.com |
-| [NHN Container Registry(NCR)](/Container/NCR/en/public-api) | NHN Container Registry(NCR)<br>API Gateway | User registry URI<br>https://{region code}-ncr.api.nhncloudservice.com |
-| [NHN Container Service(NCS)](/Container/NCS/en/public-api) | API Gateway | https://{region code}-ncs.api.nhncloudservice.com |
+| [NHN Container Registry (NCR)](/Container/NCR/en/public-api) | NHN Container Registry (NCR)<br>API Gateway | User registry URI<br>https://{region code}-ncr.api.nhncloudservice.com |
+| [NHN Container Service (NCS)](/Container/NCS/en/public-api) | API Gateway | https://{region code}-ncs.api.nhncloudservice.com |
 | [DNS Plus](/Network/DNS%20Plus/en/api-guide/) | API Gateway | https://dnsplus.api.nhncloudservice.com |
 | [Object Storage](/Storage/Object%20Storage/en/api-guide/) | Object Storage | https://{region code}-api-object-storage.nhncloudservice.com |
 | [RDS for MySQL](/Database/RDS%20for%20MySQL/en/api-guide-v3.0/) | API Gateway | https://{region code}-rds-mysql.api.nhncloudservice.com |
@@ -50,7 +52,6 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [RCS Bizmessage](/Notification/RCS%20Bizmessage/en/api-guide/) | API Gateway | https://rcs-bizmessage.api.nhncloudservice.com |
 | [Email](/Notification/Email/en/api-guide/) | API Gateway | https://email.api.nhncloudservice.com |
 | [Face Recognition](/AI%20Service/Face%20Recognition/en/api-guide-v2.0/) | API Gateway | https://face-recognition.api.nhncloudservice.com |
-| [AI Fashion](/AI%20Service/AI%20Fashion/en/api-guide-v2.0/) | API Gateway | https://api-aifashion.nhncloudservice.com |
 | [OCR](/AI%20Service/OCR/en/general-ocr-api-guide/) | API Gateway | https://ocr.api.nhncloudservice.com |
 | [Text to Speech](/AI%20Service/Text%20to%20Speech/en/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
 | [Speech to Text](/AI%20Service/Speech%20to%20Text/en/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
@@ -64,6 +65,6 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [Certificate Manager](/Management/Certificate%20Manager/en/api-guide-v1.1/) | API Gateway | https://certmanager.api.nhncloudservice.com |
 | [Private CA](/Management/Private%20CA/en/api-guide-v2.0/) | API Gateway | https://{region code}-pca.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/en/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
-| [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/en/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
+| [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/en/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com |
 | [API Authentication](/nhncloud/en/public-api/api-authentication/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
-| [Framework API](/nhncloud/en/public-api/framework-api/) |  API Gateway | https://core.api.nhncloudservice.com | 
+| [Framework API](/nhncloud/en/public-api/framework-api/) |  API Gateway | https://core.api.nhncloudservice.com |
