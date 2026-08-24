@@ -1,10 +1,13 @@
-## Network > Service Gateway > 콘솔 사용 가이드
+<a id="network-service-gateway-console-user-guide"></a>
+## Network > Service Gateway > 콘솔 사용 가이드 { #network-service-gateway-console-user-guide }
 
 콘솔에서 **Service Gateway** 서비스를 사용하는 방법을 설명합니다.
 
-## 서비스 게이트웨이
+<a id="service-gateway"></a>
+## 서비스 게이트웨이 { #service-gateway }
 
-### 서비스 게이트웨이 생성
+<a id="create-a-service-gateway"></a>
+### 서비스 게이트웨이 생성 { #create-a-service-gateway }
 
 서비스 게이트웨이를 생성하는 방법은 다음과 같습니다.
 
@@ -23,30 +26,36 @@
     * 생성 시에만 선택이 가능하며 변경은 지원하지 않습니다.
     > [참고] 선택이 가능한 서비스에서만 활성화됩니다.
 
-### 서비스 게이트웨이 조회
+<a id="view-a-service-gateway"></a>
+### 서비스 게이트웨이 조회 { #view-a-service-gateway }
 
 생성한 서비스 게이트웨이는 **Network > Service Gateway** 화면에서 확인할 수 있습니다. 서비스 게이트웨이를 선택하면 하단에 서비스 게이트웨이 정보가 나타납니다.
 
-### 서비스 게이트웨이 변경
+<a id="modify-a-service-gateway"></a>
+### 서비스 게이트웨이 변경 { #modify-a-service-gateway }
 
 서비스 게이트웨이를 변경하는 방법은 다음과 같습니다. **이름**, **설명**만 변경할 수 있습니다.
 
 1. **Network > Service Gateway**로 이동합니다.
 2. **서비스 게이트웨이 변경** 버튼을 클릭한 후 변경 화면에서 원하는 항목을 변경합니다.
 
-### 서비스 게이트웨이 삭제
+<a id="delete-a-service-gateway"></a>
+### 서비스 게이트웨이 삭제 { #delete-a-service-gateway }
 
 서비스 게이트웨이를 삭제하려면 **Network > Service Gateway** 화면에서 삭제할 서비스 게이트웨이를 선택하고 **서비스 게이트웨이 삭제** 버튼을 클릭합니다.
 
-## 서비스 게이트웨이 사용
+<a id="use-a-service-gateway"></a>
+## 서비스 게이트웨이 사용 { #use-a-service-gateway }
 
-### 서비스 게이트웨이 IP확인
+<a id="check-the-service-gateway-ip"></a>
+### 서비스 게이트웨이 IP확인 { #check-the-service-gateway-ip }
 
 1. **Network > Service Gateway**로 이동합니다.
 2. 서비스 게이트웨이 목록에서 **IP 주소**를 확인합니다.<br>
    이 VM Instance에서 이 IP 주소로 접속 시 서비스 게이트웨이가 연결하고 있는 서비스로 연결됩니다.
 
-### 서비스 게이트웨이 접속
+<a id="connect-to-the-service-gateway"></a>
+### 서비스 게이트웨이 접속 { #connect-to-the-service-gateway }
 
 생성된 서비스 게이트웨이의 IP 주소가 `192.168.1.42`라 할 경우 다음과 같은 방법으로 서비스에 접근이 가능합니다.
 
