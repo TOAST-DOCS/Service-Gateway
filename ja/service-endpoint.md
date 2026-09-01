@@ -29,7 +29,7 @@
 
 | サービス | サービスゲートウェイエンドポイント名前</span> | エンドポイントアドレス |
 | --- | ------------------ | -------- |
-| [IaaS API Identity (nhncloudservice.com)](/Compute/Compute/jp/identity-api/#token) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
+| [IaaS API Identity (nhncloudservice.com)](/nhncloud/ja/public-api/iaas-token/) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
 | [IaaS API Key-Manager](/Network/Load%20Balancer/jp/public-api/) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
 | [IaaS API Compute](/Compute/Instance/jp/public-api/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
 | [IaaS API Network](/Network/VPC/jp/public-api/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
@@ -65,6 +65,6 @@
 | [Private CA](/Management/Private%20CA/jp/api-guide-v2.0/) | API Gateway | https://{region code}-pca.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/jp/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/jp/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
-| [API Authentication](/nhncloud/ja/public-api/api-authentication/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
+| [API Authentication](/nhncloud/ja/public-api/user-access-key-token/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
 | [Framework API](/nhncloud/ja/public-api/framework-api/) |  API Gateway | https://core.api.nhncloudservice.com | 
 
