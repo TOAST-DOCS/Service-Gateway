@@ -29,7 +29,7 @@
 
 | 서비스 | 서비스 게이트웨이 엔드포인트 이름 | 엔드포인트 주소 |
 | --- | ------------------ | -------- |
-| [IaaS API Identity (nhncloudservice.com)](/Compute/Compute/ko/identity-api/#token) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
+| [IaaS API Identity (nhncloudservice.com)](/nhncloud/ko/public-api/iaas-token/) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
 | [IaaS API Key-Manager](/Network/Load%20Balancer/ko/public-api/) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
 | [IaaS API Compute](/Compute/Instance/ko/public-api/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
 | [IaaS API Network](/Network/VPC/ko/public-api/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
@@ -64,5 +64,5 @@
 | [Private CA](/Management/Private%20CA/ko/api-guide-v2.0/) | API Gateway | https://{region code}-pca.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/ko/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/ko/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
-| [API Authentication](/nhncloud/ko/public-api/api-authentication/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
+| [API Authentication](/nhncloud/ko/public-api/user-access-key-token/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
 | [Framework API](/nhncloud/ko/public-api/framework-api/) |  API Gateway | https://core.api.nhncloudservice.com | 
