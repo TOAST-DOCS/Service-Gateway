@@ -29,7 +29,7 @@ A list of services that can communicate with the NHN Cloud internal network usin
 
 | Service | Service Gateway endpoint name | Endpoint address |
 | --- | ------------------ | -------- |
-| [IaaS API Identity (nhncloudservice.com)](/Compute/Compute/en/identity-api/#token) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
+| [IaaS API Identity (nhncloudservice.com)](/nhncloud/en/public-api/iaas-token/) | IaaS API Identity (nhncloudservice.com) | https://api-identity-infrastructure.nhncloudservice.com |
 | [IaaS API Key-Manager](/Network/Load%20Balancer/en/public-api/) | IaaS API Key-Manager | https://{region code}-api-key-manager-infrastructure.nhncloudservice.com |
 | [IaaS API Compute](/Compute/Instance/en/public-api/) | IaaS API Compute | https://{region code}-api-instance-infrastructure.nhncloudservice.com |
 | [IaaS API Network](/Network/VPC/en/public-api/) | IaaS API Network | https://{region code}-api-network-infrastructure.nhncloudservice.com |
@@ -65,5 +65,5 @@ A list of services that can communicate with the NHN Cloud internal network usin
 | [Private CA](/Management/Private%20CA/en/api-guide-v2.0/) | API Gateway | https://{region code}-pca.api.nhncloudservice.com |
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/en/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/en/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
-| [API Authentication](/nhncloud/en/public-api/api-authentication/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
+| [API Authentication](/nhncloud/en/public-api/user-access-key-token/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
 | [Framework API](/nhncloud/en/public-api/framework-api/) |  API Gateway | https://core.api.nhncloudservice.com | 
