@@ -16,5 +16,5 @@
 | 서비스 | 서비스 게이트웨이 엔드포인트 이름 | 엔드포인트 주소 |
 | --- | ------------------ | -------- |
 | IaaS API Identity | IaaS API Identity | https://api-identity-infrastructure.gncloud.go.kr |
-| [NHN Container Registry(NCR)](/Container/NCR/ko/overview-ncgn/) | NHN Container Registry(NCR) | 사용자 레지스트리 URI |
-| [Object Storage](/Storage/Object%20Storage/ko/api-guide-ncgn/) | Object Storage | https://{region code}-api-object-storage.gncloud.go.kr |
+| [NHN Container Registry(NCR)](/Container/NCR/ko/overview-ngsc/) | NHN Container Registry(NCR) | 사용자 레지스트리 URI |
+| [Object Storage](/Storage/Object%20Storage/ko/api-guide/) | Object Storage | https://{region code}-api-object-storage.gncloud.go.kr |
