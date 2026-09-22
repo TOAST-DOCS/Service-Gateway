@@ -50,7 +50,6 @@
 | [RCS Bizmessage](/Notification/RCS%20Bizmessage/jp/api-guide/) | API Gateway | https://rcs-bizmessage.api.nhncloudservice.com |
 | [Email](/Notification/Email/jp/api-guide/) | API Gateway | https://email.api.nhncloudservice.com |
 | [Face Recognition](/AI%20Service/Face%20Recognition/jp/api-guide-v2.0/) | API Gateway | https://face-recognition.api.nhncloudservice.com |
-| [AI Fashion](/AI%20Service/AI%20Fashion/jp/api-guide-v2.0/) | API Gateway | https://api-aifashion.nhncloudservice.com |
 | [OCR](/AI%20Service/OCR/jp/general-ocr-api-guide/) | API Gateway | https://ocr.api.nhncloudservice.com |
 | [Text to Speech](/AI%20Service/Text%20to%20Speech/jp/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
 | [Speech to Text](/AI%20Service/Speech%20to%20Text/jp/api-guide/) | API Gateway | https://speech.api.nhncloudservice.com |
@@ -66,5 +65,5 @@
 | [CloudTrail](/Governance%20&%20Audit/CloudTrail/jp/api-guide/) | CloudTrail<br>API Gateway | https://cloud-trail.api.nhncloudservice.com |
 | [Resource Watcher](/Governance%20&%20Audit/Resource%20Watcher/jp/api-v2-guide/) | API Gateway | https://resource-watcher.api.nhncloudservice.com | 
 | [API Authentication](/nhncloud/ja/public-api/user-access-key-token/) |  API Gateway | https://oauth.api.nhncloudservice.com | 
-| [Framework API](/nhncloud/ja/public-api/framework-api/) |  API Gateway | https://core.api.nhncloudservice.com | 
+| [Framework API](/nhncloud/ja/public-api/framework-api/) |  API Gateway | https://core.api.nhncloudservice.com |
 
