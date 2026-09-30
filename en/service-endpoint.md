@@ -21,7 +21,7 @@ A list of services that can communicate with the NHN Cloud internal network usin
 ### Service Gateway Integration Services { #service-gateway-integration-services }
 
 * By creating a service gateway with the services below, you can access the internal network of NHN Cloud without going through the Internet.
-    * To create a service gateway, see the [Service Gateway > Console User Guide](/Network/Service%20Gateway/en/console-guide/).
+    * To create a service gateway, see the [Service Gateway > Console User Guide](./console-guide/).
     * For services not listed below, contact [Customer Center](https://www.nhncloud.com/kr/support/inquiry).
 * The service and endpoint addresses for which you can create a service gateway.
     * In the `/etc/hosts` file, you must add the IP address of the service gateway and the service endpoint address you want to access to the URL.
