@@ -177,6 +177,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.fixed_ip | Body | String | - | サービスゲートウェイIPアドレス |
 | servicegateway.include_gateway_identity| Body | Boolean | - | NAT IPアドレス固定の使用有無 |
 | servicegateway.service_endpoint_id | Body | UUID | O | サービスエンドポイント（またはユーザー定義エンドポイント）ID |
+
 > カスタムエンドポイントに接続するには、パブリッシャーから受け取った `service_name` を使用して[サービスエンドポイントリスト表示](#get-a-list-of-service-endpoints)を照会し、取得した `service_endpoint_id` を使用します。接続タイプ（`service_provider`）は接続されたエンドポイントから自動的に決定されるため、リクエスト値として指定しません。
 
 <details><summary>例</summary>
@@ -386,6 +387,7 @@ X-Auth-Token: {tokenId}
 | id | Query | UUID | - | 照会するサービスエンドポイントID |
 | display_name | Query | String | - | 照会するサービスエンドポイント名 |
 | service_name | Query | String | - | 照会するサービス名（ユーザー定義エンドポイント接続時に使用、形式 `{region}.sep-{12 hex}`） |
+
 > サービスゲートウェイをカスタムエンドポイントに接続する際は、パブリッシャーから提供された `service_name` で照会してサービスエンドポイント ID を取得します。セキュリティのため、`service_name` の値はレスポンスに含まれず、許可プロジェクトに含まれていない場合は空のリストが返されます。
 
 <a id="get-a-list-of-service-endpoints-response"></a>

@@ -39,6 +39,7 @@ This API does not require a request body.
 | port_id | Query | UUID | - | The port ID of the service gateway to retrieve |
 | fixed_ip| Query | String | - | The IP address of the service gateway to retrieve |
 | include_gateway_identity| Query | Boolean | - | Whether to use a static NAT IP address |
+
 <a id="get-a-list-of-service-gateways-response"></a>
 #### Response
 
@@ -175,6 +176,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.fixed_ip | Body | String | - | Service gateway IP address |
 | servicegateway.include_gateway_identity| Body | Boolean | - | Whether to use fixed NAT IP address |
 | servicegateway.service_endpoint_id | Body | UUID | O | Service endpoint (or custom endpoint) ID |
+
 > To connect to a custom endpoint, use the `service_endpoint_id` obtained by calling [Get a List of Service Endpoints](#get-a-list-of-service-endpoints) with the `service_name` provided by the publisher. The connection type (`service_provider`) is determined automatically from the connected endpoint and is not specified as a request value.
 
 <details><summary>Example</summary>
@@ -384,6 +386,7 @@ This API does not require a request body.
 | id | Query | UUID | - | The ID of the service endpoint to retrieve |
 | display_name | Query | String | - | The name of the service endpoint to retrieve |
 | service_name | Query | String | - | The service name to retrieve (used when connecting to a custom endpoint; format: `{region}.sep-{12 hex}`) |
+
 > When connecting a service gateway to a Custom endpoint, retrieve the service endpoint ID by querying with the `service_name` provided by the publisher. For security purposes, the `service_name` value is not included in the response, and an empty list is returned if the project is not included in the allowed projects.
 
 <a id="get-a-list-of-service-endpoints-response"></a>
