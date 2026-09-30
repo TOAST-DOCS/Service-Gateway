@@ -214,7 +214,7 @@ For example, if the IP address of the service gateway created by selecting **Obj
     2. Enter the password to use in **Set API Password** on the **API Endpoint settings** screen and click **Modify**.
 
 !!! tip "Tip"
-    For details on how to use it, refer to [User Guide > Storage > Object Storage > API Guide](https://docs.nhncloud.com/en/Storage/Object%20Storage/ko/api-guide/).
+    For details on how to use it, refer to [User Guide > Storage > Object Storage > API Guide](/Storage/Object%20Storage/en/api-guide/).
 
 * Request for obtaining the Authentication token<br>
   Make a request to obtain the token to the URL of the service gateway created for the **IaaS API Identify** service using the **NHN Cloud login ID** and the password of **Set API Password** set previously.
