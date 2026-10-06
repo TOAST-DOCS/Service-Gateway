@@ -57,7 +57,7 @@ X-Auth-Token: {tokenId}
 | servicegateways.include_gateway_identity| Body | Boolean | NAT IP 주소 고정 사용 여부 |
 | servicegateways.service_endpoint_id | Body | UUID | 서비스 엔드포인트(또는 사용자 정의 엔드포인트) ID |
 | servicegateways.service_provider | Body | String | 연결 유형(연결된 엔드포인트의 값). `csp`=서비스 엔드포인트 / `user`=사용자 정의 엔드포인트 |
-| servicegateways.status | Body | String | 서비스 게이트웨이 상태. `AVAILABLE`, `BUILD`, `ERROR`, `REJECTED` |
+| servicegateways.status | Body | String | 서비스 게이트웨이 상태. `AVAILABLE`, `BUILD`, `ERROR`, `MIGRATING`, `MIGRATE_FAILED`, `REJECTED` |
 | servicegateways.create_time | Body | String | 생성 시각 |
 | servicegateways.updated_at | Body | String | 마지막 수정 시각 |
 | servicegateways.rejected_at | Body | String | 연결이 차단된 시각. 차단된 적이 없으면 `null` |
@@ -129,7 +129,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.service_provider | Body | String | 연결 유형(연결된 엔드포인트의 값). `csp`=서비스 엔드포인트 / `user`=사용자 정의 엔드포인트 |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
 | servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
-| servicegateway.status | Body | String | 서비스 게이트웨이 상태. `AVAILABLE`, `BUILD`, `ERROR`, `REJECTED` |
+| servicegateway.status | Body | String | 서비스 게이트웨이 상태. `AVAILABLE`, `BUILD`, `ERROR`, `MIGRATING`, `MIGRATE_FAILED`, `REJECTED` |
 | servicegateway.create_time | Body | String | 생성 시각 |
 | servicegateway.updated_at | Body | String | 마지막 수정 시각 |
 | servicegateway.rejected_at | Body | String | 연결이 차단된 시각. 차단된 적이 없으면 `null` |
