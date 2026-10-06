@@ -57,6 +57,13 @@ X-Auth-Token: {tokenId}
 | servicegateways.include_gateway_identity| Body | Boolean | NAT IP 주소 고정 사용 여부 |
 | servicegateways.service_endpoint_id | Body | UUID | 서비스 엔드포인트(또는 사용자 정의 엔드포인트) ID |
 | servicegateways.service_provider | Body | String | 연결 유형(연결된 엔드포인트의 값). `csp`=서비스 엔드포인트 / `user`=사용자 정의 엔드포인트 |
+| servicegateways.status | Body | String | 서비스 게이트웨이 상태. `AVAILABLE`, `BUILD`, `ERROR`, `REJECTED` |
+| servicegateways.create_time | Body | String | 생성 시각 |
+| servicegateways.updated_at | Body | String | 마지막 수정 시각 |
+| servicegateways.rejected_at | Body | String | 연결이 차단된 시각. 차단된 적이 없으면 `null` |
+| servicegateways.rejected_from_endpoint_id | Body | UUID | 차단 당시 연결돼 있던 사용자 정의 엔드포인트 ID |
+| servicegateways.rejected_from_endpoint_name | Body | String | 차단 당시 연결돼 있던 사용자 정의 엔드포인트의 표시 이름 |
+| servicegateways.rejected_from_service_provider | Body | String | 차단 당시의 연결 유형. `csp` 또는 `user` |
 | servicegateways.description | Body | String | 서비스 게이트웨이 설명 |
 
 <details><summary>예시</summary>
@@ -122,7 +129,17 @@ X-Auth-Token: {tokenId}
 | servicegateway.service_provider | Body | String | 연결 유형(연결된 엔드포인트의 값). `csp`=서비스 엔드포인트 / `user`=사용자 정의 엔드포인트 |
 | servicegateway.api_endpoints | Body | Array | API 엔드포인트 정보 객체 목록 |
 | servicegateway.api_endpoints.domain_name | Body | String | API 엔드포인트 도메인 |
+| servicegateway.status | Body | String | 서비스 게이트웨이 상태. `AVAILABLE`, `BUILD`, `ERROR`, `REJECTED` |
+| servicegateway.create_time | Body | String | 생성 시각 |
+| servicegateway.updated_at | Body | String | 마지막 수정 시각 |
+| servicegateway.rejected_at | Body | String | 연결이 차단된 시각. 차단된 적이 없으면 `null` |
+| servicegateway.rejected_from_endpoint_id | Body | UUID | 차단 당시 연결돼 있던 사용자 정의 엔드포인트 ID |
+| servicegateway.rejected_from_endpoint_name | Body | String | 차단 당시 연결돼 있던 사용자 정의 엔드포인트의 표시 이름 |
+| servicegateway.rejected_from_service_provider | Body | String | 차단 당시의 연결 유형. `csp` 또는 `user` |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
+
+> 사용자 정의 엔드포인트에 연결한 서비스 게이트웨이는 엔드포인트 게시자가 연결을 차단할 수 있습니다. 차단되면 상태가 `REJECTED`가 되고 `service_endpoint_id`와 `service_provider`가 `null`이 되므로, 연결돼 있던 대상은 `rejected_from_endpoint_id`와 `rejected_from_endpoint_name`으로 확인합니다. 이 값은 게시자가 엔드포인트를 삭제한 뒤에도 남습니다.
+> 차단은 되돌릴 수 없습니다. 차단된 서비스 게이트웨이는 수정할 수 없고 삭제만 할 수 있습니다.
 
 <details><summary>예시</summary>
 
@@ -270,6 +287,7 @@ X-Auth-Token: {tokenId}
 | servicegateway.description | Body | String | - | 서비스 게이트웨이 설명 |
 
 > 연결 유형(`service_provider`)은 연결된 엔드포인트의 값을 보여주는 읽기 전용 항목이며, 서비스 게이트웨이 수정으로 변경할 수 없습니다.
+> 상태가 `REJECTED`인 서비스 게이트웨이는 이름과 설명을 포함해 수정할 수 없습니다. 요청하면 `409 ServicegwRejectedReadOnly`가 반환됩니다.
 
 <details><summary>예시</summary>
 
@@ -353,6 +371,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
 
+> 상태가 `REJECTED`인 서비스 게이트웨이도 이 API 로 삭제합니다. 삭제해야 쿼터와 IP 주소가 반환됩니다.
 
 <a id="delete-a-service-gateway-response"></a>
 #### 응답
@@ -689,9 +708,84 @@ X-Auth-Token: {tokenId}
 
 > 이 엔드포인트를 사용 중인 서비스 게이트웨이가 있으면 삭제할 수 없습니다. 삭제 시 등록된 허용 프로젝트도 함께 삭제됩니다.
 
+사용 중인 서비스 게이트웨이가 남아 있다면 다음 순서로 정리합니다.
+
+1. [사용자 정의 엔드포인트 수정하기](#modify-a-custom-endpoint)로 `max_count`를 `0`으로 변경해 새 연결이 생기지 않도록 막습니다. 허용 프로젝트를 모두 삭제해도 됩니다.
+2. 아래 "연결 차단하기"를 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
+3. 이 API 로 엔드포인트를 삭제합니다.
+
+> 1번을 건너뛰면 차단하는 사이에 다른 프로젝트가 새 서비스 게이트웨이를 생성해 삭제가 다시 막힐 수 있습니다.
+
 <a id="delete-custom-endpoint-response"></a>
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
+
+---
+### 연결 차단하기
+
+```
+PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/reject_connections
+X-Auth-Token: {tokenId}
+```
+
+사용자 정의 엔드포인트에 연결된 서비스 게이트웨이의 연결을 끊습니다. 다른 프로젝트가 생성한 서비스 게이트웨이도 끊을 수 있습니다.
+
+차단된 서비스 게이트웨이는 삭제되지 않고 소유한 프로젝트에 `REJECTED` 상태로 남으며, 트래픽만 즉시 끊깁니다. 차단은 되돌릴 수 없고, 소유자는 해당 서비스 게이트웨이를 삭제만 할 수 있습니다.
+
+#### 요청
+
+| 이름 | 종류 | 형식 | 필수 | 설명 |
+|---|---|---|---|---|
+| tokenId | Header | String | O | 토큰 ID |
+| serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
+| service_gateway_ids | Body | Array | - | 차단할 서비스 게이트웨이 ID 목록(1~100개) |
+| count | Body | Integer | - | 연결된 서비스 게이트웨이 중 차단할 개수(1~100) |
+
+> `service_gateway_ids`와 `count` 중 정확히 하나만 지정해야 합니다. 둘 다 지정하거나 둘 다 생략하면 요청이 거부됩니다.
+> 한 번에 최대 100개를 처리합니다. 연결을 모두 끊으려면 `count`를 지정해 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
+
+<details><summary>예시</summary>
+
+```json
+{
+  "service_gateway_ids": [
+    "d383a4a3-dae7-4609-b2db-ecdf5859fac5",
+    "ba84e697-5b47-4c1a-9f0e-0a6b0a1f2c3d"
+  ]
+}
+```
+
+```json
+{
+  "count": 100
+}
+```
+
+</details>
+
+#### 응답
+
+| 이름 | 종류 | 형식 | 설명 |
+|---|---|---|---|
+| rejected_service_gateway_ids | Body | Array | 실제로 차단된 서비스 게이트웨이 ID 목록 |
+| remaining_count | Body | Integer | 이 엔드포인트에 남은 연결 수. `0`이면 모두 차단된 상태 |
+
+<details><summary>예시</summary>
+
+```json
+{
+  "rejected_service_gateway_ids": [
+    "d383a4a3-dae7-4609-b2db-ecdf5859fac5"
+  ],
+  "remaining_count": 1
+}
+```
+
+</details>
+
+> 이 엔드포인트에 연결되지 않은 ID는 오류가 아니라 건너뜁니다. 다른 엔드포인트의 서비스 게이트웨이, 존재하지 않는 ID, 이미 차단된 서비스 게이트웨이가 여기에 해당합니다. 따라서 같은 요청을 다시 보내도 안전하며, 실제로 차단된 대상은 응답의 `rejected_service_gateway_ids`로 확인합니다.
+> 내부 작업이 진행 중이어서 즉시 처리할 수 없는 서비스 게이트웨이도 건너뛰고 `remaining_count`에 남습니다. 잠시 후 다시 호출하면 처리됩니다.
+> 반면 요청 형식이 잘못된 경우에는 아무것도 차단되지 않고 요청 전체가 거부됩니다. 100개를 초과해도 일부만 처리하지 않습니다.
 
 ---
 <a id="reissue-a-service-name"></a>
@@ -915,6 +1009,8 @@ X-Auth-Token: {tokenId}
 
 사용자 정의 엔드포인트를 사용 중인(연결한) 소비자 측 서비스 게이트웨이 목록을 조회합니다.
 
+연결이 차단된(`REJECTED`) 서비스 게이트웨이는 엔드포인트와의 연결이 끊어졌으므로 이 목록에 포함되지 않습니다. 사용자 정의 엔드포인트의 `current_count`도 같은 기준으로 집계되므로, 연결을 차단하면 그만큼 `max_count` 여유가 생깁니다.
+
 <a id="view-usage-status-list"></a>
 ### 사용 현황 목록 보기 { #view-usage-status-list }
 
@@ -951,7 +1047,7 @@ X-Auth-Token: {tokenId}
 | serviceendpointusages.id | Body | UUID | 서비스 게이트웨이 ID |
 | serviceendpointusages.name | Body | String | 서비스 게이트웨이 이름 |
 | serviceendpointusages.fixed_ip | Body | String | 서비스 게이트웨이 IP 주소 |
-| serviceendpointusages.status | Body | String | 서비스 게이트웨이 상태 |
+| serviceendpointusages.status | Body | String | 서비스 게이트웨이 상태. 연결이 끊긴 `REJECTED`는 조회되지 않습니다 |
 | serviceendpointusages.tenant_id | Body | String | 서비스 게이트웨이를 생성한 소비자 프로젝트의 테넌트 ID |
 | serviceendpointusages.network_id | Body | UUID | 서비스 게이트웨이 VPC ID |
 | serviceendpointusages.subnet_id | Body | UUID | 서비스 게이트웨이 서브넷 ID |
