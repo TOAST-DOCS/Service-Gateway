@@ -30,15 +30,15 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| id | Query | UUID | - | 조회할 서비스 게이트웨이 ID |
-| name | Query | String | - | 조회할 서비스 게이트웨이 이름 |
-| service_endpoint_id | Query | UUID | - | 조회할 서비스 게이트웨이의 서비스 엔드포인트(또는 사용자 정의 엔드포인트) ID |
-| network_id | Query | UUID | - | 조회할 서비스 게이트웨이 VPC ID |
-| subnet_id | Query | UUID | - | 조회할 서비스 게이트웨이 서브넷 ID |
-| port_id | Query | UUID | - | 조회할 서비스 게이트웨이 포트 ID |
-| fixed_ip| Query | String | - | 조회할 서비스 게이트웨이 IP 주소 |
-| include_gateway_identity| Query | Boolean | - | NAT IP 주소 고정 사용 여부 |
+| tokenId | Header | String | Y | 토큰 ID |
+| id | Query | UUID | N | 조회할 서비스 게이트웨이 ID |
+| name | Query | String | N | 조회할 서비스 게이트웨이 이름 |
+| service_endpoint_id | Query | UUID | N | 조회할 서비스 게이트웨이의 서비스 엔드포인트(또는 사용자 정의 엔드포인트) ID |
+| network_id | Query | UUID | N | 조회할 서비스 게이트웨이 VPC ID |
+| subnet_id | Query | UUID | N | 조회할 서비스 게이트웨이 서브넷 ID |
+| port_id | Query | UUID | N | 조회할 서비스 게이트웨이 포트 ID |
+| fixed_ip| Query | String | N | 조회할 서비스 게이트웨이 IP 주소 |
+| include_gateway_identity| Query | Boolean | N | NAT IP 주소 고정 사용 여부 |
 
 
 <a id="get-a-list-of-service-gateways-response"></a>
@@ -108,8 +108,8 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceGatewayId | URL | UUID | Y | 서비스 게이트웨이 ID |
 
 <a id="get-a-service-gateway-response"></a>
 #### 응답
@@ -188,17 +188,18 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| servicegateway | Body | Object | O | 서비스 게이트웨이 정보 객체 |
-| servicegateway.name | Body | String | - | 서비스 게이트웨이 이름 |
-| servicegateway.description | Body | String | - | 서비스 게이트웨이 설명 |
-| servicegateway.network_id | Body | UUID | O | VPC ID |
-| servicegateway.subnet_id | Body | UUID | O | 서브넷 ID |
-| servicegateway.fixed_ip | Body | String | - | 서비스 게이트웨이 IP 주소 |
-| servicegateway.include_gateway_identity| Body | Boolean | - | NAT IP 주소 고정 사용 여부 |
-| servicegateway.service_endpoint_id | Body | UUID | O | 서비스 엔드포인트(또는 사용자 정의 엔드포인트) ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| servicegateway | Body | Object | Y | 서비스 게이트웨이 정보 객체 |
+| servicegateway.name | Body | String | N | 서비스 게이트웨이 이름 |
+| servicegateway.description | Body | String | N | 서비스 게이트웨이 설명 |
+| servicegateway.network_id | Body | UUID | Y | VPC ID |
+| servicegateway.subnet_id | Body | UUID | Y | 서브넷 ID |
+| servicegateway.fixed_ip | Body | String | N | 서비스 게이트웨이 IP 주소 |
+| servicegateway.include_gateway_identity| Body | Boolean | N | NAT IP 주소 고정 사용 여부 |
+| servicegateway.service_endpoint_id | Body | UUID | Y | 서비스 엔드포인트(또는 사용자 정의 엔드포인트) ID |
 
-> 사용자 정의 엔드포인트에 연결하려면 게시자에게 전달받은 `service_name`으로 [서비스 엔드포인트 목록 보기](#get-a-list-of-service-endpoints)를 조회해 얻은 `service_endpoint_id`를 사용합니다. 연결 유형(`service_provider`)은 연결된 엔드포인트에서 자동으로 결정되며 요청 값으로 지정하지 않습니다.
+!!! tip "알아두기"
+    사용자 정의 엔드포인트에 연결하려면 게시자에게 전달받은 `service_name`으로 [서비스 엔드포인트 목록 보기](#get-a-list-of-service-endpoints)를 조회해 얻은 `service_endpoint_id`를 사용합니다. 연결 유형(`service_provider`)은 연결된 엔드포인트에서 자동으로 결정되며 요청 값으로 지정하지 않습니다.
 
 
 <details><summary>예시</summary>
@@ -283,13 +284,14 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
-| servicegateway | Body | Object | O | 서비스 게이트웨이 정보 객체 |
-| servicegateway.name | Body | String | - | 서비스 게이트웨이 이름 |
-| servicegateway.description | Body | String | - | 서비스 게이트웨이 설명 |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceGatewayId | URL | UUID | Y | 서비스 게이트웨이 ID |
+| servicegateway | Body | Object | Y | 서비스 게이트웨이 정보 객체 |
+| servicegateway.name | Body | String | N | 서비스 게이트웨이 이름 |
+| servicegateway.description | Body | String | N | 서비스 게이트웨이 설명 |
 
-> 연결 유형(`service_provider`)은 연결된 엔드포인트의 값을 보여주는 읽기 전용 항목이며, 서비스 게이트웨이 수정으로 변경할 수 없습니다.
+!!! tip "알아두기"
+    연결 유형(`service_provider`)은 연결된 엔드포인트의 값을 보여주는 읽기 전용 항목이며, 서비스 게이트웨이 수정으로 변경할 수 없습니다.
 
 !!! danger "주의"
     상태가 `REJECTED`인 서비스 게이트웨이는 이름과 설명을 포함해 수정할 수 없습니다. 요청하면 `409 ServicegwRejectedReadOnly`가 반환됩니다.
@@ -373,8 +375,8 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceGatewayId | URL | UUID | Y | 서비스 게이트웨이 ID |
 
 !!! tip "알아두기"
     상태가 `REJECTED`인 서비스 게이트웨이도 이 API로 삭제합니다. 삭제해야 쿼터와 IP 주소가 반환됩니다.
@@ -400,12 +402,13 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| id | Query | UUID | - | 조회할 서비스 엔드포인트 ID |
-| display_name | Query | String | - | 조회할 서비스 엔드포인트 이름 |
-| service_name | Query | String | - | 조회할 서비스 이름(사용자 정의 엔드포인트 연결 시 사용, 형식 `{region}.sep-{12 hex}`) |
+| tokenId | Header | String | Y | 토큰 ID |
+| id | Query | UUID | N | 조회할 서비스 엔드포인트 ID |
+| display_name | Query | String | N | 조회할 서비스 엔드포인트 이름 |
+| service_name | Query | String | N | 조회할 서비스 이름(사용자 정의 엔드포인트 연결 시 사용, 형식 `{region}.sep-{12 hex}`) |
 
-> 서비스 게이트웨이를 사용자 정의 엔드포인트에 연결할 때는 게시자에게 전달받은 `service_name`으로 조회하여 서비스 엔드포인트 ID를 획득합니다. 보안을 위해 `service_name` 값은 응답에 포함되지 않으며, 허용 프로젝트에 포함되지 않은 경우 빈 목록이 반환됩니다.
+!!! tip "알아두기"
+    서비스 게이트웨이를 사용자 정의 엔드포인트에 연결할 때는 게시자에게 전달받은 `service_name`으로 조회하여 서비스 엔드포인트 ID를 획득합니다. 보안을 위해 `service_name` 값은 응답에 포함되지 않으며, 허용 프로젝트에 포함되지 않은 경우 빈 목록이 반환됩니다.
 
 
 <a id="get-a-list-of-service-endpoints-response"></a>
@@ -452,8 +455,8 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceEndpointId | URL | UUID | O | 서비스 엔드포인트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceEndpointId | URL | UUID | Y | 서비스 엔드포인트 ID |
 
 <a id="get-a-service-endpoint-response"></a>
 #### 응답
@@ -502,10 +505,10 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| id | Query | UUID | - | 조회할 사용자 정의 엔드포인트 ID |
-| endpoint_type | Query | String | - | 조회할 엔드포인트 유형(예: `lb.type1`) |
-| port_id | Query | UUID | - | 조회할 대상 리소스(로드 밸런서) 포트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| id | Query | UUID | N | 조회할 사용자 정의 엔드포인트 ID |
+| endpoint_type | Query | String | N | 조회할 엔드포인트 유형(예: `lb.type1`) |
+| port_id | Query | UUID | N | 조회할 대상 리소스(로드 밸런서) 포트 ID |
 
 <a id="view-custom-endpoint-list-response"></a>
 #### 응답
@@ -564,8 +567,8 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceEndpointId | URL | UUID | Y | 사용자 정의 엔드포인트 ID |
 
 <a id="get-a-custom-endpoint-response"></a>
 #### 응답
@@ -621,15 +624,16 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| myserviceendpoint | Body | Object | O | 사용자 정의 엔드포인트 정보 객체 |
-| myserviceendpoint.name | Body | String | O | 이름(255자 이내, 영문/숫자/-/_) |
-| myserviceendpoint.display_name | Body | String | - | 표시 이름(생략 시 `name`과 동일하게 적용) |
-| myserviceendpoint.port_id | Body | UUID | O | 대상 리소스(로드 밸런서) 포트 ID. 로드 밸런서 보기(`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`) 응답의 `vip_port_id`를 사용합니다. |
-| myserviceendpoint.max_count | Body | Integer | - | 최대 생성 개수(0~1,000). 0: 생성 차단, null 또는 미입력: 무제한 |
-| myserviceendpoint.description | Body | String | - | 설명 |
+| tokenId | Header | String | Y | 토큰 ID |
+| myserviceendpoint | Body | Object | Y | 사용자 정의 엔드포인트 정보 객체 |
+| myserviceendpoint.name | Body | String | Y | 이름(255자 이내, 영문/숫자/-/_) |
+| myserviceendpoint.display_name | Body | String | N | 표시 이름(생략 시 `name`과 동일하게 적용) |
+| myserviceendpoint.port_id | Body | UUID | Y | 대상 리소스(로드 밸런서) 포트 ID. 로드 밸런서 보기(`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`) 응답의 `vip_port_id`를 사용합니다. |
+| myserviceendpoint.max_count | Body | Integer | N | 최대 생성 개수(0~1,000). 0: 생성 차단, null 또는 미입력: 무제한 |
+| myserviceendpoint.description | Body | String | N | 설명 |
 
-> 대상 리소스로 로드 밸런서를 지정하면 `endpoint_type`이 `lb.type1`로, `service_provider`가 `user`로 자동 설정됩니다. 생성이 완료되면 공유용 `service_name`이 자동으로 발급됩니다. 프로젝트당 기본 5개까지 생성할 수 있습니다.
+!!! tip "알아두기"
+    대상 리소스로 로드 밸런서를 지정하면 `endpoint_type`이 `lb.type1`로, `service_provider`가 `user`로 자동 설정됩니다. 생성이 완료되면 공유용 `service_name`이 자동으로 발급됩니다. 프로젝트당 기본 5개까지 생성할 수 있습니다.
 
 <details><summary>예시</summary>
 
@@ -665,15 +669,16 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
-| myserviceendpoint | Body | Object | O | 사용자 정의 엔드포인트 정보 객체 |
-| myserviceendpoint.name | Body | String | - | 이름 |
-| myserviceendpoint.display_name | Body | String | - | 표시 이름 |
-| myserviceendpoint.max_count | Body | Integer | - | 최대 생성 개수(0~1000). 0: 생성 차단, null: 무제한으로 변경, 필드 미포함 시 기존 값 유지 |
-| myserviceendpoint.description | Body | String | - | 설명 |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceEndpointId | URL | UUID | Y | 사용자 정의 엔드포인트 ID |
+| myserviceendpoint | Body | Object | Y | 사용자 정의 엔드포인트 정보 객체 |
+| myserviceendpoint.name | Body | String | N | 이름 |
+| myserviceendpoint.display_name | Body | String | N | 표시 이름 |
+| myserviceendpoint.max_count | Body | Integer | N | 최대 생성 개수(0~1000). 0: 생성 차단, null: 무제한으로 변경, 필드 미포함 시 기존 값 유지 |
+| myserviceendpoint.description | Body | String | N | 설명 |
 
-> 리소스 유형(`endpoint_type`)과 대상 리소스(`port_id`)는 변경할 수 없습니다. 최대 생성 개수를 줄여도 기존 서비스 게이트웨이는 유지되며, 현재 개수가 최대 생성 개수를 초과하는 동안에는 추가 생성할 수 없습니다.
+!!! tip "알아두기"
+    리소스 유형(`endpoint_type`)과 대상 리소스(`port_id`)는 변경할 수 없습니다. 최대 생성 개수를 줄여도 기존 서비스 게이트웨이는 유지되며, 현재 개수가 최대 생성 개수를 초과하는 동안에는 추가 생성할 수 없습니다.
 
 <details><summary>예시</summary>
 
@@ -709,10 +714,11 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceEndpointId | URL | UUID | Y | 사용자 정의 엔드포인트 ID |
 
-> 이 엔드포인트를 사용 중인 서비스 게이트웨이가 있으면 삭제할 수 없습니다. 삭제 시 등록된 허용 프로젝트도 함께 삭제됩니다.
+!!! danger "주의"
+    이 엔드포인트를 사용 중인 서비스 게이트웨이가 있으면 삭제할 수 없습니다. 삭제 시 등록된 허용 프로젝트도 함께 삭제됩니다.
 
 사용 중인 서비스 게이트웨이가 남아 있다면 다음 순서로 정리합니다.
 
@@ -743,8 +749,8 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceEndpointId | URL | UUID | Y | 사용자 정의 엔드포인트 ID |
 | service_gateway_ids | Body | Array | Conditional | 차단할 서비스 게이트웨이 ID 목록(1~100개). `count`와 둘 중 하나만 지정 |
 | count | Body | Integer | Conditional | 연결된 서비스 게이트웨이 중 차단할 개수(1~100). `service_gateway_ids`와 둘 중 하나만 지정 |
 
@@ -816,10 +822,11 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceEndpointId | URL | UUID | Y | 사용자 정의 엔드포인트 ID |
 
-> 엔드포인트를 생성한 프로젝트의 구성원(소유자)만 수행할 수 있습니다. 재발급 시 기존 `service_name`은 즉시 폐기되어 더 이상 조회되지 않습니다. 기존 `service_name`으로 생성한 서비스 게이트웨이는 정상 동작하지만, 신규 생성 시에는 재발급된 `service_name`을 사용해야 합니다.
+!!! danger "주의"
+    엔드포인트를 생성한 프로젝트의 구성원(소유자)만 수행할 수 있습니다. 재발급 시 기존 `service_name`은 즉시 폐기되어 더 이상 조회되지 않습니다. 기존 `service_name`으로 생성한 서비스 게이트웨이는 정상 동작하지만, 신규 생성 시에는 재발급된 `service_name`을 사용해야 합니다.
 
 <a id="reissue-a-service-name-response"></a>
 #### 응답
@@ -858,9 +865,9 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| service_endpoint_id | Query | UUID | - | 조회할 사용자 정의 엔드포인트 ID |
-| target_tenant_id | Query | String | - | 조회할 허용 대상 테넌트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| service_endpoint_id | Query | UUID | N | 조회할 사용자 정의 엔드포인트 ID |
+| target_tenant_id | Query | String | N | 조회할 허용 대상 테넌트 ID |
 
 <a id="view-allow-project-list-response"></a>
 #### 응답
@@ -907,8 +914,8 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| allowProjectId | URL | UUID | O | 허용 프로젝트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| allowProjectId | URL | UUID | Y | 허용 프로젝트 ID |
 
 <a id="view-allowed-projects-response"></a>
 #### 응답
@@ -928,14 +935,15 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| serviceendpointallowproject | Body | Object | O | 허용 프로젝트 정보 객체 |
-| serviceendpointallowproject.service_endpoint_id | Body | UUID | O | 사용자 정의 엔드포인트 ID |
-| serviceendpointallowproject.target_tenant_id | Body | String | O | 허용 대상. `*`=전체 프로젝트 / 테넌트 ID(32 hex)=특정 프로젝트 |
-| serviceendpointallowproject.name | Body | String | - | 이름(참고용) |
-| serviceendpointallowproject.description | Body | String | - | 설명 |
+| tokenId | Header | String | Y | 토큰 ID |
+| serviceendpointallowproject | Body | Object | Y | 허용 프로젝트 정보 객체 |
+| serviceendpointallowproject.service_endpoint_id | Body | UUID | Y | 사용자 정의 엔드포인트 ID |
+| serviceendpointallowproject.target_tenant_id | Body | String | Y | 허용 대상. `*`=전체 프로젝트 / 테넌트 ID(32 hex)=특정 프로젝트 |
+| serviceendpointallowproject.name | Body | String | N | 이름(참고용) |
+| serviceendpointallowproject.description | Body | String | N | 설명 |
 
-> 전체 허용(`*`)과 특정 프로젝트를 함께 등록한 경우 더 좁은 범위(특정 프로젝트)가 적용됩니다. 이를 이용해 무중단으로 허용 범위를 전환할 수 있습니다. 엔드포인트 소유자의 테넌트 ID는 등록할 수 없습니다(소유자는 항상 허용). 동일(엔드포인트, 테넌트) 조합이 이미 있으면 409.
+!!! tip "알아두기"
+    전체 허용(`*`)과 특정 프로젝트를 함께 등록한 경우 더 좁은 범위(특정 프로젝트)가 적용됩니다. 이를 이용해 무중단으로 허용 범위를 전환할 수 있습니다. 엔드포인트 소유자의 테넌트 ID는 등록할 수 없습니다(소유자는 항상 허용). 동일(엔드포인트, 테넌트) 조합이 이미 있으면 409.
 
 <details><summary>예시</summary>
 
@@ -970,13 +978,14 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| allowProjectId | URL | UUID | O | 허용 프로젝트 ID |
-| serviceendpointallowproject | Body | Object | O | 허용 프로젝트 정보 객체 |
-| serviceendpointallowproject.name | Body | String | - | 이름(참고용) |
-| serviceendpointallowproject.description | Body | String | - | 설명 |
+| tokenId | Header | String | Y | 토큰 ID |
+| allowProjectId | URL | UUID | Y | 허용 프로젝트 ID |
+| serviceendpointallowproject | Body | Object | Y | 허용 프로젝트 정보 객체 |
+| serviceendpointallowproject.name | Body | String | N | 이름(참고용) |
+| serviceendpointallowproject.description | Body | String | N | 설명 |
 
-> 허용 대상(`target_tenant_id`)과 엔드포인트(`service_endpoint_id`)는 변경할 수 없으며, `name`·`description`만 수정할 수 있습니다.
+!!! tip "알아두기"
+    허용 대상(`target_tenant_id`)과 엔드포인트(`service_endpoint_id`)는 변경할 수 없으며, `name`·`description`만 수정할 수 있습니다.
 
 <details><summary>예시</summary>
 
@@ -1010,8 +1019,8 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| allowProjectId | URL | UUID | O | 허용 프로젝트 ID |
+| tokenId | Header | String | Y | 토큰 ID |
+| allowProjectId | URL | UUID | Y | 허용 프로젝트 ID |
 
 <a id="delete-an-allowed-project-response"></a>
 #### 응답
@@ -1039,18 +1048,20 @@ X-Auth-Token: {tokenId}
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 토큰 ID |
-| id | Query | UUID | - | 조회할 사용자 정의 엔드포인트 ID(복수 지정 가능, 생략 시 소유한 모든 엔드포인트 대상) |
-| network_id | Query | UUID | - | 조회할 서비스 게이트웨이 VPC ID(복수 지정 가능) |
-| subnet_id | Query | UUID | - | 조회할 서비스 게이트웨이 서브넷 ID(복수 지정 가능) |
-| limit | Query | Integer | - | 한 번에 조회할 최대 개수(생략 시 전체 반환) |
-| marker | Query | UUID | - | 직전 페이지 마지막 항목의 서비스 게이트웨이 ID(다음 페이지 조회 시 사용) |
-| page_reverse | Query | Boolean | - | `true`로 지정하면 이전 페이지 방향으로 조회 |
-| sort_key | Query | String | - | 정렬 기준 필드(복수 지정 가능) |
-| sort_dir | Query | String | - | 정렬 방향(`asc` 또는 `desc`). `sort_key`와 반드시 쌍으로, 같은 개수로 지정 |
+| tokenId | Header | String | Y | 토큰 ID |
+| id | Query | UUID | N | 조회할 사용자 정의 엔드포인트 ID(복수 지정 가능, 생략 시 소유한 모든 엔드포인트 대상) |
+| network_id | Query | UUID | N | 조회할 서비스 게이트웨이 VPC ID(복수 지정 가능) |
+| subnet_id | Query | UUID | N | 조회할 서비스 게이트웨이 서브넷 ID(복수 지정 가능) |
+| limit | Query | Integer | N | 한 번에 조회할 최대 개수(생략 시 전체 반환) |
+| marker | Query | UUID | N | 직전 페이지 마지막 항목의 서비스 게이트웨이 ID(다음 페이지 조회 시 사용) |
+| page_reverse | Query | Boolean | N | `true`로 지정하면 이전 페이지 방향으로 조회 |
+| sort_key | Query | String | N | 정렬 기준 필드(복수 지정 가능) |
+| sort_dir | Query | String | Conditional | 정렬 방향(`asc` 또는 `desc`). `sort_key`와 반드시 쌍으로, 같은 개수로 지정 |
 
-> 결과는 기본적으로 서비스 게이트웨이 ID(`id`) 오름차순으로 정렬됩니다. 생성 시각순으로 조회하려면 `sort_key=create_time&sort_dir=desc`와 같이 명시해야 합니다. `sort_key`에는 응답 필드(`id`, `name`, `fixed_ip`, `status`, `tenant_id`, `network_id`, `subnet_id`, `service_endpoint_id`, `create_time`)를 사용할 수 있습니다.
-> `limit`을 지정하면 응답에 다음/이전 페이지 링크(`serviceendpointusages_links`)가 포함됩니다. 다음 페이지는 링크의 URL을 그대로 호출하거나, 현재 페이지 마지막 항목의 `id`를 `marker`로 지정해 조회합니다. 페이지를 순회하는 동안에는 동일한 필터/정렬 조건을 유지해야 합니다.
+!!! tip "알아두기"
+    결과는 기본적으로 서비스 게이트웨이 ID(`id`) 오름차순으로 정렬됩니다. 생성 시각순으로 조회하려면 `sort_key=create_time&sort_dir=desc`와 같이 명시해야 합니다. `sort_key`에는 응답 필드(`id`, `name`, `fixed_ip`, `status`, `tenant_id`, `network_id`, `subnet_id`, `service_endpoint_id`, `create_time`)를 사용할 수 있습니다.
+
+    `limit`을 지정하면 응답에 다음/이전 페이지 링크(`serviceendpointusages_links`)가 포함됩니다. 다음 페이지는 링크의 URL을 그대로 호출하거나, 현재 페이지 마지막 항목의 `id`를 `marker`로 지정해 조회합니다. 페이지를 순회하는 동안에는 동일한 필터/정렬 조건을 유지해야 합니다.
 
 <a id="view-usage-status-list-response"></a>
 #### 응답
