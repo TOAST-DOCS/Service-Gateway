@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=fbbff493af43 -->
 
 <a id="network-service-gateway-api-v2-guide"></a>
@@ -30,15 +32,15 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | トークンID |
-| id | Query | UUID | - | 照会するサービスゲートウェイID |
-| name | Query | String | - | 照会するサービスゲートウェイ名 |
-| service_endpoint_id | Query | UUID | - | 照会するサービスゲートウェイのサービスエンドポイント（またはユーザー定義エンドポイント）ID |
-| network_id | Query | UUID | - | 照会するサービスゲートウェイVPC ID |
-| subnet_id | Query | UUID | - | 照会するサービスゲートウェイサブネットID |
-| port_id | Query | UUID | - | 照会するサービスゲートウェイポートID |
-| fixed_ip| Query | String | - | 照会するサービスゲートウェイIPアドレス |
-| include_gateway_identity| Query | Boolean | - | NAT IPアドレス固定の使用有無 |
+| tokenId | Header | String | Y | トークンID |
+| id | Query | UUID | N | 照会するサービスゲートウェイID |
+| name | Query | String | N | 照会するサービスゲートウェイ名 |
+| service_endpoint_id | Query | UUID | N | 照会するサービスゲートウェイのサービスエンドポイント（またはユーザー定義エンドポイント）ID |
+| network_id | Query | UUID | N | 照会するサービスゲートウェイVPC ID |
+| subnet_id | Query | UUID | N | 照会するサービスゲートウェイサブネットID |
+| port_id | Query | UUID | N | 照会するサービスゲートウェイポートID |
+| fixed_ip| Query | String | N | 照会するサービスゲートウェイIPアドレス |
+| include_gateway_identity| Query | Boolean | N | NAT IPアドレス固定の使用有無 |
 
 
 <a id="get-a-list-of-service-gateways-response"></a>
@@ -57,6 +59,13 @@ X-Auth-Token: {tokenId}
 | servicegateways.include_gateway_identity| Body | Boolean | NAT IPアドレス固定の使用有無 |
 | servicegateways.service_endpoint_id | Body | UUID | サービスエンドポイント（またはユーザー定義エンドポイント）ID |
 | servicegateways.service_provider | Body | String | 接続タイプ（接続されたエンドポイントの値）。`csp`=サービスエンドポイント / `user`=ユーザー定義エンドポイント |
+| servicegateways.status | Body | String | サービスゲートウェイのステータス。`AVAILABLE`、`BUILD`、`ERROR`、`MIGRATING`、`MIGRATE_FAILED`、`REJECTED` |
+| servicegateways.create_time | Body | String | 作成日時 |
+| servicegateways.updated_at | Body | String | 最終更新日時 |
+| servicegateways.rejected_at | Body | String | 接続がブロックされた日時。ブロックされたことがない場合は`null` |
+| servicegateways.rejected_from_endpoint_id | Body | UUID | ブロック時に接続されていたユーザー定義エンドポイントID |
+| servicegateways.rejected_from_endpoint_name | Body | String | ブロック時に接続されていたユーザー定義エンドポイントの表示名 |
+| servicegateways.rejected_from_service_provider | Body | String | ブロック時の接続タイプ。`csp`または`user` |
 | servicegateways.description | Body | String | サービスゲートウェイの説明 |
 
 <details><summary>例</summary>
@@ -101,8 +110,8 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | トークンID |
-| serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
+| tokenId | Header | String | Y | トークンID |
+| serviceGatewayId | URL | UUID | Y | サービスゲートウェイID |
 
 <a id="get-a-service-gateway-response"></a>
 #### レスポンス
@@ -122,7 +131,20 @@ X-Auth-Token: {tokenId}
 | servicegateway.service_provider | Body | String | 接続タイプ（接続されたエンドポイントの値）。`csp`=サービスエンドポイント / `user`=ユーザー定義エンドポイント |
 | servicegateway.api_endpoints | Body | Array | APIエンドポイント情報オブジェクトリスト |
 | servicegateway.api_endpoints.domain_name | Body | String | APIエンドポイントドメイン |
+| servicegateway.status | Body | String | サービスゲートウェイのステータス。`AVAILABLE`、`BUILD`、`ERROR`、`MIGRATING`、`MIGRATE_FAILED`、`REJECTED` |
+| servicegateway.create_time | Body | String | 作成日時 |
+| servicegateway.updated_at | Body | String | 最終更新日時 |
+| servicegateway.rejected_at | Body | String | 接続がブロックされた日時。ブロックされたことがない場合は`null` |
+| servicegateway.rejected_from_endpoint_id | Body | UUID | ブロック時に接続されていたユーザー定義エンドポイントID |
+| servicegateway.rejected_from_endpoint_name | Body | String | ブロック時に接続されていたユーザー定義エンドポイントの表示名 |
+| servicegateway.rejected_from_service_provider | Body | String | ブロック時の接続タイプ。`csp`または`user` |
 | servicegateway.description | Body | String | サービスゲートウェイの説明 |
+
+!!! tip "ポイント"
+    ユーザー定義エンドポイントに接続しているサービスゲートウェイは、エンドポイントの公開者が接続をブロックすることがあります。ブロックされると、状態が`REJECTED`になり、`service_endpoint_id`と`service_provider`が`null`になります。そのため、接続していた対象は`rejected_from_endpoint_id`と`rejected_from_endpoint_name`で確認します。この値は、公開者がエンドポイントを削除した後も残ります。
+
+!!! danger "注意"
+    ブロックは元に戻すことができません。ブロックされたサービスゲートウェイは変更できず、削除のみ可能です。
 
 <details><summary>例</summary>
 
@@ -168,17 +190,18 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | トークンID |
-| servicegateway | Body | Object | O | サービスゲートウェイ情報オブジェクト |
-| servicegateway.name | Body | String | - | サービスゲートウェイ名 |
-| servicegateway.description | Body | String | - | サービスゲートウェイの説明 |
-| servicegateway.network_id | Body | UUID | O | VPC ID |
-| servicegateway.subnet_id | Body | UUID | O | サブネットID |
-| servicegateway.fixed_ip | Body | String | - | サービスゲートウェイIPアドレス |
-| servicegateway.include_gateway_identity| Body | Boolean | - | NAT IPアドレス固定の使用有無 |
-| servicegateway.service_endpoint_id | Body | UUID | O | サービスエンドポイント（またはユーザー定義エンドポイント）ID |
+| tokenId | Header | String | Y | トークンID |
+| servicegateway | Body | Object | Y | サービスゲートウェイ情報オブジェクト |
+| servicegateway.name | Body | String | N | サービスゲートウェイ名 |
+| servicegateway.description | Body | String | N | サービスゲートウェイの説明 |
+| servicegateway.network_id | Body | UUID | Y | VPC ID |
+| servicegateway.subnet_id | Body | UUID | Y | サブネットID |
+| servicegateway.fixed_ip | Body | String | N | サービスゲートウェイIPアドレス |
+| servicegateway.include_gateway_identity| Body | Boolean | N | NAT IPアドレス固定の使用有無 |
+| servicegateway.service_endpoint_id | Body | UUID | Y | サービスエンドポイント（またはユーザー定義エンドポイント）ID |
 
-> カスタムエンドポイントに接続するには、パブリッシャーから受け取った `service_name` を使用して[サービスエンドポイントリスト表示](#get-a-list-of-service-endpoints)を照会し、取得した `service_endpoint_id` を使用します。接続タイプ（`service_provider`）は接続されたエンドポイントから自動的に決定されるため、リクエスト値として指定しません。
+!!! tip "ポイント"
+    ユーザー定義エンドポイントに接続するには、パブリッシャーから受け取った `service_name` を使用して[サービスエンドポイントリスト表示](#get-a-list-of-service-endpoints)を照会し、取得した `service_endpoint_id` を使用します。接続タイプ（`service_provider`）は接続されたエンドポイントから自動的に決定されるため、リクエスト値として指定しません。
 
 <details><summary>例</summary>
 
@@ -262,13 +285,17 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | トークンID |
-| serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
-| servicegateway | Body | Object | O | サービスゲートウェイ情報オブジェクト |
-| servicegateway.name | Body | String | - | サービスゲートウェイ名 |
-| servicegateway.description | Body | String | - | サービスゲートウェイの説明 |
+| tokenId | Header | String | Y | トークンID |
+| serviceGatewayId | URL | UUID | Y | サービスゲートウェイID |
+| servicegateway | Body | Object | Y | サービスゲートウェイ情報オブジェクト |
+| servicegateway.name | Body | String | N | サービスゲートウェイ名 |
+| servicegateway.description | Body | String | N | サービスゲートウェイの説明 |
 
-> 接続タイプ (`service_provider`) は、接続されているエンドポイントの値を示す読み取り専用の項目であり、サービスゲートウェイの変更では変更できません。
+!!! tip "ポイント"
+    接続タイプ(`service_provider`)は、接続されているエンドポイントの値を示す読み取り専用の項目であり、サービスゲートウェイの変更では変更できません。
+
+!!! danger "注意"
+    状態が`REJECTED`のサービスゲートウェイは、名前と説明を含め変更することはできません。リクエストすると`409 ServicegwRejectedReadOnly`が返されます。
 
 <details><summary>例</summary>
 
@@ -349,9 +376,12 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | トークンID |
-| serviceGatewayId | URL | UUID | O | サービスゲートウェイID |
+| tokenId | Header | String | Y | トークンID |
+| serviceGatewayId | URL | UUID | Y | サービスゲートウェイID |
 
+
+!!! tip "ポイント"
+    ステータスが`REJECTED`のサービスゲートウェイもこのAPIで削除します。削除することでクォータとIPアドレスが返還されます。
 
 <a id="delete-a-service-gateway-response"></a>
 #### レスポンス
@@ -383,12 +413,13 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | トークンID |
-| id | Query | UUID | - | 照会するサービスエンドポイントID |
-| display_name | Query | String | - | 照会するサービスエンドポイント名 |
-| service_name | Query | String | - | 照会するサービス名（ユーザー定義エンドポイント接続時に使用、形式 `{region}.sep-{12 hex}`） |
+| tokenId | Header | String | Y | トークンID |
+| id | Query | UUID | N | 照会するサービスエンドポイントID |
+| display_name | Query | String | N | 照会するサービスエンドポイント名 |
+| service_name | Query | String | N | 照会するサービス名（ユーザー定義エンドポイント接続時に使用、形式 `{region}.sep-{12 hex}`） |
 
-> サービスゲートウェイをカスタムエンドポイントに接続する際は、パブリッシャーから提供された `service_name` で照会してサービスエンドポイント ID を取得します。セキュリティのため、`service_name` の値はレスポンスに含まれず、許可プロジェクトに含まれていない場合は空のリストが返されます。
+!!! tip "ポイント"
+    サービスゲートウェイをユーザー定義エンドポイントに接続する際は、パブリッシャーから提供された `service_name` で照会してサービスエンドポイント ID を取得します。セキュリティのため、`service_name` の値はレスポンスに含まれず、許可プロジェクトに含まれていない場合は空のリストが返されます。
 
 <a id="get-a-list-of-service-endpoints-response"></a>
 #### レスポンス
@@ -433,8 +464,8 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | トークンID |
-| serviceEndpointId | URL | UUID | O | サービスエンドポイントID |
+| tokenId | Header | String | Y | トークンID |
+| serviceEndpointId | URL | UUID | Y | サービスエンドポイントID |
 
 <a id="get-a-service-endpoint-response"></a>
 #### レスポンス
@@ -483,10 +514,10 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| id | Query | UUID | - | 照会するユーザー定義エンドポイント ID |
-| endpoint_type | Query | String | - | 照会するエンドポイントの種類(例: `lb.type1`) |
-| port_id | Query | UUID | - | 照会する対象リソース(ロードバランサー)のポート ID |
+| tokenId | Header | String | Y | トークンID |
+| id | Query | UUID | N | 照会するユーザー定義エンドポイント ID |
+| endpoint_type | Query | String | N | 照会するエンドポイントタイプ(例: `lb.type1`) |
+| port_id | Query | UUID | N | 照会する対象リソース(ロードバランサー)のポート ID |
 
 <a id="view-custom-endpoint-list-response"></a>
 #### 応答
@@ -544,8 +575,8 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン |
-| serviceEndpointId | URL | UUID | O | ユーザー定義エンドポイント ID |
+| tokenId | Header | String | Y | トークンID |
+| serviceEndpointId | URL | UUID | Y | ユーザー定義エンドポイントID |
 
 <a id="get-a-custom-endpoint-response"></a>
 #### 応答
@@ -600,15 +631,16 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| myserviceendpoint | Body | Object | O | ユーザー定義エンドポイント情報オブジェクト |
-| myserviceendpoint.name | Body | String | O | 名前（255文字以内、英字/数字/-/_） |
-| myserviceendpoint.display_name | Body | String | - | 表示名（省略時は `name` と同じ値が適用されます） |
-| myserviceendpoint.port_id | Body | UUID | O | 対象リソース（ロードバランサー）のポート ID。ロードバランサー表示（`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`）レスポンスの `vip_port_id` を使用します。 |
-| myserviceendpoint.max_count | Body | Integer | - | 最大作成数（0〜1,000）。0: 作成をブロック、null または未入力: 無制限 |
-| myserviceendpoint.description | Body | String | - | 説明 |
+| tokenId | Header | String | Y | トークン ID |
+| myserviceendpoint | Body | Object | Y | ユーザー定義エンドポイント情報オブジェクト |
+| myserviceendpoint.name | Body | String | Y | 名前（255文字以内、英字/数字/-/_） |
+| myserviceendpoint.display_name | Body | String | N | 表示名（省略時は `name` と同じ値が適用されます） |
+| myserviceendpoint.port_id | Body | UUID | Y | 対象リソース（ロードバランサー）のポート ID。ロードバランサー表示（`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`）レスポンスの `vip_port_id` を使用します。 |
+| myserviceendpoint.max_count | Body | Integer | N | 最大作成数（0〜1,000）。0: 作成をブロック、null または未入力: 無制限 |
+| myserviceendpoint.description | Body | String | N | 説明 |
 
-> 対象リソースとしてロードバランサーを指定すると、`endpoint_type` が `lb.type1`、`service_provider` が `user` に自動設定されます。作成が完了すると、共有用の `service_name` が自動的に発行されます。プロジェクトあたりデフォルトで最大 5 個まで作成できます。
+!!! tip "ポイント"
+    対象リソースとしてロードバランサーを指定すると、`endpoint_type` が `lb.type1`、`service_provider` が `user` に自動設定されます。作成が完了すると、共有用の `service_name` が自動的に発行されます。プロジェクトあたりデフォルトで最大 5 個まで作成できます。
 
 <details><summary>例</summary>
 
@@ -645,15 +677,16 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| serviceEndpointId | URL | UUID | O | ユーザー定義エンドポイント ID |
-| myserviceendpoint | Body | Object | O | ユーザー定義エンドポイント情報オブジェクト |
-| myserviceendpoint.name | Body | String | - | 名前 |
-| myserviceendpoint.display_name | Body | String | - | 表示名 |
-| myserviceendpoint.max_count | Body | Integer | - | 最大作成数 (0〜1000)。0: 作成をブロック、null: 無制限に変更、フィールド未指定時は既存の値を維持 |
-| myserviceendpoint.description | Body | String | - | 説明 |
+| tokenId | Header | String | Y | トークン ID |
+| serviceEndpointId | URL | UUID | Y | ユーザー定義エンドポイント ID |
+| myserviceendpoint | Body | Object | Y | ユーザー定義エンドポイント情報オブジェクト |
+| myserviceendpoint.name | Body | String | N | 名前 |
+| myserviceendpoint.display_name | Body | String | N | 表示名 |
+| myserviceendpoint.max_count | Body | Integer | N | 最大作成数 (0〜1000)。0: 作成をブロック、null: 無制限に変更、フィールド未指定時は既存の値を維持 |
+| myserviceendpoint.description | Body | String | N | 説明 |
 
-> リソースタイプ (`endpoint_type`) とターゲットリソース (`port_id`) は変更できません。最大作成数を減らしても既存のサービスゲートウェイは維持されます。現在の数が最大作成数を超えている間は、追加作成することはできません。
+!!! tip "ポイント"
+    リソースタイプ (`endpoint_type`) とターゲットリソース (`port_id`) は変更できません。最大作成数を減らしても既存のサービスゲートウェイは維持されます。現在の数が最大作成数を超えている間は、追加作成することはできません。
 
 <details><summary>例</summary>
 
@@ -688,15 +721,98 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| serviceEndpointId | URL | UUID | O | ユーザー定義エンドポイント ID |
+| tokenId | Header | String | Y | トークンID |
+| serviceEndpointId | URL | UUID | Y | ユーザー定義エンドポイントID |
 
-> このエンドポイントを使用中のサービスゲートウェイがある場合は削除できません。削除すると、登録されている許可プロジェクトも合わせて削除されます。
+!!! danger "注意"
+    このエンドポイントを使用中のサービスゲートウェイがある場合は削除できません。削除すると、登録されている許可プロジェクトも合わせて削除されます。
+
+使用中のサービスゲートウェイが残っている場合は、次の順序で整理します。
+
+1. [ユーザー定義エンドポイントの修正](#modify-a-custom-endpoint)で`max_count`を`0`に変更して、新しい接続が作成されないようにします。許可プロジェクトをすべて削除しても構いません。
+2. 以下の「接続のブロック」を`remaining_count`が`0`になるまで繰り返し呼び出します。
+3. このAPIでエンドポイントを削除します。
+
+!!! danger "注意"
+    手順1をスキップすると、ブロック中に別のプロジェクトが新しいサービスゲートウェイを作成し、再び削除がブロックされる可能性があります。
 
 <a id="delete-custom-endpoint-response"></a>
 #### レスポンス
 この API はレスポンス本文を返しません。
+### 接続のブロック
 
+```
+PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/reject_connections
+X-Auth-Token: {tokenId}
+```
+
+ユーザー定義エンドポイントに接続されているサービスゲートウェイの接続を切断します。他のプロジェクトが作成したサービスゲートウェイも切断できます。
+
+ブロックされたサービスゲートウェイは削除されず、所有するプロジェクトに`REJECTED`状態で残り、トラフィックのみ即時に切断されます。ブロックは元に戻すことはできず、所有者は該当サービスゲートウェイを削除のみできます。
+
+#### リクエスト
+
+| 名前 | 種類 | 形式 | 必須 | 説明 |
+|---|---|---|---|---|
+| tokenId | Header | String | Y | トークンID |
+| serviceEndpointId | URL | UUID | Y | ユーザー定義エンドポイントID |
+| service_gateway_ids | Body | Array | Conditional | ブロックするサービスゲートウェイIDのリスト（1〜100個）。`count`とどちらか一方のみ指定 |
+| count | Body | Integer | Conditional | 接続済みのサービスゲートウェイのうちブロックする件数（1〜100）。`service_gateway_ids`とどちらか一方のみ指定 |
+
+!!! danger "注意"
+    `service_gateway_ids`と`count`のいずれか一方のみを指定する必要があります。両方を指定した場合、または両方を省略した場合、リクエストは拒否されます。
+
+!!! tip "ポイント"
+    一度に最大100件を処理します。すべての接続を切断するには、`count`を指定して`remaining_count`が`0`になるまで繰り返し呼び出します。
+
+<details><summary>例</summary>
+
+```json
+{
+  "service_gateway_ids": [
+    "d383a4a3-dae7-4609-b2db-ecdf5859fac5",
+    "ba84e697-5b47-4c1a-9f0e-0a6b0a1f2c3d"
+  ]
+}
+```
+
+```json
+{
+  "count": 100
+}
+```
+
+</details>
+
+#### レスポンス
+
+| 名前 | 種類 | 形式 | 説明 |
+|---|---|---|---|
+| rejected_service_gateway_ids | Body | Array | 実際に接続がブロックされたサービスゲートウェイIDのリスト |
+| remaining_count | Body | Integer | このエンドポイントに残っている接続数。`0`の場合はすべてブロックされた状態 |
+
+<details><summary>例</summary>
+
+```json
+{
+  "rejected_service_gateway_ids": [
+    "d383a4a3-dae7-4609-b2db-ecdf5859fac5"
+  ],
+  "remaining_count": 1
+}
+```
+
+</details>
+
+!!! tip "ポイント"
+    このエンドポイントに接続されていないIDはエラーにはならず、スキップされます。他のエンドポイントのサービスゲートウェイ、存在しないID、すでにブロックされているサービスゲートウェイがこれに該当します。したがって、同じリクエストを再度送信しても安全であり、実際にブロックされた対象はレスポンスの`rejected_service_gateway_ids`で確認できます。
+
+    内部処理が進行中のため即時処理できないサービスゲートウェイもスキップされ、`remaining_count`に残ります。しばらく経ってから再度呼び出すと処理されます。
+
+!!! danger "注意"
+    リクエストの形式が正しくない場合は、何もブロックされずにリクエスト全体が拒否されます。100件を超えても一部のみを処理することはありません。
+
+---
 <a id="reissue-a-service-name"></a>
 ### サービス名の再発行 { #reissue-a-service-name }
 
@@ -711,10 +827,11 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| serviceEndpointId | URL | UUID | O | ユーザー定義エンドポイント ID |
+| tokenId | Header | String | Y | トークン ID |
+| serviceEndpointId | URL | UUID | Y | ユーザー定義エンドポイント ID |
 
-> エンドポイントを作成したプロジェクトのメンバー（オーナー）のみ実行できます。再発行時、既存の `service_name` は即時廃棄され、以降は照会できなくなります。既存の `service_name` で作成したサービスゲートウェイは正常に動作しますが、新規作成時は再発行された `service_name` を使用する必要があります。
+!!! danger "注意"
+    エンドポイントを作成したプロジェクトのメンバー（オーナー）のみ実行できます。再発行時、既存の `service_name` は即時廃棄され、以降は照会できなくなります。既存の `service_name` で作成したサービスゲートウェイは正常に動作しますが、新規作成時は再発行された `service_name` を使用する必要があります。
 
 <a id="reissue-a-service-name-response"></a>
 #### レスポンス
@@ -752,9 +869,9 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| service_endpoint_id | Query | UUID | - | 照会するユーザー定義エンドポイント ID |
-| target_tenant_id | Query | String | - | 照会する許可対象テナント ID |
+| tokenId | Header | String | Y | トークンID |
+| service_endpoint_id | Query | UUID | N | 照会するユーザー定義エンドポイントID |
+| target_tenant_id | Query | String | N | 照会する許可対象テナントID |
 
 <a id="view-allow-project-list-response"></a>
 #### 応答
@@ -800,8 +917,8 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン |
-| allowProjectId | URL | UUID | O | 許可プロジェクト ID |
+| tokenId | Header | String | Y | トークンID |
+| allowProjectId | URL | UUID | Y | 許可プロジェクトID |
 
 <a id="view-allowed-projects-response"></a>
 #### レスポンス
@@ -820,14 +937,15 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| serviceendpointallowproject | Body | Object | O | 許可プロジェクト情報オブジェクト |
-| serviceendpointallowproject.service_endpoint_id | Body | UUID | O | ユーザー定義エンドポイント ID |
-| serviceendpointallowproject.target_tenant_id | Body | String | O | 許可対象。`*`=全プロジェクト / テナント ID（32 hex）=特定プロジェクト |
-| serviceendpointallowproject.name | Body | String | - | 名前（参考用） |
-| serviceendpointallowproject.description | Body | String | - | 説明 |
+| tokenId | Header | String | Y | トークン ID |
+| serviceendpointallowproject | Body | Object | Y | 許可プロジェクト情報オブジェクト |
+| serviceendpointallowproject.service_endpoint_id | Body | UUID | Y | ユーザー定義エンドポイント ID |
+| serviceendpointallowproject.target_tenant_id | Body | String | Y | 許可対象。`*`=全プロジェクト / テナント ID（32 hex）=特定プロジェクト |
+| serviceendpointallowproject.name | Body | String | N | 名前（参考用） |
+| serviceendpointallowproject.description | Body | String | N | 説明 |
 
-> 全許可（`*`）と特定プロジェクトを同時に登録した場合、より狭い範囲（特定プロジェクト）が適用されます。これを利用して、無停止で許可範囲を切り替えることができます。エンドポイントオーナーのテナント ID は登録できません（オーナーは常に許可）。同一（エンドポイント、テナント）の組み合わせがすでに存在する場合は 409 が返されます。
+!!! tip "ポイント"
+    全許可（`*`）と特定プロジェクトを同時に登録した場合、より狭い範囲（特定プロジェクト）が適用されます。これを利用して、無停止で許可範囲を切り替えることができます。エンドポイントオーナーのテナント ID は登録できません（オーナーは常に許可）。同一（エンドポイント、テナント）の組み合わせがすでに存在する場合は 409 が返されます。
 
 <details><summary>例</summary>
 
@@ -861,13 +979,14 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン ID |
-| allowProjectId | URL | UUID | O | 許可プロジェクト ID |
-| serviceendpointallowproject | Body | Object | O | 許可プロジェクト情報オブジェクト |
-| serviceendpointallowproject.name | Body | String | - | 名前（参考用） |
-| serviceendpointallowproject.description | Body | String | - | 説明 |
+| tokenId | Header | String | Y | トークン ID |
+| allowProjectId | URL | UUID | Y | 許可プロジェクト ID |
+| serviceendpointallowproject | Body | Object | Y | 許可プロジェクト情報オブジェクト |
+| serviceendpointallowproject.name | Body | String | N | 名前（参考用） |
+| serviceendpointallowproject.description | Body | String | N | 説明 |
 
-> 許可対象（`target_tenant_id`）とエンドポイント（`service_endpoint_id`）は変更できません。変更できるのは `name`・`description` のみです。
+!!! tip "ポイント"
+    許可対象（`target_tenant_id`）とエンドポイント（`service_endpoint_id`）は変更できません。変更できるのは `name`・`description` のみです。
 
 <details><summary>例</summary>
 
@@ -900,8 +1019,8 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン |
-| allowProjectId | URL | UUID | O | 許可プロジェクト ID |
+| tokenId | Header | String | Y | トークンID |
+| allowProjectId | URL | UUID | Y | 許可プロジェクトID |
 
 <a id="delete-an-allowed-project-response"></a>
 #### レスポンス
@@ -911,6 +1030,8 @@ X-Auth-Token: {tokenId}
 ## 使用状況 { #usage-status }
 
 カスタムエンドポイントを使用中(接続中)のコンシューマー側サービスゲートウェイのリストを照会します。
+
+接続がブロック(`REJECTED`)されたサービスゲートウェイはエンドポイントとの接続が切断されているため、このリストには含まれません。ユーザー定義エンドポイントの`current_count`も同じ基準で集計されるため、接続をブロックすると、その分だけ`max_count`に余裕が生まれます。
 
 <a id="view-usage-status-list"></a>
 ### 使用状況リスト表示 { #view-usage-status-list }
@@ -926,18 +1047,20 @@ X-Auth-Token: {tokenId}
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
-| tokenId | Header | String | O | 認証トークン |
-| id | Query | UUID | - | 照会するユーザー定義エンドポイントID（複数指定可能。省略時は所有するすべてのエンドポイントが対象） |
-| network_id | Query | UUID | - | 照会するサービスゲートウェイのVPC ID（複数指定可能） |
-| subnet_id | Query | UUID | - | 照会するサービスゲートウェイのサブネットID（複数指定可能） |
-| limit | Query | Integer | - | 一度に照会する最大件数（省略時は全件返却） |
-| marker | Query | UUID | - | 直前ページの最後の項目のサービスゲートウェイID（次のページを照会する際に使用） |
-| page_reverse | Query | Boolean | - | `true` を指定すると、前のページ方向に照会します |
-| sort_key | Query | String | - | 並び替え基準フィールド（複数指定可能） |
-| sort_dir | Query | String | - | 並び替え方向（`asc` または `desc`）。`sort_key` と必ずペアで、同じ個数を指定してください |
+| tokenId | Header | String | Y | トークンID |
+| id | Query | UUID | N | 照会するユーザー定義エンドポイントID（複数指定可能。省略時は所有するすべてのエンドポイントが対象） |
+| network_id | Query | UUID | N | 照会するサービスゲートウェイのVPC ID（複数指定可能） |
+| subnet_id | Query | UUID | N | 照会するサービスゲートウェイのサブネットID（複数指定可能） |
+| limit | Query | Integer | N | 一度に照会する最大件数（省略時は全件返却） |
+| marker | Query | UUID | N | 直前ページの最後の項目のサービスゲートウェイID（次のページを照会する際に使用） |
+| page_reverse | Query | Boolean | N | `true` を指定すると、前のページ方向に照会します |
+| sort_key | Query | String | N | 並び替え基準フィールド（複数指定可能） |
+| sort_dir | Query | String | Conditional | 並び替え方向（`asc` または `desc`）。`sort_key` と必ずペアで、同じ個数を指定してください |
 
-> 結果はデフォルトでサービスゲートウェイID（`id`）の昇順で並び替えられます。作成日時順に照会するには、`sort_key=create_time&sort_dir=desc` のように明示する必要があります。`sort_key` には、レスポンスフィールド（`id`、`name`、`fixed_ip`、`status`、`tenant_id`、`network_id`、`subnet_id`、`service_endpoint_id`、`create_time`）を使用できます。
-> `limit` を指定すると、レスポンスに次/前ページのリンク（`serviceendpointusages_links`）が含まれます。次のページはリンクのURLをそのまま呼び出すか、現在のページの最後の項目の `id` を `marker` に指定して照会します。ページを順に参照する間は、同一のフィルター/並び替え条件を維持する必要があります。
+!!! tip "ポイント"
+    結果はデフォルトでサービスゲートウェイID（`id`）の昇順で並び替えられます。作成日時順に照会するには、`sort_key=create_time&sort_dir=desc` のように明示する必要があります。`sort_key` には、レスポンスフィールド（`id`、`name`、`fixed_ip`、`status`、`tenant_id`、`network_id`、`subnet_id`、`service_endpoint_id`、`create_time`）を使用できます。
+
+    `limit` を指定すると、レスポンスに次/前ページのリンク（`serviceendpointusages_links`）が含まれます。次のページはリンクのURLをそのまま呼び出すか、現在のページの最後の項目の `id` を `marker` に指定して照会します。ページを順に参照する間は、同一のフィルター/並び替え条件を維持する必要があります。
 
 <a id="view-usage-status-list-response"></a>
 #### 応答
@@ -948,7 +1071,7 @@ X-Auth-Token: {tokenId}
 | serviceendpointusages.id | Body | UUID | サービスゲートウェイ ID |
 | serviceendpointusages.name | Body | String | サービスゲートウェイ名 |
 | serviceendpointusages.fixed_ip | Body | String | サービスゲートウェイの IP アドレス |
-| serviceendpointusages.status | Body | String | サービスゲートウェイのステータス |
+| serviceendpointusages.status | Body | String | サービスゲートウェイのステータス。接続が切断された`REJECTED`は照会されません |
 | serviceendpointusages.tenant_id | Body | String | サービスゲートウェイを作成したコンシューマープロジェクトのテナント ID |
 | serviceendpointusages.network_id | Body | UUID | サービスゲートウェイの VPC ID |
 | serviceendpointusages.subnet_id | Body | UUID | サービスゲートウェイのサブネット ID |
