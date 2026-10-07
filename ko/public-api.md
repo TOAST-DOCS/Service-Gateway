@@ -138,8 +138,11 @@ X-Auth-Token: {tokenId}
 | servicegateway.rejected_from_service_provider | Body | String | 차단 당시의 연결 유형. `csp` 또는 `user` |
 | servicegateway.description | Body | String | 서비스 게이트웨이 설명 |
 
-> 사용자 정의 엔드포인트에 연결한 서비스 게이트웨이는 엔드포인트 게시자가 연결을 차단할 수 있습니다. 차단되면 상태가 `REJECTED`가 되고 `service_endpoint_id`와 `service_provider`가 `null`이 되므로, 연결돼 있던 대상은 `rejected_from_endpoint_id`와 `rejected_from_endpoint_name`으로 확인합니다. 이 값은 게시자가 엔드포인트를 삭제한 뒤에도 남습니다.
-> 차단은 되돌릴 수 없습니다. 차단된 서비스 게이트웨이는 수정할 수 없고 삭제만 할 수 있습니다.
+!!! tip "알아두기"
+    사용자 정의 엔드포인트에 연결한 서비스 게이트웨이는 엔드포인트 게시자가 연결을 차단할 수 있습니다. 차단되면 상태가 `REJECTED`가 되고 `service_endpoint_id`와 `service_provider`가 `null`이 되므로, 연결돼 있던 대상은 `rejected_from_endpoint_id`와 `rejected_from_endpoint_name`으로 확인합니다. 이 값은 게시자가 엔드포인트를 삭제한 뒤에도 남습니다.
+
+!!! danger "주의"
+    차단은 되돌릴 수 없습니다. 차단된 서비스 게이트웨이는 수정할 수 없고 삭제만 할 수 있습니다.
 
 <details><summary>예시</summary>
 
@@ -287,7 +290,9 @@ X-Auth-Token: {tokenId}
 | servicegateway.description | Body | String | - | 서비스 게이트웨이 설명 |
 
 > 연결 유형(`service_provider`)은 연결된 엔드포인트의 값을 보여주는 읽기 전용 항목이며, 서비스 게이트웨이 수정으로 변경할 수 없습니다.
-> 상태가 `REJECTED`인 서비스 게이트웨이는 이름과 설명을 포함해 수정할 수 없습니다. 요청하면 `409 ServicegwRejectedReadOnly`가 반환됩니다.
+
+!!! danger "주의"
+    상태가 `REJECTED`인 서비스 게이트웨이는 이름과 설명을 포함해 수정할 수 없습니다. 요청하면 `409 ServicegwRejectedReadOnly`가 반환됩니다.
 
 <details><summary>예시</summary>
 
@@ -371,7 +376,8 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
 
-> 상태가 `REJECTED`인 서비스 게이트웨이도 이 API로 삭제합니다. 삭제해야 쿼터와 IP 주소가 반환됩니다.
+!!! tip "알아두기"
+    상태가 `REJECTED`인 서비스 게이트웨이도 이 API로 삭제합니다. 삭제해야 쿼터와 IP 주소가 반환됩니다.
 
 <a id="delete-a-service-gateway-response"></a>
 #### 응답
@@ -714,7 +720,8 @@ X-Auth-Token: {tokenId}
 2. 아래 "연결 차단하기"를 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
 3. 이 API로 엔드포인트를 삭제합니다.
 
-> 1번을 건너뛰면 차단하는 사이에 다른 프로젝트가 새 서비스 게이트웨이를 생성해 삭제가 다시 막힐 수 있습니다.
+!!! danger "주의"
+    1번을 건너뛰면 차단하는 사이에 다른 프로젝트가 새 서비스 게이트웨이를 생성해 삭제가 다시 막힐 수 있습니다.
 
 <a id="delete-custom-endpoint-response"></a>
 #### 응답
@@ -738,11 +745,14 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
 | serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
-| service_gateway_ids | Body | Array | - | 차단할 서비스 게이트웨이 ID 목록(1~100개). `count`와 둘 중 하나만 지정 |
-| count | Body | Integer | - | 연결된 서비스 게이트웨이 중 차단할 개수(1~100). `service_gateway_ids`와 둘 중 하나만 지정 |
+| service_gateway_ids | Body | Array | Conditional | 차단할 서비스 게이트웨이 ID 목록(1~100개). `count`와 둘 중 하나만 지정 |
+| count | Body | Integer | Conditional | 연결된 서비스 게이트웨이 중 차단할 개수(1~100). `service_gateway_ids`와 둘 중 하나만 지정 |
 
-> `service_gateway_ids`와 `count` 중 정확히 하나만 지정해야 합니다. 둘 다 지정하거나 둘 다 생략하면 요청이 거부됩니다.
-> 한 번에 최대 100개를 처리합니다. 연결을 모두 끊으려면 `count`를 지정해 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
+!!! danger "주의"
+    `service_gateway_ids`와 `count` 중 정확히 하나만 지정해야 합니다. 둘 다 지정하거나 둘 다 생략하면 요청이 거부됩니다.
+
+!!! tip "알아두기"
+    한 번에 최대 100개를 처리합니다. 연결을 모두 끊으려면 `count`를 지정해 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
 
 <details><summary>예시</summary>
 
@@ -783,9 +793,13 @@ X-Auth-Token: {tokenId}
 
 </details>
 
-> 이 엔드포인트에 연결되지 않은 ID는 오류가 아니라 건너뜁니다. 다른 엔드포인트의 서비스 게이트웨이, 존재하지 않는 ID, 이미 차단된 서비스 게이트웨이가 여기에 해당합니다. 따라서 같은 요청을 다시 보내도 안전하며, 실제로 차단된 대상은 응답의 `rejected_service_gateway_ids`로 확인합니다.
-> 내부 작업이 진행 중이어서 즉시 처리할 수 없는 서비스 게이트웨이도 건너뛰고 `remaining_count`에 남습니다. 잠시 후 다시 호출하면 처리됩니다.
-> 반면 요청 형식이 잘못된 경우에는 아무것도 차단되지 않고 요청 전체가 거부됩니다. 100개를 초과해도 일부만 처리하지 않습니다.
+!!! tip "알아두기"
+    이 엔드포인트에 연결되지 않은 ID는 오류가 아니라 건너뜁니다. 다른 엔드포인트의 서비스 게이트웨이, 존재하지 않는 ID, 이미 차단된 서비스 게이트웨이가 여기에 해당합니다. 따라서 같은 요청을 다시 보내도 안전하며, 실제로 차단된 대상은 응답의 `rejected_service_gateway_ids`로 확인합니다.
+
+    내부 작업이 진행 중이어서 즉시 처리할 수 없는 서비스 게이트웨이도 건너뛰고 `remaining_count`에 남습니다. 잠시 후 다시 호출하면 처리됩니다.
+
+!!! danger "주의"
+    요청 형식이 잘못된 경우에는 아무것도 차단되지 않고 요청 전체가 거부됩니다. 100개를 초과해도 일부만 처리하지 않습니다.
 
 ---
 <a id="reissue-a-service-name"></a>
