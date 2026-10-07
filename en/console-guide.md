@@ -45,6 +45,7 @@ To create a service gateway, use the following steps:
 ### View a Service Gateway { #view-a-service-gateway }
 
 You can check the created service gateway on the **Network > Service Gateway** page. If you select a service gateway, the service gateway information appears at the bottom. If the connection type is **Custom Endpoint**, you can check the display name and identifier of the endpoint under **Connection Target** in the details.
+<a id="view-a-service-gateway-service-gateways-with-blocked-connections"></a>
 #### Service gateways with blocked connections
 
 A service gateway connected to a Custom Endpoint can have its connection blocked by the endpoint publisher. When blocked, the status changes to `REJECTED` and traffic is immediately cut off.
