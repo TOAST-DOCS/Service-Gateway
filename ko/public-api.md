@@ -371,7 +371,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | serviceGatewayId | URL | UUID | O | 서비스 게이트웨이 ID |
 
-> 상태가 `REJECTED`인 서비스 게이트웨이도 이 API 로 삭제합니다. 삭제해야 쿼터와 IP 주소가 반환됩니다.
+> 상태가 `REJECTED`인 서비스 게이트웨이도 이 API로 삭제합니다. 삭제해야 쿼터와 IP 주소가 반환됩니다.
 
 <a id="delete-a-service-gateway-response"></a>
 #### 응답
@@ -712,7 +712,7 @@ X-Auth-Token: {tokenId}
 
 1. [사용자 정의 엔드포인트 수정하기](#modify-a-custom-endpoint)로 `max_count`를 `0`으로 변경해 새 연결이 생기지 않도록 막습니다. 허용 프로젝트를 모두 삭제해도 됩니다.
 2. 아래 "연결 차단하기"를 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
-3. 이 API 로 엔드포인트를 삭제합니다.
+3. 이 API로 엔드포인트를 삭제합니다.
 
 > 1번을 건너뛰면 차단하는 사이에 다른 프로젝트가 새 서비스 게이트웨이를 생성해 삭제가 다시 막힐 수 있습니다.
 
@@ -738,8 +738,8 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | O | 토큰 ID |
 | serviceEndpointId | URL | UUID | O | 사용자 정의 엔드포인트 ID |
-| service_gateway_ids | Body | Array | - | 차단할 서비스 게이트웨이 ID 목록(1~100개) |
-| count | Body | Integer | - | 연결된 서비스 게이트웨이 중 차단할 개수(1~100) |
+| service_gateway_ids | Body | Array | - | 차단할 서비스 게이트웨이 ID 목록(1~100개). `count`와 둘 중 하나만 지정 |
+| count | Body | Integer | - | 연결된 서비스 게이트웨이 중 차단할 개수(1~100). `service_gateway_ids`와 둘 중 하나만 지정 |
 
 > `service_gateway_ids`와 `count` 중 정확히 하나만 지정해야 합니다. 둘 다 지정하거나 둘 다 생략하면 요청이 거부됩니다.
 > 한 번에 최대 100개를 처리합니다. 연결을 모두 끊으려면 `count`를 지정해 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
