@@ -736,7 +736,8 @@ Services gateways that are still in use must be cleaned up in the following orde
 <a id="delete-custom-endpoint-response"></a>
 #### Response
 This API does not return a response body.
-### Reject Connections
+<a id="reject-connections"></a>
+### Reject Connections { #reject-connections }
 
 ```
 PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/reject_connections
@@ -747,6 +748,7 @@ Disconnects a service gateway connected to a custom endpoint. You can also disco
 
 A rejected service gateway is not deleted but remains in the `REJECTED` state in the owning project, and traffic is immediately cut off. The rejection cannot be undone, and the owner can only delete the service gateway.
 
+<a id="reject-connections-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -781,6 +783,7 @@ A rejected service gateway is not deleted but remains in the `REJECTED` state in
 
 </details>
 
+<a id="reject-connections-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
