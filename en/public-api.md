@@ -1,6 +1,6 @@
 <!-- machine_translated: true -->
 
-<!-- pre-align:aligned sig=fbbff493af43 -->
+<!-- pre-align:aligned sig=2ad8300f1384 -->
 
 <a id="network-service-gateway-api-v2-guide"></a>
 ## Network > Service Gateway > API v2 Guide { #network-service-gateway-api-v2-guide }
