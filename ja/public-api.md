@@ -739,7 +739,8 @@ X-Auth-Token: {tokenId}
 <a id="delete-custom-endpoint-response"></a>
 #### レスポンス
 この API はレスポンス本文を返しません。
-### 接続のブロック
+<a id="reject-connections"></a>
+### 接続のブロック { #reject-connections }
 
 ```
 PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/reject_connections
@@ -750,6 +751,7 @@ X-Auth-Token: {tokenId}
 
 ブロックされたサービスゲートウェイは削除されず、所有するプロジェクトに`REJECTED`状態で残り、トラフィックのみ即時に切断されます。ブロックは元に戻すことはできず、所有者は該当サービスゲートウェイを削除のみできます。
 
+<a id="reject-connections-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -784,6 +786,7 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="reject-connections-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
