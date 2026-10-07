@@ -734,7 +734,8 @@ X-Auth-Token: {tokenId}
 이 API는 응답 본문을 반환하지 않습니다.
 
 ---
-### 연결 차단하기
+<a id="reject-connections"></a>
+### 연결 차단하기 { #reject-connections }
 
 ```
 PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/reject_connections
@@ -745,6 +746,7 @@ X-Auth-Token: {tokenId}
 
 차단된 서비스 게이트웨이는 삭제되지 않고 소유한 프로젝트에 `REJECTED` 상태로 남으며, 트래픽만 즉시 끊깁니다. 차단은 되돌릴 수 없고, 소유자는 해당 서비스 게이트웨이를 삭제만 할 수 있습니다.
 
+<a id="reject-connections-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -779,6 +781,7 @@ X-Auth-Token: {tokenId}
 
 </details>
 
+<a id="reject-connections-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
