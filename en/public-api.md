@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=fbbff493af43 -->
 
 <a id="network-service-gateway-api-v2-guide"></a>
@@ -30,15 +32,15 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| id | Query | UUID | - | The ID of the service gateway to retrieve |
-| name | Query | String | - | The name of the service gateway to retrieve |
-| service_endpoint_id | Query | UUID | - | The service endpoint (or custom endpoint) ID of the service gateway to retrieve |
-| network_id | Query | UUID | - | The VPC ID of the service gateway to retrieve |
-| subnet_id | Query | UUID | - | The subnet ID of the service gateway to retrieve |
-| port_id | Query | UUID | - | The port ID of the service gateway to retrieve |
-| fixed_ip| Query | String | - | The IP address of the service gateway to retrieve |
-| include_gateway_identity| Query | Boolean | - | Whether to use a static NAT IP address |
+| tokenId | Header | String | Y | Token ID |
+| id | Query | UUID | N | The ID of the service gateway to retrieve |
+| name | Query | String | N | The name of the service gateway to retrieve |
+| service_endpoint_id | Query | UUID | N | The service endpoint (or custom endpoint) ID of the service gateway to retrieve |
+| network_id | Query | UUID | N | The VPC ID of the service gateway to retrieve |
+| subnet_id | Query | UUID | N | The subnet ID of the service gateway to retrieve |
+| port_id | Query | UUID | N | The port ID of the service gateway to retrieve |
+| fixed_ip| Query | String | N | The IP address of the service gateway to retrieve |
+| include_gateway_identity| Query | Boolean | N | Whether to use a fixed NAT IP address |
 
 <a id="get-a-list-of-service-gateways-response"></a>
 #### Response
@@ -56,6 +58,13 @@ This API does not require a request body.
 | servicegateways.include_gateway_identity| Body | Boolean | Whether to use fixed NAT IP address |
 | servicegateways.service_endpoint_id | Body | UUID | Service endpoint (or Custom endpoint) ID |
 | servicegateways.service_provider | Body | String | Connection type (the value of the connected endpoint). `csp`=Service Endpoint / `user`=Custom endpoint |
+| servicegateways.status | Body | String | Service gateway status. `AVAILABLE`, `BUILD`, `ERROR`, `MIGRATING`, `MIGRATE_FAILED`, `REJECTED` |
+| servicegateways.create_time | Body | String | Time of creation |
+| servicegateways.updated_at | Body | String | Time of last modification |
+| servicegateways.rejected_at | Body | String | Time when the connection was blocked. `null` if the connection has never been blocked |
+| servicegateways.rejected_from_endpoint_id | Body | UUID | Custom endpoint ID that was connected at the time of blocking |
+| servicegateways.rejected_from_endpoint_name | Body | String | Display name of the custom endpoint that was connected at the time of blocking |
+| servicegateways.rejected_from_service_provider | Body | String | Connection type at the time of blocking. `csp` or `user` |
 | servicegateways.description | Body | String | The description for the service gateway |
 
 <details><summary>Example</summary>
@@ -100,8 +109,8 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceGatewayId | URL | UUID | O | The ID of the service gateway |
+| tokenId | Header | String | Y | Token ID |
+| serviceGatewayId | URL | UUID | Y | The ID of the service gateway |
 
 <a id="get-a-service-gateway-response"></a>
 #### Response
@@ -121,7 +130,20 @@ This API does not require a request body.
 | servicegateway.service_provider | Body | String | Connection type (value of the connected endpoint). `csp`=Service Endpoint / `user`=Custom endpoint |
 | servicegateway.api_endpoints | Body | Array | List of API endpoint information objects |
 | servicegateway.api_endpoints.domain_name | Body | String | API endpoint domain |
+| servicegateway.status | Body | String | Service gateway status. `AVAILABLE`, `BUILD`, `ERROR`, `MIGRATING`, `MIGRATE_FAILED`, `REJECTED` |
+| servicegateway.create_time | Body | String | Creation time |
+| servicegateway.updated_at | Body | String | Last modified time |
+| servicegateway.rejected_at | Body | String | Time when the connection was blocked. `null` if the connection has never been blocked |
+| servicegateway.rejected_from_endpoint_id | Body | UUID | The ID of the custom endpoint that was connected at the time of blocking |
+| servicegateway.rejected_from_endpoint_name | Body | String | The display name of the custom endpoint that was connected at the time of blocking |
+| servicegateway.rejected_from_service_provider | Body | String | Connection type at the time of blocking. `csp` or `user` |
 | servicegateway.description | Body | String | The description for the service gateway |
+
+!!! tip "Note"
+    For a service gateway connected to a custom endpoint, the endpoint publisher can reject the connection. When the connection is rejected, the status becomes `REJECTED` and both `service_endpoint_id` and `service_provider` become `null`. You can then check the previously connected target using `rejected_from_endpoint_id` and `rejected_from_endpoint_name`. These values are retained even after the publisher deletes the endpoint.
+
+!!! danger "Caution"
+    Rejecting connections cannot be undone. A service gateway with rejected connections cannot be modified and can only be deleted.
 
 <details><summary>Example</summary>
 
@@ -167,17 +189,18 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| servicegateway | Body | Object | O | Service gateway information object |
-| servicegateway.name | Body | String | - | The name of the service gateway |
-| servicegateway.description | Body | String | - | The description for the service gateway |
-| servicegateway.network_id | Body | UUID | O | VPC ID |
-| servicegateway.subnet_id | Body | UUID | O | Subnet ID |
-| servicegateway.fixed_ip | Body | String | - | Service gateway IP address |
-| servicegateway.include_gateway_identity| Body | Boolean | - | Whether to use fixed NAT IP address |
-| servicegateway.service_endpoint_id | Body | UUID | O | Service endpoint (or custom endpoint) ID |
+| tokenId | Header | String | Y | Token ID |
+| servicegateway | Body | Object | Y | Service gateway information object |
+| servicegateway.name | Body | String | N | The name of the service gateway |
+| servicegateway.description | Body | String | N | The description for the service gateway |
+| servicegateway.network_id | Body | UUID | Y | VPC ID |
+| servicegateway.subnet_id | Body | UUID | Y | Subnet ID |
+| servicegateway.fixed_ip | Body | String | N | Service gateway IP address |
+| servicegateway.include_gateway_identity| Body | Boolean | N | Whether to use fixed NAT IP address |
+| servicegateway.service_endpoint_id | Body | UUID | Y | Service endpoint (or custom endpoint) ID |
 
-> To connect to a custom endpoint, use the `service_endpoint_id` obtained by calling [Get a List of Service Endpoints](#get-a-list-of-service-endpoints) with the `service_name` provided by the publisher. The connection type (`service_provider`) is determined automatically from the connected endpoint and is not specified as a request value.
+!!! tip "Note"
+    To connect to a custom endpoint, use the `service_endpoint_id` obtained by calling [Get a List of Service Endpoints](#get-a-list-of-service-endpoints) with the `service_name` provided by the publisher. The connection type (`service_provider`) is determined automatically from the connected endpoint and is not specified as a request value.
 
 <details><summary>Example</summary>
 
@@ -261,13 +284,17 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceGatewayId | URL | UUID | O | The ID of the service gateway |
-| servicegateway | Body | Object | O | Service gateway information object |
-| servicegateway.name | Body | String | - | The name of the service gateway |
-| servicegateway.description | Body | String | - | The description for the service gateway |
+| tokenId | Header | String | Y | Token ID |
+| serviceGatewayId | URL | UUID | Y | The ID of the service gateway |
+| servicegateway | Body | Object | Y | Service gateway information object |
+| servicegateway.name | Body | String | N | The name of the service gateway |
+| servicegateway.description | Body | String | N | The description for the service gateway |
 
-> The connection type (`service_provider`) is a read-only field that shows the value of the connected endpoint and cannot be changed by modifying the service gateway.
+!!! tip "Note"
+    The connection type (`service_provider`) is a read-only field that shows the value of the connected endpoint and cannot be changed by modifying the service gateway.
+
+!!! danger "Caution"
+    A service gateway with a `REJECTED` status cannot be modified, including its name and description. If you make a request, `409 ServicegwRejectedReadOnly` is returned.
 
 <details><summary>Example</summary>
 
@@ -348,9 +375,12 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceGatewayId | URL | UUID | O | The ID of the service gateway |
+| tokenId | Header | String | Y | Token ID |
+| serviceGatewayId | URL | UUID | Y | The ID of the service gateway |
 
+
+!!! tip "Note"
+    You can also delete a service gateway with a status of `REJECTED` by using this API. Quota and IP addresses are returned only after deletion.
 
 <a id="delete-a-service-gateway-response"></a>
 #### Response
@@ -382,12 +412,13 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| id | Query | UUID | - | The ID of the service endpoint to retrieve |
-| display_name | Query | String | - | The name of the service endpoint to retrieve |
-| service_name | Query | String | - | The service name to retrieve (used when connecting to a custom endpoint; format: `{region}.sep-{12 hex}`) |
+| tokenId | Header | String | Y | Token ID |
+| id | Query | UUID | N | The ID of the service endpoint to retrieve |
+| display_name | Query | String | N | The name of the service endpoint to retrieve |
+| service_name | Query | String | N | The service name to retrieve (used when connecting to a custom endpoint; format: `{region}.sep-{12 hex}`) |
 
-> When connecting a service gateway to a Custom endpoint, retrieve the service endpoint ID by querying with the `service_name` provided by the publisher. For security purposes, the `service_name` value is not included in the response, and an empty list is returned if the project is not included in the allowed projects.
+!!! tip "Note"
+    When connecting a service gateway to a Custom endpoint, retrieve the service endpoint ID by querying with the `service_name` provided by the publisher. For security purposes, the `service_name` value is not included in the response, and an empty list is returned if the project is not included in the allowed projects.
 
 <a id="get-a-list-of-service-endpoints-response"></a>
 #### Response
@@ -432,8 +463,8 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceEndpointId | URL | UUID | O | Service endpoint ID |
+| tokenId | Header | String | Y | Token ID |
+| serviceEndpointId | URL | UUID | Y | Service endpoint ID |
 
 <a id="get-a-service-endpoint-response"></a>
 #### Response
@@ -482,10 +513,10 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| id | Query | UUID | - | Custom endpoint ID to retrieve |
-| endpoint_type | Query | String | - | Endpoint type to retrieve (e.g., `lb.type1`) |
-| port_id | Query | UUID | - | Port ID of the target resource (load balancer) to retrieve |
+| tokenId | Header | String | Y | Token ID |
+| id | Query | UUID | N | Custom endpoint ID to retrieve |
+| endpoint_type | Query | String | N | Endpoint type to retrieve (e.g., `lb.type1`) |
+| port_id | Query | UUID | N | Port ID of the target resource (load balancer) to retrieve |
 
 <a id="view-custom-endpoint-list-response"></a>
 #### Response
@@ -543,8 +574,8 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceEndpointId | URL | UUID | O | Custom endpoint ID |
+| tokenId | Header | String | Y | Token ID |
+| serviceEndpointId | URL | UUID | Y | Custom endpoint ID |
 
 <a id="get-a-custom-endpoint-response"></a>
 #### Response
@@ -599,15 +630,16 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| myserviceendpoint | Body | Object | O | Custom endpoint information object |
-| myserviceendpoint.name | Body | String | O | Name (up to 255 characters; letters, numbers, `-`, `_`) |
-| myserviceendpoint.display_name | Body | String | - | Display name (if omitted, same as `name`) |
-| myserviceendpoint.port_id | Body | UUID | O | Target resource (load balancer) port ID. Use the `vip_port_id` from the response of Get a load balancer (`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`). |
-| myserviceendpoint.max_count | Body | Integer | - | Maximum number of endpoints to create (0–1,000). 0: block creation, null or not entered: unlimited |
-| myserviceendpoint.description | Body | String | - | Description |
+| tokenId | Header | String | Y | Token ID |
+| myserviceendpoint | Body | Object | Y | Custom endpoint information object |
+| myserviceendpoint.name | Body | String | Y | Name (up to 255 characters; letters, numbers, `-`, `_`) |
+| myserviceendpoint.display_name | Body | String | N | Display name (if omitted, same as `name`) |
+| myserviceendpoint.port_id | Body | UUID | Y | Target resource (load balancer) port ID. Use the `vip_port_id` from the response of Get a load balancer (`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`). |
+| myserviceendpoint.max_count | Body | Integer | N | Maximum number of endpoints to create (0–1,000). 0: block creation, null or not entered: unlimited |
+| myserviceendpoint.description | Body | String | N | Description |
 
-> If you specify a load balancer as the target resource, `endpoint_type` is automatically set to `lb.type1` and `service_provider` is automatically set to `user`. Once creation is complete, a `service_name` for sharing is automatically issued. You can create up to 5 per project by default.
+!!! tip "Note"
+    If you specify a load balancer as the target resource, `endpoint_type` is automatically set to `lb.type1` and `service_provider` is automatically set to `user`. Once creation is complete, a `service_name` for sharing is automatically issued. You can create up to 5 per project by default.
 
 <details><summary>Example</summary>
 
@@ -642,15 +674,16 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceEndpointId | URL | UUID | O | Custom endpoint ID |
-| myserviceendpoint | Body | Object | O | Custom endpoint information object |
-| myserviceendpoint.name | Body | String | - | Name |
-| myserviceendpoint.display_name | Body | String | - | Display name |
-| myserviceendpoint.max_count | Body | Integer | - | Maximum number of instances to create (0–1000). 0: block creation, null: change to unlimited, if the field is not included, the existing value is retained |
-| myserviceendpoint.description | Body | String | - | Description |
+| tokenId | Header | String | Y | Token ID |
+| serviceEndpointId | URL | UUID | Y | Custom endpoint ID |
+| myserviceendpoint | Body | Object | Y | Custom endpoint information object |
+| myserviceendpoint.name | Body | String | N | Name |
+| myserviceendpoint.display_name | Body | String | N | Display name |
+| myserviceendpoint.max_count | Body | Integer | N | Maximum number of instances to create (0–1000). 0: block creation, null: change to unlimited, if the field is not included, the existing value is retained |
+| myserviceendpoint.description | Body | String | N | Description |
 
-> The resource type (`endpoint_type`) and the target resource (`port_id`) cannot be changed. Reducing the maximum number does not affect existing service gateways, and no additional service gateways can be created while the current count exceeds the maximum.
+!!! tip "Note"
+    The resource type (`endpoint_type`) and the target resource (`port_id`) cannot be changed. Reducing the maximum number does not affect existing service gateways, and no additional service gateways can be created while the current count exceeds the maximum.
 
 <details><summary>Example</summary>
 
@@ -685,15 +718,98 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceEndpointId | URL | UUID | O | Custom endpoint ID |
+| tokenId | Header | String | Y | Token ID |
+| serviceEndpointId | URL | UUID | Y | Custom endpoint ID |
 
-> If there is a service gateway using this endpoint, it cannot be deleted. When deleted, the registered allowed projects are also deleted.
+!!! danger "Caution"
+    If there is a service gateway using this endpoint, it cannot be deleted. When deleted, the registered allowed projects are also deleted.
+
+Services gateways that are still in use must be cleaned up in the following order.
+
+1. In [Modify a Custom Endpoint](#modify-a-custom-endpoint), change `max_count` to `0` to prevent new connections from being created. You can also delete all allowed projects.
+2. Repeatedly call [Reject Connections](#reject-connections) below until `remaining_count` reaches `0`.
+3. Delete the endpoint using this API.
+
+!!! danger "Caution"
+    If you skip step 1, another project may create a new service gateway in the meantime, which could block deletion again.
 
 <a id="delete-custom-endpoint-response"></a>
 #### Response
 This API does not return a response body.
+### Reject Connections
 
+```
+PUT /v2.0/gateways/serviceendpoints/{serviceEndpointId}/reject_connections
+X-Auth-Token: {tokenId}
+```
+
+Disconnects a service gateway connected to a custom endpoint. You can also disconnect a service gateway created by another project.
+
+A rejected service gateway is not deleted but remains in the `REJECTED` state in the owning project, and traffic is immediately cut off. The rejection cannot be undone, and the owner can only delete the service gateway.
+
+#### Request
+
+| Name | Type | Format | Required | Description |
+|---|---|---|---|---|
+| tokenId | Header | String | Y | Token ID |
+| serviceEndpointId | URL | UUID | Y | Custom endpoint ID |
+| service_gateway_ids | Body | Array | Conditional | List of service gateway IDs to reject connections for (1–100). Specify only one of `service_gateway_ids` or `count` |
+| count | Body | Integer | Conditional | Number of connected service gateways to reject connections for (1–100). Specify only one of `count` or `service_gateway_ids` |
+
+!!! danger "Caution"
+    You must specify exactly one of `service_gateway_ids` or `count`. If you specify both or omit both, the request is rejected.
+
+!!! tip "Note"
+    Up to 100 items can be processed at a time. To disconnect all connections, specify `count` and call the API repeatedly until `remaining_count` reaches `0`.
+
+<details><summary>Example</summary>
+
+```json
+{
+  "service_gateway_ids": [
+    "d383a4a3-dae7-4609-b2db-ecdf5859fac5",
+    "ba84e697-5b47-4c1a-9f0e-0a6b0a1f2c3d"
+  ]
+}
+```
+
+```json
+{
+  "count": 100
+}
+```
+
+</details>
+
+#### Response
+
+| Name | Type | Format | Description |
+|---|---|---|---|
+| rejected_service_gateway_ids | Body | Array | List of service gateway IDs that were actually rejected |
+| remaining_count | Body | Integer | Number of connections remaining on this endpoint. If `0`, all connections are rejected |
+
+<details><summary>Example</summary>
+
+```json
+{
+  "rejected_service_gateway_ids": [
+    "d383a4a3-dae7-4609-b2db-ecdf5859fac5"
+  ],
+  "remaining_count": 1
+}
+```
+
+</details>
+
+!!! tip "Note"
+    IDs that are not connected to this endpoint are skipped rather than treated as errors. This includes service gateways from other endpoints, non-existent IDs, and service gateways that are already rejected. Therefore, it is safe to send the same request again, and you can check the actually rejected targets in the `rejected_service_gateway_ids` field of the response.
+
+    Service gateways that cannot be processed immediately due to an internal operation in progress are also skipped and remain in `remaining_count`. Call the API again after a moment to process them.
+
+!!! danger "Caution"
+    If the request format is invalid, nothing is rejected and the entire request is refused. Even if the request exceeds 100 items, only a partial set will not be processed.
+
+---
 <a id="reissue-a-service-name"></a>
 ### Reissue a Service Name { #reissue-a-service-name }
 
@@ -708,10 +824,11 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceEndpointId | URL | UUID | O | Custom endpoint ID |
+| tokenId | Header | String | Y | Token ID |
+| serviceEndpointId | URL | UUID | Y | Custom endpoint ID |
 
-> Only a member (owner) of the project that created the endpoint can perform this action. Upon reissuance, the existing `service_name` is immediately invalidated and can no longer be retrieved. Service gateways created with the existing `service_name` continue to function normally, but the reissued `service_name` must be used when creating new ones.
+!!! danger "Caution"
+    Only a member (owner) of the project that created the endpoint can perform this action. Upon reissuance, the existing `service_name` is immediately invalidated and can no longer be retrieved. Service gateways created with the existing `service_name` continue to function normally, but the reissued `service_name` must be used when creating new ones.
 
 <a id="reissue-a-service-name-response"></a>
 #### Response
@@ -749,9 +866,9 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| service_endpoint_id | Query | UUID | - | Custom endpoint ID to retrieve |
-| target_tenant_id | Query | String | - | Allowed target tenant ID to retrieve |
+| tokenId | Header | String | Y | Token ID |
+| service_endpoint_id | Query | UUID | N | Custom endpoint ID to retrieve |
+| target_tenant_id | Query | String | N | Allowed target tenant ID to retrieve |
 
 <a id="view-allow-project-list-response"></a>
 #### Response
@@ -797,8 +914,8 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| allowProjectId | URL | UUID | O | Allowed project ID |
+| tokenId | Header | String | Y | Token ID |
+| allowProjectId | URL | UUID | Y | Allowed project ID |
 
 <a id="view-allowed-projects-response"></a>
 #### Response
@@ -817,14 +934,15 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| serviceendpointallowproject | Body | Object | O | Allow project information object |
-| serviceendpointallowproject.service_endpoint_id | Body | UUID | O | Custom endpoint ID |
-| serviceendpointallowproject.target_tenant_id | Body | String | O | Allow target. `*` = all projects / Tenant ID (32 hex) = specific project |
-| serviceendpointallowproject.name | Body | String | - | Name (for reference) |
-| serviceendpointallowproject.description | Body | String | - | Description |
+| tokenId | Header | String | Y | Token ID |
+| serviceendpointallowproject | Body | Object | Y | Allow project information object |
+| serviceendpointallowproject.service_endpoint_id | Body | UUID | Y | Custom endpoint ID |
+| serviceendpointallowproject.target_tenant_id | Body | String | Y | Allow target. `*` = all projects / Tenant ID (32 hex) = specific project |
+| serviceendpointallowproject.name | Body | String | N | Name (for reference) |
+| serviceendpointallowproject.description | Body | String | N | Description |
 
-> If you register both all-allow (`*`) and a specific project at the same time, the narrower scope (specific project) takes effect. You can use this to switch the allowed scope without downtime. The tenant ID of the endpoint owner cannot be registered (the owner is always allowed). If the same (endpoint, tenant) combination already exists, a 409 is returned.
+!!! tip "Note"
+    If you register both all-allow (`*`) and a specific project at the same time, the narrower scope (specific project) takes effect. You can use this to switch the allowed scope without downtime. The tenant ID of the endpoint owner cannot be registered (the owner is always allowed). If the same (endpoint, tenant) combination already exists, a 409 is returned.
 
 <details><summary>Example</summary>
 
@@ -858,13 +976,14 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| allowProjectId | URL | UUID | O | Allowed project ID |
-| serviceendpointallowproject | Body | Object | O | Allowed project information object |
-| serviceendpointallowproject.name | Body | String | - | Name (for reference) |
-| serviceendpointallowproject.description | Body | String | - | Description |
+| tokenId | Header | String | Y | Token ID |
+| allowProjectId | URL | UUID | Y | Allowed project ID |
+| serviceendpointallowproject | Body | Object | Y | Allowed project information object |
+| serviceendpointallowproject.name | Body | String | N | Name (for reference) |
+| serviceendpointallowproject.description | Body | String | N | Description |
 
-> The allowed target (`target_tenant_id`) and endpoint (`service_endpoint_id`) cannot be changed. Only `name` and `description` can be modified.
+!!! tip "Note"
+    The allowed target (`target_tenant_id`) and endpoint (`service_endpoint_id`) cannot be changed. Only `name` and `description` can be modified.
 
 <details><summary>Example</summary>
 
@@ -897,8 +1016,8 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| allowProjectId | URL | UUID | O | Allowed project ID |
+| tokenId | Header | String | Y | Token ID |
+| allowProjectId | URL | UUID | Y | Allowed project ID |
 
 <a id="delete-an-allowed-project-response"></a>
 #### Response
@@ -908,6 +1027,8 @@ This API does not return a response body.
 ## Usage Status { #usage-status }
 
 Retrieves the list of consumer-side service gateways that are using (connected to) the custom endpoint.
+
+Service gateways with rejected connections (`REJECTED`) are not included in this list because they are disconnected from the endpoint. The `current_count` of a custom endpoint is also aggregated by the same criteria, so rejecting connections frees up that much capacity in `max_count`.
 
 <a id="view-usage-status-list"></a>
 ### View Usage Status List { #view-usage-status-list }
@@ -923,18 +1044,20 @@ This API does not require a request body.
 
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
-| tokenId | Header | String | O | Token ID |
-| id | Query | UUID | - | Custom endpoint ID to retrieve (multiple values allowed; if omitted, all owned endpoints are targeted) |
-| network_id | Query | UUID | - | The VPC ID of the service gateway to retrieve (multiple values allowed) |
-| subnet_id | Query | UUID | - | The subnet ID of the service gateway to retrieve (multiple values allowed) |
-| limit | Query | Integer | - | Maximum number of items to retrieve at once (if omitted, all items are returned) |
-| marker | Query | UUID | - | Service gateway ID of the last item on the previous page (used when requesting the next page) |
-| page_reverse | Query | Boolean | - | If set to `true`, retrieves in the previous page direction |
-| sort_key | Query | String | - | Field to sort by (multiple values allowed) |
-| sort_dir | Query | String | - | Sort direction (`asc` or `desc`). Must be paired with `sort_key` and specified in the same quantity |
+| tokenId | Header | String | Y | Token ID |
+| id | Query | UUID | N | Custom endpoint ID to retrieve (multiple values allowed; if omitted, all owned endpoints are targeted) |
+| network_id | Query | UUID | N | The VPC ID of the service gateway to retrieve (multiple values allowed) |
+| subnet_id | Query | UUID | N | The subnet ID of the service gateway to retrieve (multiple values allowed) |
+| limit | Query | Integer | N | Maximum number of items to retrieve at once (if omitted, all items are returned) |
+| marker | Query | UUID | N | Service gateway ID of the last item on the previous page (used when requesting the next page) |
+| page_reverse | Query | Boolean | N | If set to `true`, retrieves in the previous page direction |
+| sort_key | Query | String | N | Field to sort by (multiple values allowed) |
+| sort_dir | Query | String | Conditional | Sort direction (`asc` or `desc`). Must be paired with `sort_key` and specified in the same quantity |
 
-> By default, results are sorted in ascending order by service gateway ID (`id`). To retrieve results in order of creation time, you must specify it explicitly, such as `sort_key=create_time&sort_dir=desc`. The following response fields can be used for `sort_key`: `id`, `name`, `fixed_ip`, `status`, `tenant_id`, `network_id`, `subnet_id`, `service_endpoint_id`, `create_time`.
-> If `limit` is specified, the response includes links to the next/previous pages (`serviceendpointusages_links`). To retrieve the next page, either call the URL in the link directly, or specify the `id` of the last item on the current page as the `marker`. The same filter and sort conditions must be maintained while paginating.
+!!! tip "Note"
+    By default, results are sorted in ascending order by service gateway ID (`id`). To retrieve results in order of creation time, you must specify it explicitly, such as `sort_key=create_time&sort_dir=desc`. The following response fields can be used for `sort_key`: `id`, `name`, `fixed_ip`, `status`, `tenant_id`, `network_id`, `subnet_id`, `service_endpoint_id`, `create_time`.
+
+    If `limit` is specified, the response includes links to the next/previous pages (`serviceendpointusages_links`). To retrieve the next page, either call the URL in the link directly, or specify the `id` of the last item on the current page as the `marker`. The same filter and sort conditions must be maintained while paginating.
 
 <a id="view-usage-status-list-response"></a>
 #### Response
@@ -945,7 +1068,7 @@ This API does not require a request body.
 | serviceendpointusages.id | Body | UUID | Service gateway ID |
 | serviceendpointusages.name | Body | String | Service gateway name |
 | serviceendpointusages.fixed_ip | Body | String | The IP address of the service gateway |
-| serviceendpointusages.status | Body | String | Service gateway status |
+| serviceendpointusages.status | Body | String | Service gateway status. Connections rejected with `REJECTED` are not returned |
 | serviceendpointusages.tenant_id | Body | String | Tenant ID of the consumer project that created the service gateway |
 | serviceendpointusages.network_id | Body | UUID | Service gateway VPC ID |
 | serviceendpointusages.subnet_id | Body | UUID | Service gateway subnet ID |
