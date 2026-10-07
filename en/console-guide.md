@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=4cffce67e4ac -->
 
 <a id="network-service-gateway-console-user-guide"></a>
@@ -43,6 +45,17 @@ To create a service gateway, use the following steps:
 ### View a Service Gateway { #view-a-service-gateway }
 
 You can check the created service gateway on the **Network > Service Gateway** page. If you select a service gateway, the service gateway information appears at the bottom. If the connection type is **Custom Endpoint**, you can check the display name and identifier of the endpoint under **Connection Target** in the details.
+#### Service gateways with blocked connections
+
+A service gateway connected to a Custom Endpoint can have its connection blocked by the endpoint publisher. When blocked, the status changes to `REJECTED` and traffic is immediately cut off.
+
+* The **Connection Target** displays the name of the endpoint that blocked the connection, along with a warning icon. Hovering over the icon shows a tooltip with a guidance message.
+* You can check the **Block Date** in the **Basic Information** section of the Details. This information is retained even after the publisher deletes the endpoint.
+* The **IP address** is still displayed but cannot be used for communication, and the **connection type** is shown as `-`.
+
+!!! danger "Caution"
+    Blocking cannot be undone. The only action allowed on a blocked service gateway is deletion. To reconnect to the same target, you must create a new service gateway.
+    A blocked service gateway cannot be used, but it continues to occupy quota and an IP address. If you no longer need it, delete it.
 
 <a id="modify-a-service-gateway"></a>
 ### Modify a Service Gateway { #modify-a-service-gateway }
@@ -52,10 +65,15 @@ A service gateway can be modified as follows. You can only change the **Name** a
 1. Go to **Network > Service Gateway**.
 2. Click **Change Service Gateway** and change items on the change screen.
 
+!!! tip "Note"
+    A service gateway with the `REJECTED` status cannot be changed, including its name and description.
+
 <a id="delete-a-service-gateway"></a>
 ### Delete a Service Gateway { #delete-a-service-gateway }
 
 To delete a service gateway, select the service gateway you want to delete in the **Network > Service Gateway** page and click the **Delete Service Gateway** button.
+
+Service gateways with a `REJECTED` status are deleted in the same way. You must delete them to return the quota and IP address.
 
 <a id="custom-endpoints"></a>
 ## Custom Endpoints { #custom-endpoints }
@@ -86,6 +104,8 @@ To create a custom endpoint, follow these steps:
 
 You can view the list of endpoints that you have created on the **Custom Endpoint** tab. If you select an endpoint, the detailed information appears at the bottom, where you can view **Basic Information** (service name, resource type, target resource, maximum number of endpoints, and more), **Allowed Projects**, and **Usage**.
 
+The **Usage Status** column in the list shows the number of service gateways that are currently connected to this endpoint. Blocking a connection decreases this count accordingly.
+
 <a id="modify-a-custom-endpoint"></a>
 ### Modify a Custom Endpoint { #modify-a-custom-endpoint }
 
@@ -103,7 +123,16 @@ You can only change the **Name**, **Display Name**, **Maximum Creation Count**, 
 On the **Custom Endpoint** tab, select the endpoint to delete and click the **Delete** button.
 
 !!! danger "Caution"
-    You cannot delete an endpoint if it is in use by any service gateway. Deleting an endpoint also deletes all registered allowed projects associated with it.
+    If any service gateway is using this endpoint — that is, if the usage count is 1 or more — you cannot delete it. Deleting an endpoint also deletes all registered allowed projects associated with it.
+
+If any service gateways are still in use, clean them up in the following order.
+
+1. Change the **maximum creation count** to `0` to prevent new connections from being created. You can also delete all allowed projects.
+2. Block connections on the **Usage** tab. See [check usage status and block connections](#check-usage-status) below.
+3. When the usage count reaches `0`, delete the endpoint.
+
+!!! tip "Note"
+    If you skip step 1, another project may create a new service gateway while you are blocking, which may prevent deletion again.
 
 <a id="reissue-a-service-name"></a>
 ### Reissue a Service Name { #reissue-a-service-name }
@@ -136,9 +165,21 @@ The allowed projects list manages the targets that are permitted to connect to t
 For existing allowed targets, only the **Description** can be modified; the allowed scope and tenant ID cannot be changed. To delete an allowed target, select the target from the list and click **Delete**.
 
 <a id="check-usage-status"></a>
-### Check Usage Status { #check-usage-status }
+### Check Usage Status and Block Connections { #check-usage-status }
 
-On the **Usage Status** tab of the endpoint details, you can check the list of service gateways currently connected to this endpoint. (Read-only)
+On the **Usage Status** tab of the endpoint details, you can check the list of service gateways currently connected to this endpoint. Service gateways created by other projects are also displayed.
+
+The publisher can directly disconnect any unwanted connections from this list.
+
+1. On the **Usage** tab, select the service gateway to block. Only items with the status `AVAILABLE` can be selected.
+2. Click the **Block Connection** button. It is activated only when at least one item is selected.
+3. Review the contents of the confirmation dialog box and click the **Block** button.
+
+A blocked service gateway disappears immediately from the usage status list. Because the connection has been severed, it is no longer displayed in this list.
+
+!!! danger "Caution"
+    Blocking is irreversible and takes effect immediately. A blocked service gateway is not deleted from the owning project — it remains in the `REJECTED` state, and the owner must delete it manually. To connect to the same target again, the owner must create a new service gateway.
+    Because the blocked target may be a resource in another project, if the endpoint is in use, notify the relevant project before blocking.
 
 <a id="use-a-service-gateway"></a>
 ## Use a Service Gateway { #use-a-service-gateway }
