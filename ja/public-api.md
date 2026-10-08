@@ -531,7 +531,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoints.endpoint_type | Body | String | エンドポイントタイプ（リソースタイプ、例: `lb.type1`） |
 | myserviceendpoints.port_id | Body | UUID | 対象リソース（ロードバランサー）のポート ID。`GET /v2.0/lbaas/loadbalancers?vip_port_id={port_id}` で対象ロードバランサーを検索できます。 |
 | myserviceendpoints.service_name | Body | String | 共有用サービス名（形式: `{region}.sep-{12 hex}`） |
-| myserviceendpoints.max_count | Body | Integer | 最大作成数（このエンドポイントで作成可能なサービスゲートウェイの最大数）。`0` = 作成ブロック、未設定 = 無制限 |
+| myserviceendpoints.max_count | Body | Integer | 最大作成数（このエンドポイントで作成可能なサービスゲートウェイの最大数）。`0` = 作成ブロック。設定しない場合はデフォルト値 `1000` が適用され、照会レスポンスには常に適用中の値が返されます。 |
 | myserviceendpoints.current_count | Body | Integer | 使用状況（このエンドポイントで現在作成されているサービスゲートウェイ数） |
 | myserviceendpoints.service_provider | Body | String | 接続タイプ（ユーザー定義エンドポイントは `user`） |
 | myserviceendpoints.description | Body | String | 説明 |
@@ -560,6 +560,8 @@ X-Auth-Token: {tokenId}
 ```
 
 </details>
+
+---
 
 <a id="get-a-custom-endpoint"></a>
 ### ユーザー定義エンドポイント表示 { #get-a-custom-endpoint }
@@ -636,7 +638,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint.name | Body | String | Y | 名前（255文字以内、英字/数字/-/_） |
 | myserviceendpoint.display_name | Body | String | N | 表示名（省略時は `name` と同じ値が適用されます） |
 | myserviceendpoint.port_id | Body | UUID | Y | 対象リソース（ロードバランサー）のポート ID。ロードバランサー表示（`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`）レスポンスの `vip_port_id` を使用します。 |
-| myserviceendpoint.max_count | Body | Integer | N | 最大作成数（0〜1,000）。0: 作成をブロック、null または未入力: 無制限 |
+| myserviceendpoint.max_count | Body | Integer | N | 最大作成数（0〜1,000）。0: 作成をブロック、null または未入力: デフォルト値`1000`を適用 |
 | myserviceendpoint.description | Body | String | N | 説明 |
 
 !!! tip "ポイント"
@@ -682,7 +684,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint | Body | Object | Y | ユーザー定義エンドポイント情報オブジェクト |
 | myserviceendpoint.name | Body | String | N | 名前 |
 | myserviceendpoint.display_name | Body | String | N | 表示名 |
-| myserviceendpoint.max_count | Body | Integer | N | 最大作成数 (0〜1000)。0: 作成をブロック、null: 無制限に変更、フィールド未指定時は既存の値を維持 |
+| myserviceendpoint.max_count | Body | Integer | N | 最大作成数 (0〜1000)。0: 作成をブロック、null: デフォルト値`1000`に変更、フィールド未指定時は既存の値を維持 |
 | myserviceendpoint.description | Body | String | N | 説明 |
 
 !!! tip "ポイント"
