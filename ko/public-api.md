@@ -522,7 +522,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoints.endpoint_type | Body | String | 엔드포인트 유형(리소스 유형, 예: `lb.type1`) |
 | myserviceendpoints.port_id | Body | UUID | 대상 리소스(로드 밸런서) 포트 ID. `GET /v2.0/lbaas/loadbalancers?vip_port_id={port_id}`로 대상 로드 밸런서를 찾을 수 있습니다. |
 | myserviceendpoints.service_name | Body | String | 공유용 서비스 이름(형식 `{region}.sep-{12 hex}`) |
-| myserviceendpoints.max_count | Body | Integer | 최대 생성 개수(이 엔드포인트로 생성 가능한 서비스 게이트웨이 최대 개수). `0`=생성 차단, 미설정=무제한 |
+| myserviceendpoints.max_count | Body | Integer | 최대 생성 개수(이 엔드포인트로 생성 가능한 서비스 게이트웨이 최대 개수). `0`=생성 차단. 설정하지 않으면 기본값 `1000`이 적용되며, 조회 응답에는 항상 적용 중인 값이 반환됩니다. |
 | myserviceendpoints.current_count | Body | Integer | 사용 현황(이 엔드포인트로 현재 생성된 서비스 게이트웨이 수) |
 | myserviceendpoints.service_provider | Body | String | 연결 유형(사용자 정의 엔드포인트는 `user`) |
 | myserviceendpoints.description | Body | String | 설명 |
@@ -629,7 +629,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint.name | Body | String | Y | 이름(255자 이내, 영문/숫자/-/_) |
 | myserviceendpoint.display_name | Body | String | N | 표시 이름(생략 시 `name`과 동일하게 적용) |
 | myserviceendpoint.port_id | Body | UUID | Y | 대상 리소스(로드 밸런서) 포트 ID. 로드 밸런서 보기(`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`) 응답의 `vip_port_id`를 사용합니다. |
-| myserviceendpoint.max_count | Body | Integer | N | 최대 생성 개수(0~1,000). 0: 생성 차단, null 또는 미입력: 무제한 |
+| myserviceendpoint.max_count | Body | Integer | N | 최대 생성 개수(0~1,000). 0: 생성 차단, null 또는 미입력: 기본값 `1000` 적용 |
 | myserviceendpoint.description | Body | String | N | 설명 |
 
 !!! tip "알아두기"
@@ -674,7 +674,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint | Body | Object | Y | 사용자 정의 엔드포인트 정보 객체 |
 | myserviceendpoint.name | Body | String | N | 이름 |
 | myserviceendpoint.display_name | Body | String | N | 표시 이름 |
-| myserviceendpoint.max_count | Body | Integer | N | 최대 생성 개수(0~1000). 0: 생성 차단, null: 무제한으로 변경, 필드 미포함 시 기존 값 유지 |
+| myserviceendpoint.max_count | Body | Integer | N | 최대 생성 개수(0~1000). 0: 생성 차단, null: 기본값 `1000`으로 변경, 필드 미포함 시 기존 값 유지 |
 | myserviceendpoint.description | Body | String | N | 설명 |
 
 !!! tip "알아두기"
