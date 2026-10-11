@@ -530,7 +530,7 @@ This API does not require a request body.
 | myserviceendpoints.endpoint_type | Body | String | Endpoint type (resource type, e.g., `lb.type1`) |
 | myserviceendpoints.port_id | Body | UUID | Target resource (load balancer) port ID. You can find the target load balancer by using `GET /v2.0/lbaas/loadbalancers?vip_port_id={port_id}`. |
 | myserviceendpoints.service_name | Body | String | Service name for sharing (format: `{region}.sep-{12 hex}`) |
-| myserviceendpoints.max_count | Body | Integer | Maximum number of instances that can be created (the maximum number of service gateways that can be created using this endpoint). `0` = creation blocked, not set = unlimited |
+| myserviceendpoints.max_count | Body | Integer | Maximum number of instances that can be created (the maximum number of service gateways that can be created using this endpoint). `0` = creation blocked. If not set, the default value of `1000` is applied, and the response always returns the value currently in effect. |
 | myserviceendpoints.current_count | Body | Integer | Current usage (the number of service gateways currently created using this endpoint) |
 | myserviceendpoints.service_provider | Body | String | Connection type (custom endpoints use `user`) |
 | myserviceendpoints.description | Body | String | Description |
@@ -559,6 +559,8 @@ This API does not require a request body.
 ```
 
 </details>
+
+---
 
 <a id="get-a-custom-endpoint"></a>
 ### Get a Custom Endpoint { #get-a-custom-endpoint }
@@ -635,7 +637,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint.name | Body | String | Y | Name (up to 255 characters; letters, numbers, `-`, `_`) |
 | myserviceendpoint.display_name | Body | String | N | Display name (if omitted, same as `name`) |
 | myserviceendpoint.port_id | Body | UUID | Y | Target resource (load balancer) port ID. Use the `vip_port_id` from the response of Get a load balancer (`GET /v2.0/lbaas/loadbalancers/{loadbalancerId}`). |
-| myserviceendpoint.max_count | Body | Integer | N | Maximum number of endpoints to create (0–1,000). 0: block creation, null or not entered: unlimited |
+| myserviceendpoint.max_count | Body | Integer | N | Maximum number of endpoints to create (0–1,000). 0: block creation, null or not entered: default `1000` applied |
 | myserviceendpoint.description | Body | String | N | Description |
 
 !!! tip "Note"
@@ -679,7 +681,7 @@ X-Auth-Token: {tokenId}
 | myserviceendpoint | Body | Object | Y | Custom endpoint information object |
 | myserviceendpoint.name | Body | String | N | Name |
 | myserviceendpoint.display_name | Body | String | N | Display name |
-| myserviceendpoint.max_count | Body | Integer | N | Maximum number of instances to create (0–1000). 0: block creation, null: change to unlimited, if the field is not included, the existing value is retained |
+| myserviceendpoint.max_count | Body | Integer | N | Maximum number of instances to create (0–1000). 0: block creation, null: change to default `1000`, if the field is not included, the existing value is retained |
 | myserviceendpoint.description | Body | String | N | Description |
 
 !!! tip "Note"
