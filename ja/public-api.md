@@ -760,14 +760,14 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | Y | トークンID |
 | serviceEndpointId | URL | UUID | Y | ユーザー定義エンドポイントID |
-| service_gateway_ids | Body | Array | Conditional | ブロックするサービスゲートウェイIDのリスト（1〜100個）。`count`とどちらか一方のみ指定 |
-| count | Body | Integer | Conditional | 接続済みのサービスゲートウェイのうちブロックする件数（1〜100）。`service_gateway_ids`とどちらか一方のみ指定 |
+| service_gateway_ids | Body | Array | Conditional | ブロックするサービスゲートウェイIDのリスト（1〜50個）。`count`とどちらか一方のみ指定 |
+| count | Body | Integer | Conditional | 接続済みのサービスゲートウェイのうちブロックする件数（1〜50）。`service_gateway_ids`とどちらか一方のみ指定 |
 
 !!! danger "注意"
     `service_gateway_ids`と`count`のいずれか一方のみを指定する必要があります。両方を指定した場合、または両方を省略した場合、リクエストは拒否されます。
 
 !!! tip "ポイント"
-    一度に最大100件を処理します。すべての接続を切断するには、`count`を指定して`remaining_count`が`0`になるまで繰り返し呼び出します。
+    一度に最大50件を処理します。すべての接続を切断するには、`count`を指定して`remaining_count`が`0`になるまで繰り返し呼び出します。
 
 <details><summary>例</summary>
 
@@ -782,7 +782,7 @@ X-Auth-Token: {tokenId}
 
 ```json
 {
-  "count": 100
+  "count": 50
 }
 ```
 
@@ -815,7 +815,7 @@ X-Auth-Token: {tokenId}
     内部処理が進行中のため即時処理できないサービスゲートウェイもスキップされ、`remaining_count`に残ります。しばらく経ってから再度呼び出すと処理されます。
 
 !!! danger "注意"
-    リクエストの形式が正しくない場合は、何もブロックされずにリクエスト全体が拒否されます。100件を超えても一部のみを処理することはありません。
+    リクエストの形式が正しくない場合は、何もブロックされずにリクエスト全体が拒否されます。50件を超えても一部のみを処理することはありません。
 
 ---
 <a id="reissue-a-service-name"></a>
