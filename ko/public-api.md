@@ -753,14 +753,14 @@ X-Auth-Token: {tokenId}
 |---|---|---|---|---|
 | tokenId | Header | String | Y | 토큰 ID |
 | serviceEndpointId | URL | UUID | Y | 사용자 정의 엔드포인트 ID |
-| service_gateway_ids | Body | Array | Conditional | 차단할 서비스 게이트웨이 ID 목록(1~100개). `count`와 둘 중 하나만 지정 |
-| count | Body | Integer | Conditional | 연결된 서비스 게이트웨이 중 차단할 개수(1~100). `service_gateway_ids`와 둘 중 하나만 지정 |
+| service_gateway_ids | Body | Array | Conditional | 차단할 서비스 게이트웨이 ID 목록(1~50개). `count`와 둘 중 하나만 지정 |
+| count | Body | Integer | Conditional | 연결된 서비스 게이트웨이 중 차단할 개수(1~50). `service_gateway_ids`와 둘 중 하나만 지정 |
 
 !!! danger "주의"
     `service_gateway_ids`와 `count` 중 정확히 하나만 지정해야 합니다. 둘 다 지정하거나 둘 다 생략하면 요청이 거부됩니다.
 
 !!! tip "알아두기"
-    한 번에 최대 100개를 처리합니다. 연결을 모두 끊으려면 `count`를 지정해 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
+    한 번에 최대 50개를 처리합니다. 연결을 모두 끊으려면 `count`를 지정해 `remaining_count`가 `0`이 될 때까지 반복 호출합니다.
 
 <details><summary>예시</summary>
 
@@ -775,7 +775,7 @@ X-Auth-Token: {tokenId}
 
 ```json
 {
-  "count": 100
+  "count": 50
 }
 ```
 
@@ -808,7 +808,7 @@ X-Auth-Token: {tokenId}
     내부 작업이 진행 중이어서 즉시 처리할 수 없는 서비스 게이트웨이도 건너뛰고 `remaining_count`에 남습니다. 잠시 후 다시 호출하면 처리됩니다.
 
 !!! danger "주의"
-    요청 형식이 잘못된 경우에는 아무것도 차단되지 않고 요청 전체가 거부됩니다. 100개를 초과해도 일부만 처리하지 않습니다.
+    요청 형식이 잘못된 경우에는 아무것도 차단되지 않고 요청 전체가 거부됩니다. 50개를 초과해도 일부만 처리하지 않습니다.
 
 ---
 <a id="reissue-a-service-name"></a>
