@@ -757,14 +757,14 @@ A rejected service gateway is not deleted but remains in the `REJECTED` state in
 |---|---|---|---|---|
 | tokenId | Header | String | Y | Token ID |
 | serviceEndpointId | URL | UUID | Y | Custom endpoint ID |
-| service_gateway_ids | Body | Array | Conditional | List of service gateway IDs to reject connections for (1–100). Specify only one of `service_gateway_ids` or `count` |
-| count | Body | Integer | Conditional | Number of connected service gateways to reject connections for (1–100). Specify only one of `count` or `service_gateway_ids` |
+| service_gateway_ids | Body | Array | Conditional | List of service gateway IDs to reject connections for (1–50). Specify only one of `service_gateway_ids` or `count` |
+| count | Body | Integer | Conditional | Number of connected service gateways to reject connections for (1–50). Specify only one of `count` or `service_gateway_ids` |
 
 !!! danger "Caution"
     You must specify exactly one of `service_gateway_ids` or `count`. If you specify both or omit both, the request is rejected.
 
 !!! tip "Note"
-    Up to 100 items can be processed at a time. To disconnect all connections, specify `count` and call the API repeatedly until `remaining_count` reaches `0`.
+    Up to 50 items can be processed at a time. To disconnect all connections, specify `count` and call the API repeatedly until `remaining_count` reaches `0`.
 
 <details><summary>Example</summary>
 
@@ -779,7 +779,7 @@ A rejected service gateway is not deleted but remains in the `REJECTED` state in
 
 ```json
 {
-  "count": 100
+  "count": 50
 }
 ```
 
@@ -812,7 +812,7 @@ A rejected service gateway is not deleted but remains in the `REJECTED` state in
     Service gateways that cannot be processed immediately due to an internal operation in progress are also skipped and remain in `remaining_count`. Call the API again after a moment to process them.
 
 !!! danger "Caution"
-    If the request format is invalid, nothing is rejected and the entire request is refused. Even if the request exceeds 100 items, only a partial set will not be processed.
+    If the request format is invalid, nothing is rejected and the entire request is refused. Even if the request exceeds 50 items, only a partial set will not be processed.
 
 ---
 <a id="reissue-a-service-name"></a>
